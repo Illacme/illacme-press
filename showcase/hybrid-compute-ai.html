@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29+ 混合算力统一调度与段落缓存案例 | Illacme Press</title>
+    <meta name="description" content="探索 Illacme Plenipes 强大的混合算力调度中心与段落影子缓存架构，实现 90%+ 算力节省与零 Token 浪费。">
+    <meta name="keywords" content="混合算力调度，段落缓存，BlockShadowCache, MD5 哈希切片，Token 节省率，本地优先，云端智能，Ollama, DeepSeek, OpenAI, Claude, Gemini, 故障自愈，自动熔断">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/showcase/hybrid-compute-ai.html">
+    <meta property="og:title" content="29+ 混合算力统一调度与段落缓存案例 | Illacme Press">
+    <meta property="og:description" content="探索 Illacme Plenipes 强大的混合算力调度中心与段落影子缓存架构，实现 90%+ 算力节省与零 Token 浪费。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/showcase/hybrid-compute-ai.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html" class="active">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../showcase/hybrid-compute-ai.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/showcase/hybrid-compute-ai.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/showcase/hybrid-compute-ai.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="29">🧠 29+ 混合算力调度与段落缓存案例</h1>
+
+    <div class="callout callout-note">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title"><strong>本地优先与云端智能的黄金平衡</strong>：创作者既可使用本地完全离线的开源大模型（Ollama / LMStudio）保护数据物理主权，也可无缝借力云端顶尖大模型（DeepSeek / OpenAI / Claude / Gemini）进行超高水准润色。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<hr />
+<h2 id="_1">⚡ 核心性能指标</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">💰 算力成本节省</div>
+        <div style="font-size: 1.25rem; font-weight: 800; color: #00ff88;">> 90% Token 节省率</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧩 颗粒度</div>
+        <div style="font-size: 1.25rem; font-weight: 800; color: var(--accent-color);">段落级哈希切片</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🛰️ 算力接入</div>
+        <div style="font-size: 1.25rem; font-weight: 800; color: #ffb300;">29+ 提供商统一协议</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🛡️ 故障自愈</div>
+        <div style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">自动熔断与原地退避</div>
+    </div>
+</div>
+
+<h3 id="1-blockshadowcache">1. 段落级影子缓存 (BlockShadowCache)</h3>
+<p>基于 MD5 段落哈希切片技术，当原稿中仅微调修改了某一段时，系统只重新翻译发生变更的段落，未改动段落从本地缓存 100% 毫秒级复原。</p>
+<h3 id="2">2. 算力动态故障转移与健康审计</h3>
+<p>实时探测算力节点的可用性与延迟，在遇到网络瞬断或速率限制时自动平滑重试或降级，确保出版流水线始终坚如磐石。</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:hybrid-compu](../../ael-iter-id: sync:hybrid-compu.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

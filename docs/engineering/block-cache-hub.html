@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>段落缓存治理中枢 (Block Cache Hub) | Illacme Press</title>
+    <meta name="description" content="段落级影子缓存 (Block Cache Hub) 的设计原理、物理路由机制、LRU 垃圾回收算法以及自动清理 (Janitor GC) 策略。">
+    <meta name="keywords" content="段落缓存治理中枢，Block Cache Hub, Illacme Plenipes, LRU 垃圾回收，物理路由，SHA-256 哈希验证，Janitor GC 自动清理，增量翻译，Markdown 格式校验，Adler32 签名防篡改">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/docs/engineering/block-cache-hub.html">
+    <meta property="og:title" content="段落缓存治理中枢 (Block Cache Hub) | Illacme Press">
+    <meta property="og:description" content="段落级影子缓存 (Block Cache Hub) 的设计原理、物理路由机制、LRU 垃圾回收算法以及自动清理 (Janitor GC) 策略。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/docs/engineering/block-cache-hub.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../docs/index.html" class="active">📚 文档指南</a>
+                    <a href="../../blog/index.html">📰 演示博客</a>
+                    <a href="../../showcase/index.html">🎨 核心特性</a>
+                    <a href="../../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../en/docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../docs/engineering/block-cache-hub.html" class="nav-link active">段落缓存治理中枢 (Block Cache Hub)</a></li></ul></li><li class="nav-item"><a href="../../docs/architecture.html" class="nav-link">物理隔离架构与技术原理</a></li><li class="nav-item"><a href="../../docs/authoring-and-vault-guide.html" class="nav-link">原稿文库组织与写作指引 (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../../docs/brand-management.html" class="nav-link">品牌版图 (Imprint) 多站点与工作区管理</a></li><li class="nav-item"><a href="../../docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">常见问题与排错手册 (FAQ)</a></li><li class="nav-item"><a href="../../docs/compute-center-ai-translation-setup-guide.html" class="nav-link">算力中心与 AI 翻译配置指南</a></li><li class="nav-item"><a href="../../docs/governance-dashboard-operation-guide.html" class="nav-link">治理中心 (Governance Dashboard) 操作指南</a></li><li class="nav-item"><a href="../../docs/i18n-guide.html" class="nav-link">多语言矩阵与内容治理实战</a></li><li class="nav-item"><a href="../../docs/matrix-channel-configuration.html" class="nav-link">发行矩阵与渠道配置 (The Matrix)</a></li><li class="nav-item"><a href="../../docs/quick-start.html" class="nav-link">创作者 5 分钟极速上手指南</a></li><li class="nav-item"><a href="../../docs/themes-and-binding-visual-customization.html" class="nav-link">装帧主题与视觉定制 (Themes & Binding)</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../index.html" class="breadcrumb-item">首页</a><span class="breadcrumb-sep">/</span><a href="../../docs/index.html" class="breadcrumb-item">文档</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item">engineering</span><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">段落缓存治理中枢 (Block Cache Hub)</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-30</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 4 分钟 (977 字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Engineering</span><span class="tag-pill">#Cache</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#GC</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="block-cache-hub">🧱 段落缓存治理中枢 (Block Cache Hub)</h1>
+<p>本指南详细介绍了 <strong>Illacme Plenipes</strong> 段落级影子缓存 (Block Cache Hub) 的设计原理、物理路由机制、LRU 垃圾回收算法以及自动清理 (Janitor GC) 策略。</p>
+<hr />
+<h2 id="1-definition-physical-routing">🏗️ 1. 定义与物理路由 (Definition &amp; Physical Routing)</h2>
+<h3 id="block-cache-hub_1">什么是 Block Cache Hub？</h3>
+<p>在多语言出版与 AI 语义翻译管线中，段落级影子缓存 (Block Cache Hub) 负责维护原稿中每个物理段落 (Block) 的哈希值及其关联译文、元数据的映射。它能在原稿微调时，仅对发生变更的段落触发增量翻译，避免全量重新计算。</p>
+<h3 id="_1">物理路由设计</h3>
+<p>段落影子缓存采用局部物理隔离存储：<br />
+- <strong>配置文件路径</strong>：<code>config.yaml</code> 或 <code>config.local.yaml</code> 中定义了缓存中枢策略。<br />
+- <strong>物理持久化库</strong>：对于当前品牌版图，其段落影子缓存持久化落盘在 <code>imprints/{brand}/cache/block_cache.db</code> 或 <code>.cache/</code> 目录下，与原稿文库完全物理隔离，确保文库纯净。</p>
+<hr />
+<h2 id="2-lru-lru-gc-validation">⚙️ 2. LRU 垃圾回收与缓存有效性验证算法 (LRU GC &amp; Validation)</h2>
+<h3 id="lru">LRU 垃圾回收机制</h3>
+<p>缓存中枢基于 <strong>LRU (Least Recently Used)</strong> 算法淘汰最旧的、无访问的缓存记录，维持物理存储在安全水线内。<br />
+- <strong>访问更新</strong>：每当有文档的某个段落命中缓存，其 LRU 时间戳更新为当前时间。<br />
+- <strong>主动释放</strong>：在超出阈值时，自动驱逐最久未使用的段落译文。</p>
+<h3 id="block-validation-algorithm">段落有效性验证算法 (Block Validation Algorithm)</h3>
+<p>每个缓存块由其源码段落的内容生成唯一的 SHA-256 哈希值 (Block Hash)。<br />
+验证流程如下：<br />
+1. 读取文档时，按空行或物理标记拆分成若干段落。<br />
+2. 逐段计算哈希 <code>sha256(content + block_context_salt)</code>。<br />
+3. 对比缓存库中的 <code>block_hash</code>：<br />
+   - <strong>一致 (Hit)</strong>：重用已有翻译与段落属性，无需重新调用 LLM。<br />
+   - <strong>不一致 (Miss)</strong>：标记为脏段落 (Dirty Block)，送入翻译待处理队列，并废弃原有该位置的缓存。</p>
+<hr />
+<h2 id="3-eviction-verification-rules">🔄 3. 缓存驱逐与段落校验契约 (Eviction &amp; Verification Rules)</h2>
+<h3 id="eviction-flow">缓存驱逐工作流 (Eviction Flow)</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">[文档发生变更] ──&gt; [计算新段落哈希列表] ──&gt; [对比缓存映射]</span>
+<span class="w">                                                </span><span class="na">│</span>
+<span class="w">                 </span><span class="na">┌──────────────────────────────┴──────────────────────────────┐</span>
+<span class="w">                 </span><span class="na">▼                                                             ▼</span>
+<span class="w">         </span><span class="k">[哈希一致 (Hit)]                                               [哈希不一致 (Miss)]</span>
+<span class="w">    </span><span class="na">复用缓存，更新访问热度时间戳                                   物理驱逐失效缓存 ──&gt; 触发 AI 翻译并写入新缓存</span>
+</code></pre></div>
+
+<h3 id="verification-rules">段落校验三铁律 (Verification Rules)</h3>
+<ol>
+<li><strong>结构不破坏</strong>：被翻译段落的 Markdown 标记（加粗、链接、列表、代码块）在校验时，译文必须包含等价的标记符号，严禁丢失格式。</li>
+<li><strong>上下文隔离</strong>：哈希计算时，结合前导与后继段落的部分元数据（Block Context Salt），防止完全相同的内容在不同上下文中因歧义产生不匹配翻译。</li>
+<li><strong>签名防篡改</strong>：本地持久化数据库中所有缓存记录附带 Adler32 或 SHA-256 数据校验和，加载时若签名失效则判定物理损坏，自动初始化自愈。</li>
+</ol>
+<hr />
+<h2 id="4-janitor-gc-policy">🧹 4. 自动清理策略与容量阈值 (Janitor GC Policy)</h2>
+<h3 id="janitor-gc">Janitor GC 自动清理器</h3>
+<p>系统驻留的 Janitor 守护协程定期执行缓存容量与物理占用率审计。</p>
+<h3 id="threshold-rules">容量与阈值规则 (Threshold Rules)</h3>
+<ul>
+<li><strong>物理存储水线</strong>：单品牌 Block Cache 物理文件占用上限默认为 <strong>128MB</strong>，达到 80% (102.4MB) 时触发温和清理。</li>
+<li><strong>段落数量水线</strong>：总段落记录数上限默认为 <strong>100,000 条</strong>。超过该阈值时，Janitor GC 启动并根据 LRU 热度对末尾 20% 的过期影子缓存块执行物理强制抹除 (Erase)，确保系统运行轻量与高响应度。</li>
+<li><strong>过期时间 (TTL)</strong>：任何 90 天内未被读取或校验的段落记录均判定为冷数据 (Cold Cache)，在 GC 周期内被自动清空。</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:block-cache-](../../../../ael-iter-id: sync:block-cache-.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../docs/compute-center-ai-translation-setup-guide.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 上一篇</span>
+            <span class="pagination-title">算力中心与 AI 翻译配置指南</span>
+        </a>
+        
+        
+        <a href="../../docs/governance-dashboard-operation-guide.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">下一篇 »</span>
+            <span class="pagination-title">治理中心 (Governance Dashboard) 操作指南</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

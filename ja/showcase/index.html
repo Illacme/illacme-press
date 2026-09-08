@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ケーススタディとテーマの全景展示 | Illacme Press</title>
+    <meta name="description" content="Illacme Plenipes を駆動する主権出版物、多様な SSG 装飾スタイル、および全チャネル配信の実践を探索します。">
+    <meta name="keywords" content="出版ブランド, 装飾テーマ, Illacme Plenipes, Sovereign Neon Glass, Docusaurus, VitePress, Astro Starlight, デジタルガーデン">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/showcase/index.html">
+    <meta property="og:title" content="ケーススタディとテーマの全景展示 | Illacme Press">
+    <meta property="og:description" content="Illacme Plenipes を駆動する主権出版物、多様な SSG 装飾スタイル、および全チャネル配信の実践を探索します。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/showcase/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html" class="active">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../showcase/index.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/showcase/index.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/showcase/index.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">🎨 ケーススタディとテーマの全景展示</h1>
+<p><strong>Illacme Plenipes</strong> を駆動する厳選された出版ブランド、8 つの装飾テーママトリクス、全チャネル配信、ならびに 13 の主要な産業級機能展示室へようこそ。</p>
+<hr />
+<div class="showcase-toolbar">
+<div class="showcase-view-switcher" role="tablist" aria-label="Showcase layout views">
+<button class="view-switch-btn active" data-view="grid" role="tab" aria-selected="true">
+<span class="view-btn-icon">🎛️</span>
+<span class="view-btn-text">カード</span>
+<span class="view-btn-badge">13</span>
+</button>
+<button class="view-switch-btn" data-view="compact" role="tab" aria-selected="false">
+<span class="view-btn-icon">📑</span>
+<span class="view-btn-text">リスト</span>
+</button>
+</div>
+</div>
+<div class="showcase-view-container showcase-grid-view active" id="showcase-view-grid">
+
+<h2 id="_2">💎 独自のコアブラックテクノロジー</h2>
+<article class="pioneer-grid" style="margin-top: 1.5rem; margin-bottom: 3rem;">
+    <a href="../showcase/block-cache-shadow-translation.html" class="card-pioneer">
+        <span class="card-tag">計算力革新</span>
+        <h3>🧱 パラグラフシャドウキャッシュと校正</h3>
+        <p>AST 構文木パラグラフスライスフィンガープリント。単文の修正には部分的な再翻訳のみで済み、90% 以上の計算力を節約し、バイリンガル並列校正を提供します。</p>
+    </a>
+
+<a href="../showcase/multi-imprint-sovereignty.html" class="card-pioneer">
+        <span class="card-tag">ブランドマトリクス</span>
+        <h3>🏷️ 多ブランド主権マップマトリクス</h3>
+        <p>単一のライブラリが物理的に複数のブランドの独立した出版を駆動し、各ブランドは独自の装飾テーマ、出版モード、および配信チャネルを備えています。</p>
+    </a>
+
+<a href="../showcase/privacy-security-pipeline.html" class="card-pioneer">
+        <span class="card-tag">主権防衛</span>
+        <h3>🛡️ 機密脱感化とセキュリティ加工</h3>
+        <p>画像の GPS 位置情報やカメラ EXIF データを自動的に抹消し、敏感語句のバリアと ContractGuard 契約守門機能を提供します。</p>
+    </a>
+
+<a href="../showcase/galaxy-knowledge-graph.html" class="card-pioneer">
+        <span class="card-tag">ホログラフィック銀河系</span>
+        <h3>🌌 宇宙銀河系マップと双方向リンクの自己修復</h3>
+        <p>Obsidian の双方向リンクをネイティブに解析し、3D 力导向宇宙マップを表示。目次のリネームチェーンは自動的に修復されます。</p>
+    </a>
+
+<a href="../showcase/intelligent-slug-seo.html" class="card-pioneer">
+        <span class="card-tag">URL サンドボックス</span>
+        <h3>🧭 知的 Slug URL と SEO ルーティング</h3>
+        <p>拼音 / 英語 / ハッシュ / 日付による多面的マッピング、ミリ秒単位のサンドボックス演算、Google/百度による Canonical オリジナル保護。</p>
+    </a>
+
+<a href="../showcase/ast-dialect-bridge.html" class="card-pioneer">
+        <span class="card-tag">文法ブリッジ</span>
+        <h3>🌳 AST 多言語変換とクロスフレームワークブリッジ</h3>
+        <p>メモリ損傷なしで Obsidian Callouts、Mermaid トポロジー図、LaTeX 数式を平準化し、原稿のゼロコードクロスフレームワークアライメントを実現。</p>
+    </a>
+
+---
+
+## 🛰️ グローバル配信と触達ハブ
+
+<article class="pioneer-grid" style="margin-top: 1.5rem; margin-bottom: 3rem;">
+    <a href="../showcase/multi-channel-syndication.html" class="card-pioneer">
+        <span class="card-tag">全域分发</span>
+        <h3>🛰️ 30+ チャンネルによるグローバル配信</h3>
+        <p>ワンクリックで Xiaohongshu、Toutiao、Bilibili コラム、CSDN、BlogPark、GitHub Pages、Vercel、Dev.to、Medium、および WeChat 公式アカウントへ同期。</p>
+    </a>
+
+<a href="../showcase/hybrid-compute-ai.html" class="card-pioneer">
+        <span class="card-tag">算力中心</span>
+        <h3>🧠 29+ 計算リソースの統一管理</h3>
+        <p>ローカルのオープンソース Ollama / LMStudio とクラウド上の DeepSeek / OpenAI / Gemini を自由に切り替え、セグメントシャドウキャッシュにより 90% 以上の計算リソースを節約。</p>
+    </a>
+
+<a href="../showcase/omni-channel-notifications.html" class="card-pioneer">
+        <span class="card-tag">即時触達</span>
+        <h3>📢 全網多チャネル通知と出版戦報</h3>
+        <p>企業 WeChat、Feishu（旧 Lark）、DingTalk、Telegram、Discord、メールおよび SMS でリアルタイムにリッチテキスト形式の出版戦報と外部リンクを集約して配信します。</p>
+    </a>
+</article>
+
+---
+
+## 🛡️ 生産レベルの運用および自己修復基盤
+
+<article class="pioneer-grid" style="margin-top: 1.5rem; margin-bottom: 3rem;">
+    <a href="../showcase/janitor-gc-self-healing.html" class="card-pioneer">
+        <span class="card-tag">物理的清純</span>
+        <h3>🧹 Janitor GC 物理清道夫と自己修復台帳</h3>
+        <p>双方向のフィンガープリント照合により、削除されたノート後の 404 エラー幽灵 HTML と孤立した画像を自動的に消去し、LRU キャッシュによるインテリジェントな劣化・淘汰を行います。</p>
+    </a>
+</article>
+
+<a href="../showcase/preflight-dry-run-probes.html" class="card-pioneer">
+        <span class="card-tag">サンドボックス演習</span>
+        <h3>🧪 全チャネルゼロミス Dry-Run サンドボックス事前検査</h3>
+        <p>公開前のミリ秒単位の非破壊 API 接続性ハンドシェイク、CLI によるワンクリックパスワード不要認証ガイド、100% の予期せぬ中断防止保証。</p>
+    </a>
+
+<a href="../showcase/process-lock-resilience-gateway.html" class="card-pioneer">
+        <span class="card-tag">高可用性ロック</span>
+        <h3>🔒 4 ポート物理単一インスタンスロックと自己修復ゲートウェイ</h3>
+        <p>43210 単一インスタンスロックによるマルチプロセス競合防止、FastAPI 隔離ゲートウェイとデーモンプロセスの障害発生時の自動フェイルオーバーおよびデグラデーション。</p>
+    </a>
+</article>
+
+<hr />
+<h2 id="_3">🎭 装飾テーマ宇宙</h2>
+<article class="pioneer-grid" style="margin-top: 1.5rem;">
+    <a href="../showcase/themes-matrix.html" class="card-pioneer card-pioneer-featured">
+        <span class="card-tag card-tag-highlight">8 大旗艦装飾</span>
+        <h3>🎭 8 大装飾テーマの全景と選定マトリックス</h3>
+        <p>
+            Sovereign 原生旗艦、Universal 標準、Docusaurus、VitePress、Astro Starlight、Nextra、Hexo、Hugo を網羅。横断的なパフォーマンス指標、ファーストビューのサイズ、技術スタック天梯比較、およびシナリオ選定決定木を確認してください。
+        </p>
+    </a>
+</article>
+
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:index.md](../../../../ael-iter-id: sync:index.html) -->
+</div>
+<div class="showcase-view-container showcase-compact-view" id="showcase-view-compact">
+<div class="compact-table"><a href="../showcase/block-cache-shadow-translation.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">計算力革新</span></span>
+<span class="compact-title">🧱 パラグラフシャドウキャッシュと校正</span>
+<span class="compact-desc">AST 構文木パラグラフスライスフィンガープリント。単文の修正には部分的な再翻訳のみで済み、90% 以上の計算力を節約し、バイリンガル並列校正を提供します。</span>
+</a><a href="../showcase/multi-imprint-sovereignty.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">ブランドマトリクス</span></span>
+<span class="compact-title">🏷️ 多ブランド主権マップマトリクス</span>
+<span class="compact-desc">単一のライブラリが物理的に複数のブランドの独立した出版を駆動し、各ブランドは独自の装飾テーマ、出版モード、および配信チャネルを備えています。</span>
+</a><a href="../showcase/privacy-security-pipeline.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">主権防衛</span></span>
+<span class="compact-title">🛡️ 機密脱感化とセキュリティ加工</span>
+<span class="compact-desc">画像の GPS 位置情報やカメラ EXIF データを自動的に抹消し、敏感語句のバリアと ContractGuard 契約守門機能を提供します。</span>
+</a><a href="../showcase/galaxy-knowledge-graph.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">ホログラフィック銀河系</span></span>
+<span class="compact-title">🌌 宇宙銀河系マップと双方向リンクの自己修復</span>
+<span class="compact-desc">Obsidian の双方向リンクをネイティブに解析し、3D 力导向宇宙マップを表示。目次のリネームチェーンは自動的に修復されます。</span>
+</a><a href="../showcase/intelligent-slug-seo.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">URL サンドボックス</span></span>
+<span class="compact-title">🧭 知的 Slug URL と SEO ルーティング</span>
+<span class="compact-desc">拼音 / 英語 / ハッシュ / 日付による多面的マッピング、ミリ秒単位のサンドボックス演算、Google/百度による Canonical オリジナル保護。</span>
+</a><a href="../showcase/ast-dialect-bridge.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">文法ブリッジ</span></span>
+<span class="compact-title">🌳 AST 多言語変換とクロスフレームワークブリッジ</span>
+<span class="compact-desc">メモリ損傷なしで Obsidian Callouts、Mermaid トポロジー図、LaTeX 数式を平準化し、原稿のゼロコードクロスフレームワークアライメントを実現。</span>
+</a><a href="../showcase/multi-channel-syndication.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">全域分发</span></span>
+<span class="compact-title">🛰️ 30+ チャンネルによるグローバル配信</span>
+<span class="compact-desc">ワンクリックで Xiaohongshu、Toutiao、Bilibili コラム、CSDN、BlogPark、GitHub Pages、Vercel、Dev.to、Medium、および WeChat 公式アカウントへ同期。</span>
+</a><a href="../showcase/hybrid-compute-ai.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">算力中心</span></span>
+<span class="compact-title">🧠 29+ 計算リソースの統一管理</span>
+<span class="compact-desc">ローカルのオープンソース Ollama / LMStudio とクラウド上の DeepSeek / OpenAI / Gemini を自由に切り替え、セグメントシャドウキャッシュにより 90% 以上の計算リソースを節約。</span>
+</a><a href="../showcase/omni-channel-notifications.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">即時触達</span></span>
+<span class="compact-title">📢 全網多チャネル通知と出版戦報</span>
+<span class="compact-desc">企業 WeChat、Feishu（旧 Lark）、DingTalk、Telegram、Discord、メールおよび SMS でリアルタイムにリッチテキスト形式の出版戦報と外部リンクを集約して配信します。</span>
+</a><a href="../showcase/janitor-gc-self-healing.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">物理的清純</span></span>
+<span class="compact-title">🧹 Janitor GC 物理清道夫と自己修復台帳</span>
+<span class="compact-desc">双方向のフィンガープリント照合により、削除されたノート後の 404 エラー幽灵 HTML と孤立した画像を自動的に消去し、LRU キャッシュによるインテリジェントな劣化・淘汰を行います。</span>
+</a><a href="../showcase/preflight-dry-run-probes.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">サンドボックス演習</span></span>
+<span class="compact-title">🧪 全チャネルゼロミス Dry-Run サンドボックス事前検査</span>
+<span class="compact-desc">公開前のミリ秒単位の非破壊 API 接続性ハンドシェイク、CLI によるワンクリックパスワード不要認証ガイド、100% の予期せぬ中断防止保証。</span>
+</a><a href="../showcase/process-lock-resilience-gateway.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">高可用性ロック</span></span>
+<span class="compact-title">🔒 4 ポート物理単一インスタンスロックと自己修復ゲートウェイ</span>
+<span class="compact-desc">43210 単一インスタンスロックによるマルチプロセス競合防止、FastAPI 隔離ゲートウェイとデーモンプロセスの障害発生時の自動フェイルオーバーおよびデグラデーション。</span>
+</a><a href="../showcase/themes-matrix.html" class="compact-row showcase-row">
+<span class="compact-tags"><span class="tag-pill">8 大旗艦装飾</span></span>
+<span class="compact-title">🎭 8 大装飾テーマの全景と選定マトリックス</span>
+<span class="compact-desc">Sovereign 原生旗艦、Universal 標準、Docusaurus、VitePress、Astro Starlight、Nextra、Hexo、Hugo を網羅。横断的なパフォーマンス指標、ファーストビューのサイズ、技術スタック天梯比較、およびシナリオ選定決定木を確認してください。</span>
+</a></div>
+</div>
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>段落級シャドウキャッシュとバイリンガル校正ハブ：Illacme Plenipes の独自 AST システム | Illacme Press</title>
+    <meta name="description" content="AST 構文ツリーの段落スライスとシャドウキャッシュで、単文修正をミリ秒レベルの局所再翻訳に。90% 以上の計算資源とトークンを節約する工業級アーキテクチャを実現します。">
+    <meta name="keywords" content="AI 翻訳, シャドウキャッシュ, バイリンガル校正, AST 抽象構文木, トークン削減, インクリメンタルコンパイル, 段落フィンガープリント, 局所再翻訳">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/showcase/block-cache-shadow-translation.html">
+    <meta property="og:title" content="段落級シャドウキャッシュとバイリンガル校正ハブ：Illacme Plenipes の独自 AST システム | Illacme Press">
+    <meta property="og:description" content="AST 構文ツリーの段落スライスとシャドウキャッシュで、単文修正をミリ秒レベルの局所再翻訳に。90% 以上の計算資源とトークンを節約する工業級アーキテクチャを実現します。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/showcase/block-cache-shadow-translation.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html" class="active">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../showcase/block-cache-shadow-translation.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/showcase/block-cache-shadow-translation.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/showcase/block-cache-shadow-translation.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">🧱 パラグラフ単位のシャドウキャッシュとバイリンガル校正ハブ</h1>
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>微粒度局部重译，彻底告别全篇浪费</strong>：传统 AI 翻译工具在创作者修改一处标点或错别字时，必须将整篇数万字的长文重新送入大模型，这不仅消耗巨额 Token，还破坏了既有审校成果。Illacme Plenipes 独创了 AST 段落指纹分片技术，实现了从文章粒度到段落粒度的革命性降维。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="_2">⚡ コアメリットとパフォーマンス指標</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">💰 計算資源とトークンの節約</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: #00ff88;">90% ~ 98%</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">⏱️ インクリメンタルコンパイルの応答速度</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: var(--accent-color);">< 100 ms</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🔒 校正成果の保護</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: #ffb300;">段落レベルの物理的ロック</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧠 モデル間コンテキストの再利用</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: #00f2fe;">シャドウマッピングによるアライメント</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="_3">🛠️ 工業用実装原理とアーキテクチャ</h2>
+<h3 id="1-ast">1. 🌲 AST 抽象構文ツリーのスライシングとハッシュフィンガープリント</h3>
+<p>システムは Markdown 原稿を解析する際、専用の AST レキシカルアナライザを用いて全文を原子ブロック（Block Units）に分解します：<br />
+* <strong>段落ブロック (Paragraph)</strong>：純粋なテキストの語義を抽出し、SHA-256 ハッシュフィンガープリントを計算；<br />
+* <strong>見出しブロック (Headings)</strong>：階層構造とアンカー関係性を保持；<br />
+* <strong>コードおよびテーブルブロック (Code/Tables)</strong>：自動的なコード隔離保護を行い、翻訳によるコード構文の汚染を防ぐ；<br />
+* <strong>Callout 提示ブロックおよびリスト</strong>：構造化された独立したフィンガープリント。</p>
+<h3 id="2-shadow-cache">2. 👥 シャドウキャッシュ (Shadow Cache) の自動アセンブリ</h3>
+<p>ある段落の変更を検出した場合：<br />
+1. <strong>変更なしの段落</strong>：0 ミリ秒でローカルの SQLite 帳簿から既審校の訳文を直接抽出；<br />
+2. <strong>変更のある段落</strong>：当該段落および直近の前後コンテキスト（Window Context）のみを AI 計算クラスターにパックして送信；<br />
+3. <strong>自動縫合</strong>：新生成された段落の訳文と既存のキャッシュをシームレスに結合し、完全なバイリンガル多言語ドキュメントを形成。</p>
+<h3 id="3-review-hub">3. 📖 可視化バイリンガル分句校正パネル (Review Hub)</h3>
+<p>ガバナンスセンターには専用の <strong>翻訳審校ハブ</strong> を提供します：<br />
+* 左右に分割されたレイアウトで、原文と 50 の対象言語の段落訳を並べて表示；<br />
+* 作成者は、任意の不満足な段落をクリックして即座に修正できます；<br />
+* <strong>「🔒 段落ロック」</strong> をクリックすることで、ロックされた段落は将来の全文再構築トリガーに関わらず、作成者の手動による審校成果を永久に保持します。</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:block-cache-](../../../../ael-iter-id: sync:block-cache-.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

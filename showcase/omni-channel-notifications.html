@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全网多通道即时通知与出版战报 | Illacme Press</title>
+    <meta name="description" content="了解 Illacme Plenipes 如何在多渠道发布完成后，向企业微信、飞书、钉钉、Telegram、Discord、邮件与短信实时推送富文本出版战报。">
+    <meta name="keywords" content="即时通知，出版战报，企业微信，飞书，钉钉，Telegram Bot，Discord Webhook，SMTP 邮件，Twilio，阿里云短信，Markdown 消息卡片，富文本通知，移动终端推送">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/showcase/omni-channel-notifications.html">
+    <meta property="og:title" content="全网多通道即时通知与出版战报 | Illacme Press">
+    <meta property="og:description" content="了解 Illacme Plenipes 如何在多渠道发布完成后，向企业微信、飞书、钉钉、Telegram、Discord、邮件与短信实时推送富文本出版战报。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/showcase/omni-channel-notifications.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html" class="active">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../showcase/omni-channel-notifications.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/showcase/omni-channel-notifications.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/showcase/omni-channel-notifications.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">📢 全网多通道即时通知与出版战报</h1>
+
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>出版进程全局掌控，战报直达移动终端</strong>：当创作者向全球 30+ 渠道发起跨语种长文广播后，无需守在电脑前等待。Illacme Plenipes 支持通过 7 大主流企业与即时通讯协议，将图文并茂的出版战报与健康告警实时推送到创作者的手边。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<hr />
+<h2 id="_2">⚡ 支持的通知协议与特性矩阵</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🏢 国内办公三剑客</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00f2fe;">企业微信 · 飞书 · 钉钉机器人</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🌍 全球极客社群</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00ff88;">Telegram Bot · Discord Webhook</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">✉️ 经典通信兜底</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #ffb300;">SMTP 邮件 · Twilio / 阿里云短信</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">📊 出版战报卡片</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: var(--accent-color);">耗时 · 成功率 · 全网外链汇聚</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="_3">🛠️ 核心机制与战报内容</h2>
+<h3 id="1-markdown">1. 🤖 交互式 Markdown 消息卡片</h3>
+<p>通知中心针对不同平台原生适配富文本格式：<br />
+* <strong>飞书 / 钉钉 / 企业微信</strong>：渲染为高档的深色/浅色 Markdown 交互卡片，包含高亮状态标签与可点击的「一键查看线上文稿」按钮；<br />
+* <strong>Telegram / Discord</strong>：优雅的 Embed 嵌入式消息，实时附带 OpenGraph 封面预览与字数统计；<br />
+* <strong>SMTP 邮件</strong>：精美排版的 HTML 出版报告，适合团队抄送与周度归档。</p>
+<h3 id="2">2. 📋 全景出版战报包含哪些信息？</h3>
+<p>每次发布任务结束，战报自动汇总以下关键指标：<br />
+* <strong>⏱️ 执行性能</strong>：AST 解析耗时、AI 段落翻译耗时、静态 SSG 编译耗时与分发总耗时；<br />
+* <strong>🎯 渠道分发矩阵</strong>：成功分发的渠道列表（如 GitHub Pages ✅, Netlify ✅, 小红书 ✅, CSDN ✅, Medium ✅）；<br />
+* <strong>🔗 线上永久链接</strong>：聚合各平台生成的最新文章直达链接，便于创作者一键分享或复核；<br />
+* <strong>🚨 异常与熔断捕获</strong>：若某渠道因 Token 过期或频控限流失败，战报会高亮告警并提供一键修复建议。</p>
+<h3 id="3">3. 🧪 插件中心一键连通性测试</h3>
+<p>在治理中心「插件中心」配置任意通知渠道后，点击 <strong>「🧪 快速测试」</strong> 按钮，即可在 500 毫秒内向对应渠道发送一条精美的握手探测消息，确保通知管道始终畅通无阻。</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:omni-channel](../../ael-iter-id: sync:omni-channel.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

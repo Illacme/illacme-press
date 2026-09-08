@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくある質問とトラブルシューティングマニュアル (FAQ) | Illacme Press</title>
+    <meta name="description" content="日常利用、ポート競合、AI 翻訳、ブランド切り替え、全チャネル配信に関する頻出疑問と公式解決策をまとめました。">
+    <meta name="keywords" content="よくある質問 FAQ, トラブルシューティング, ポート計画, 単一プロセスロック, API コントロールゲートウェイ, 初期化ガイド, ローカルプレビューサービス, ソブリンテーマ">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/docs/common-issues-and-troubleshooting-manual-faq.html">
+    <meta property="og:title" content="よくある質問とトラブルシューティングマニュアル (FAQ) | Illacme Press">
+    <meta property="og:description" content="日常利用、ポート競合、AI 翻訳、ブランド切り替え、全チャネル配信に関する頻出疑問と公式解決策をまとめました。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/docs/common-issues-and-troubleshooting-manual-faq.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html" class="active">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../docs/common-issues-and-troubleshooting-manual-faq.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/docs/common-issues-and-troubleshooting-manual-faq.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/docs/common-issues-and-troubleshooting-manual-faq.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../ja/docs/engineering/block-cache-hub.html" class="nav-link">ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略</a></li></ul></li><li class="nav-item"><a href="../../ja/docs/architecture.html" class="nav-link">物理隔離アーキテクチャと技術原理：Illacme Plenipes の主権モデル解説</a></li><li class="nav-item"><a href="../../ja/docs/authoring-and-vault-guide.html" class="nav-link">原稿文庫の組織と執筆ガイド (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../../ja/docs/brand-management.html" class="nav-link">ブランドインプリント：複数サイトとワークスペースの管理</a></li><li class="nav-item"><a href="../../ja/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link active">よくある質問とトラブルシューティングマニュアル (FAQ)</a></li><li class="nav-item"><a href="../../ja/docs/compute-center-ai-translation-setup-guide.html" class="nav-link">計算力センターと AI 翻訳設定ガイド</a></li><li class="nav-item"><a href="../../ja/docs/governance-dashboard-operation-guide.html" class="nav-link">ガバナンスダッシュボード操作ガイド：機能と設定の完全解説</a></li><li class="nav-item"><a href="../../ja/docs/i18n-guide.html" class="nav-link">多言語マトリックスとコンテンツガバナンスの実践</a></li><li class="nav-item"><a href="../../ja/docs/matrix-channel-configuration.html" class="nav-link">配信マトリクスとチャネル設定（The Matrix）</a></li><li class="nav-item"><a href="../../ja/docs/quick-start.html" class="nav-link">クリエイター向け 5 分間超高速スタートガイド</a></li><li class="nav-item"><a href="../../ja/docs/themes-and-binding-visual-customization.html" class="nav-link">テーマとビジュアルカスタマイズ：Illacme Plenipes の SSG サポート</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../ja/index.html" class="breadcrumb-item">ホーム</a><span class="breadcrumb-sep">/</span><a href="../../ja/docs/index.html" class="breadcrumb-item">ドキュメント</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">よくある質問とトラブルシューティングマニュアル (FAQ)</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Support Guild</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-11</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (273 文字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#FAQ</span><span class="tag-pill">#Troubleshooting</span><span class="tag-pill">#Help</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="faq">❓ よくある質問とトラブルシューティングマニュアル (FAQ)</h1>
+<p>本マニュアルでは、クリエイターが初めてのご利用から日常の出版作業に至るまでの頻出疑問と自己修復方法を整理しました。</p>
+<hr />
+<h2 id="_1">🔌 ポートとサービスの計画</h2>
+<p>システムはデフォルトで以下の 4 つの標準ポートを使用します。他のアプリケーションとの競合がないことを確認してください：</p>
+<table>
+<thead>
+<tr>
+<th>ポート</th>
+<th>役割の説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>43210</code></td>
+<td>🔒 <strong>単一インスタンスプロセスロック</strong>：バックグラウンドでの重複起動を防ぎ、フィンガープリント台帳の破損を防止します</td>
+</tr>
+<tr>
+<td><code>43212</code></td>
+<td>🔌 <strong>API 制御ゲートウェイ</strong>：FastAPI バックエンドサービスおよびガバナンスセンターフロントエンドのホスト用</td>
+</tr>
+<tr>
+<td><code>43211</code></td>
+<td>🧙 <strong>初期化ガイド</strong>：初回設定用のガイダンスポート</td>
+</tr>
+<tr>
+<td><code>43213</code></td>
+<td>🌐 <strong>ローカルプレビューサービス</strong>：同期完了後に埋め込まれた静的サイトプレビューサーバー</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_2">❓ よくある質問への回答</h2>
+<h3 id="q1">Q1: デフォルトブランドとカスタムブランドの違いは何ですか？</h3>
+<p><strong>A</strong>: デフォルトブランド（<code>imprints/default</code>）はシステムの公式展示ウィンドウです。デフォルトブランドかつデフォルト Sovereign テーマを使用している場合、システムは自動的に<strong>全量のプロフェッショナル版機能</strong>をアンロックし、ユーザーがシステム全体を完全に体験できるよう支援します。一方、新しいカスタム出版ブランドを作成すると、機能はコミュニティ版と商業ライセンスの計画に従います。</p>
+<h3 id="q2-ai">Q2: 原稿を変更しても AI トークンが再消費されないのはなぜですか？</h3>
+<p><strong>A</strong>: システムには<strong>段落レベルのシャドウキャッシュ (BlockShadowCache)</strong> が組み込まれています。同期ごとに、ドキュメント内の各段落に対してフィンガープリント計算が行われ、変更されていない段落はローカルキャッシュから秒単位で読み取られます。実際に変更が発生した段落のみが AI 翻訳呼び出しを起動します。</p>
+<h3 id="q3">Q3: キャッシュをクリアするか、フルリコンパイルを強制するにはどうすればよいですか？</h3>
+<p><strong>A</strong>: <br />
+- <strong>コマンドライン</strong>: <code>python3 plenipes.py --sync --force</code> を実行して強制的に再編成します。<br />
+- <strong>ガバナンスセンター</strong>: 「基本設定」→「ストレージアダプター」に進み、「🧹 フルキャッシュクリア (GC) を今すぐ実行」をクリックします。</p>
+<h3 id="q4-ollama-lmstudio-400">Q4: ローカルモデル（Ollama / LMStudio）で 400 エラーが発生したり、フリーズしたりした場合はどうすればよいですか？</h3>
+<p><strong>A</strong>: <br />
+1. ローカルモデルサービスが起動しているか確認してください（例：LMStudio サービスで Local Server がオンになっている場合）。<br />
+2. 管理センターで <code>max_tokens</code> の値を適切に増大させてください（推奨は $\ge 4096$）。これにより、ローカルモデルの思考プロセス（Thinking Process）出力に必要なスペースを確保できます。</p>
+<hr />
+<h2 id="_3">🆘 より多くのサポートを求める場合</h2>
+<p>リストされていない異常が発生した場合は、管理センターのサイドバーで<strong>「コントロールタワー (Tower)」</strong>と<strong>「ヘルスレーダー」</strong>を介してリアルタイムに診断を行ってください。または、GitHub で Issue を提出してください。</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:faq.md](../../../../ael-iter-id: sync:faq.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../ja/docs/brand-management.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 前の記事</span>
+            <span class="pagination-title">ブランドインプリント：複数サイトとワークスペースの管理</span>
+        </a>
+        
+        
+        <a href="../../ja/docs/compute-center-ai-translation-setup-guide.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">次の記事 »</span>
+            <span class="pagination-title">計算力センターと AI 翻訳設定ガイド</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

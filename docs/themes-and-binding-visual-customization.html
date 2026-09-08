@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>装帧主题与视觉定制 (Themes & Binding) | Illacme Press</title>
+    <meta name="description" content="探索 Illacme Plenipes 支持的六大 SSG 主题框架，包含 Sovereign 赛博毛玻璃主题特性与视觉定制参数。">
+    <meta name="keywords" content="SSG, 静态站点生成器, Sovereign, Docusaurus, Starlight, VitePress, Nextra, Hugo, 赛博毛玻璃, 主题定制">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/docs/themes-and-binding-visual-customization.html">
+    <meta property="og:title" content="装帧主题与视觉定制 (Themes & Binding) | Illacme Press">
+    <meta property="og:description" content="探索 Illacme Plenipes 支持的六大 SSG 主题框架，包含 Sovereign 赛博毛玻璃主题特性与视觉定制参数。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/docs/themes-and-binding-visual-customization.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html" class="active">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../docs/themes-and-binding-visual-customization.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/docs/themes-and-binding-visual-customization.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/docs/themes-and-binding-visual-customization.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../docs/engineering/block-cache-hub.html" class="nav-link">段落缓存治理中枢 (Block Cache Hub)</a></li></ul></li><li class="nav-item"><a href="../docs/architecture.html" class="nav-link">物理隔离架构与技术原理</a></li><li class="nav-item"><a href="../docs/authoring-and-vault-guide.html" class="nav-link">原稿文库组织与写作指引 (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../docs/brand-management.html" class="nav-link">品牌版图 (Imprint) 多站点与工作区管理</a></li><li class="nav-item"><a href="../docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">常见问题与排错手册 (FAQ)</a></li><li class="nav-item"><a href="../docs/compute-center-ai-translation-setup-guide.html" class="nav-link">算力中心与 AI 翻译配置指南</a></li><li class="nav-item"><a href="../docs/governance-dashboard-operation-guide.html" class="nav-link">治理中心 (Governance Dashboard) 操作指南</a></li><li class="nav-item"><a href="../docs/i18n-guide.html" class="nav-link">多语言矩阵与内容治理实战</a></li><li class="nav-item"><a href="../docs/matrix-channel-configuration.html" class="nav-link">发行矩阵与渠道配置 (The Matrix)</a></li><li class="nav-item"><a href="../docs/quick-start.html" class="nav-link">创作者 5 分钟极速上手指南</a></li><li class="nav-item"><a href="../docs/themes-and-binding-visual-customization.html" class="nav-link active">装帧主题与视觉定制 (Themes & Binding)</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../index.html" class="breadcrumb-item">首页</a><span class="breadcrumb-sep">/</span><a href="../docs/index.html" class="breadcrumb-item">文档</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">装帧主题与视觉定制 (Themes & Binding)</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Design Guild</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-11</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分钟 (468 字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Themes</span><span class="tag-pill">#SSG</span><span class="tag-pill">#UI</span><span class="tag-pill">#Design</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="themes-binding">🎨 装帧主题与视觉定制 (Themes &amp; Binding)</h1>
+<p>在 <strong>Illacme Plenipes</strong> 中，同一份原稿文库可以自由装帧为不同框架风格的现代化静态站点。</p>
+<hr />
+<h2 id="ssg">🎭 六大 SSG 主题矩阵</h2>
+<table>
+<thead>
+<tr>
+<th>主题名称</th>
+<th>核心技术</th>
+<th>适用场景与视觉风格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sovereign (Default)</strong></td>
+<td>原生 HTML5 / CSS3 / ES Modules</td>
+<td>默认旗舰赛博毛玻璃、暗黑霓虹、极简科技、零 Node.js 依赖极速直出</td>
+</tr>
+<tr>
+<td><strong>Docusaurus</strong></td>
+<td>React / Meta Docusaurus v3</td>
+<td>大型多语言技术文档库、知识中心、API 开发者门户</td>
+</tr>
+<tr>
+<td><strong>Starlight</strong></td>
+<td>Astro / Tailwind CSS</td>
+<td>极速轻量技术文档、现代极简排版、完美的 SEO 结构</td>
+</tr>
+<tr>
+<td><strong>VitePress</strong></td>
+<td>Vue 3 / Vite</td>
+<td>优雅清爽的技术写作、极速构建与开发体验</td>
+</tr>
+<tr>
+<td><strong>Nextra</strong></td>
+<td>Next.js / React</td>
+<td>现代化博客与文档综合型站点、极具灵活性</td>
+</tr>
+<tr>
+<td><strong>Hugo</strong></td>
+<td>Go / Hugo</td>
+<td>极高并发巨型文库毫秒级极速构建</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sovereign">✨ 默认 Sovereign 主题特色</h2>
+<p>Sovereign 主题是系统的原生旗舰装帧：</p>
+<ol>
+<li><strong>赛博毛玻璃 (Glassmorphism)</strong>：高档半透明磨砂质感与动态呼吸霓虹投影。</li>
+<li><strong>零编译直出</strong>：无需经过繁琐的 Node.js <code>npm build</code> 编译链，Python 核心直接毫秒级合成全功能纯静态 HTML。</li>
+<li><strong>多语言一键切换</strong>：原生顶部下拉菜单实时无刷新路由对齐。</li>
+<li><strong>即时物理搜索</strong>：基于内存倒排索引的本地纯前端极速全文检索。</li>
+<li><strong>动态目录与阅读进度条</strong>：右侧动态高亮 TOC 与顶部呼吸式滚动进度。</li>
+</ol>
+<hr />
+<h2 id="theme-options">🛠️ 主题选项定制 (Theme Options)</h2>
+<p>在 <code>themes/default/theme.options.json</code> 或治理中心中可微调视觉参数：</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;site_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Illacme Press&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;accent_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#00f5ff&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;font_family&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Outfit, sans-serif&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enable_glassmorphism&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enable_dark_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;hero_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Illacme Press&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;hero_subtitle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;您的全球私人出版社。从灵感到全渠道分发，一键触达。&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:themes-and-b](../../ael-iter-id: sync:themes-and-b.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../docs/quick-start.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 上一篇</span>
+            <span class="pagination-title">创作者 5 分钟极速上手指南</span>
+        </a>
+        
+        <div class="doc-pagination-item empty"></div>
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

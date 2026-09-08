@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AST Polyglot Translation & Cross-Frame Bridging Engine | Illacme Press</title>
+    <meta name="description" content="Discover how Illacme Plenipes losslessly translates Obsidian Callouts, Mermaid diagrams, MathJax formulas, and MDX components via AST. Achieve zero-code syntax ">
+    <meta name="keywords" content="AST, Abstract Syntax Tree, Obsidian, Docusaurus, VitePress, Astro, Hugo, Cross-Frame Bridging">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/en/showcase/ast-dialect-bridge.html">
+    <meta property="og:title" content="AST Polyglot Translation & Cross-Frame Bridging Engine | Illacme Press">
+    <meta property="og:description" content="Discover how Illacme Plenipes losslessly translates Obsidian Callouts, Mermaid diagrams, MathJax formulas, and MDX components via AST. Achieve zero-code syntax ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/en/showcase/ast-dialect-bridge.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../en/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../en/docs/index.html">📚 Document Guide</a>
+                    <a href="../../en/blog/index.html">📰 Demo Blog</a>
+                    <a href="../../en/showcase/index.html" class="active">🎨 Core Features</a>
+                    <a href="../../en/about.html">✨ About Us</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub Repo</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="Search assets...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇬🇧 English</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../showcase/ast-dialect-bridge.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/showcase/ast-dialect-bridge.html" class="lang-menu-item active">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../ja/showcase/ast-dialect-bridge.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="ast-polyglot-translation-cross-frame-bridging-engine">🌳 AST Polyglot Translation &amp; Cross-Frame Bridging Engine</h1>
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>Zero-pollution of original drafts, bridging all syntax discontinuities across static frameworks</strong>: Obsidian, Docusaurus, VitePress, Astro, and Hugo each possess mutually incompatible Markdown dialect extensions (such as Callout syntax, MDX components, Mermaid diagrams, and mathematical formulas). Illacme Plenipes features an industrial-grade AST Abstract Syntax Tree translation pipeline that dynamically bridges syntax discontinuities in memory. Your original draft library requires no code modifications to render perfectly across all 8 frameworks!</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="core-metrics-for-ast-dialect-translation">⚡ Core Metrics for AST Dialect Translation</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧩 Dialect Support</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00f2fe;">Obsidian · GFM · MDX · CommonMark</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">⚡ In-Memory Parsing Speed</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00ff88;">< 2 ms / article (Pure Python High-Speed Pipeline)</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🛡️ Source Protection</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #ffb300;">100% Read-Only · 0 Physical Write Pollution</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">📊 Cross-Frame Adaptation</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: var(--accent-color);">8 Binding Themes 100% Visual Alignment</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="ast-syntax-bridging-pipeline-mechanism">🛠️ AST Syntax Bridging Pipeline Mechanism</h2>
+<div class="codehilite"><pre><span></span><code><span class="nf">graph</span><span class="w"> </span><span class="n">TD</span>
+<span class="w">    </span><span class="n">Raw</span><span class="p">[</span><span class="n">Obsidian</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="err">创作者原稿</span><span class="w"> </span><span class="n">Markdown</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Lexer</span><span class="p">[</span><span class="n">AST</span><span class="w"> </span><span class="err">词法与语法分析器</span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C1</span><span class="p">[</span><span class="n">Obsidian</span><span class="w"> </span><span class="n">Callouts</span><span class="w"> </span><span class="err">提示块</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C2</span><span class="p">[</span><span class="n">Mermaid</span><span class="w"> </span><span class="err">动态拓扑图表</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C3</span><span class="p">[</span><span class="n">MathJax</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">KaTeX</span><span class="w"> </span><span class="n">LaTeX</span><span class="w"> </span><span class="err">公式</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C4</span><span class="p">[</span><span class="err">双向链接</span><span class="w"> </span><span class="n">WikiLinks</span><span class="w"> </span><span class="err">与嵌入附件</span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">C1</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span><span class="p">[</span><span class="n">AST</span><span class="w"> </span><span class="err">跨框架语义转换中枢</span><span class="p">]</span>
+<span class="w">    </span><span class="n">C2</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span>
+<span class="w">    </span><span class="n">C3</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span>
+<span class="w">    </span><span class="n">C4</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span>
+
+<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out1</span><span class="p">[</span><span class="n">Sovereign</span><span class="w"> </span><span class="err">原生</span><span class="w"> </span><span class="n">HTML5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">CSS3</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out2</span><span class="p">[</span><span class="n">Docusaurus</span><span class="w"> </span><span class="n">MDX</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">组件</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out3</span><span class="p">[</span><span class="n">VitePress</span><span class="w"> </span><span class="n">Vue</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="err">容器</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out4</span><span class="p">[</span><span class="n">Astro</span><span class="w"> </span><span class="n">Starlight</span><span class="w"> </span><span class="err">静态孤岛</span><span class="p">]</span>
+</code></pre></div>
+
+<h3 id="1-smart-flattening-of-obsidian-callout-blocks">1. 💡 Smart Flattening of Obsidian Callout Blocks</h3>
+<ul>
+<li>Automatically recognizes 12 native Obsidian Callout syntaxes such as <code>&gt; [!NOTE]</code>, <code>&gt; [!TIP]</code>, <code>&gt; [!WARNING]</code>, and <code>&gt; [!DANGER]</code>;</li>
+<li>Outputs semantic frosted glass containers for native themes, and outputs native Admonition containers for Docusaurus / VitePress, ensuring absolute visual consistency across all themes.</li>
+</ul>
+<h3 id="2-lossless-compilation-of-mermaid-topology-diagrams-and-latex-complex-formulas">2. 📊 Lossless Compilation of Mermaid Topology Diagrams and LaTeX Complex Formulas</h3>
+<ul>
+<li>Intercepts Mermaid code blocks and <code>$$ E=mc^2 $$</code> mathematical formulas within the manuscript, automatically handling escape characters and container wrapping;</li>
+<li>Whether for modern SPA frontends or pure static HTML, both enable high-performance instant rendering and zooming of charts.</li>
+</ul>
+<h3 id="3-dual-link-translation-with-absolute-404-prevention">3. 🔗 Dual-Link Translation with Absolute 404 Prevention</h3>
+<ul>
+<li>Precisely maps <code>[Custom Alias](../../../../my document.html)</code> in memory to the specific routing rules of the current target theme (e.g., <code>showcase/my-document.html</code>);</li>
+<li>Deeply supports anchor jumps (e.g., <code>[My Doc#Chapter 2](../../../../my doc.html#Chapter 2)</code>) and multi-language automatic channel isolation, completely bidding farewell to 404 pages.</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:ast-dialect-](../../../../ael-iter-id: sync:ast-dialect-.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">Physical Sovereignty, Self-Consistent Growth.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

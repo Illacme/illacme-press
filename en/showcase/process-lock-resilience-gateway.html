@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Port Physical Singleton Lock & HA Fault-Tolerant Self-Heal | Illacme Press</title>
+    <meta name="description" content="Explore Illacme Plenipes' 4-port singleton lock system for backend process uniqueness, FastAPI web gateway, guide and preview services, plus auto-circuiting and">
+    <meta name="keywords" content="Physical Singleton Lock, High Availability Fault Tolerance, Self-Healing Gateway, Port Conflict Resolution, Process Uniqueness, Illacme Plenipes, FastAPI, SQLite Deadlock Protection">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/en/showcase/process-lock-resilience-gateway.html">
+    <meta property="og:title" content="4-Port Physical Singleton Lock & HA Fault-Tolerant Self-Heal | Illacme Press">
+    <meta property="og:description" content="Explore Illacme Plenipes' 4-port singleton lock system for backend process uniqueness, FastAPI web gateway, guide and preview services, plus auto-circuiting and">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/en/showcase/process-lock-resilience-gateway.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../en/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../en/docs/index.html">📚 Document Guide</a>
+                    <a href="../../en/blog/index.html">📰 Demo Blog</a>
+                    <a href="../../en/showcase/index.html" class="active">🎨 Core Features</a>
+                    <a href="../../en/about.html">✨ About Us</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub Repo</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="Search assets...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇬🇧 English</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../showcase/process-lock-resilience-gateway.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/showcase/process-lock-resilience-gateway.html" class="lang-menu-item active">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../ja/showcase/process-lock-resilience-gateway.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="4-port-physical-singleton-lock-and-high-availability-fault-tolerant-self-healing-gateway">🔒 4-Port Physical Singleton Lock and High-Availability Fault-Tolerant Self-Healing Gateway</h1>
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>Physical Singleton Placeholder, Zero Process Conflicts, Second-Level Self-Healing</strong>: In long-running background guardian systems, the most dangerous hazard is multiple processes restarting simultaneously, leading to database deadlocks, corrupted file ledgers, or port conflicts. Illacme Plenipes has designed a rigorous four-port physical responsibility division combined with a Singleton Lock gatekeeping system.</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="4-port-physical-planning-and-architecture-matrix">⚡ 4-Port Physical Planning and Architecture Matrix</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🔒 Port 43210 Singleton Lock</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #ff5252;">Process Uniqueness Placeholder Lock</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🔌 Port 43212 Web API Gateway</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00f2fe;">FastAPI Control Hub · Millisecond Response</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧙 Port 43211 Visual Wizard</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #ffb300;">Installation Guide and Configuration Wizard Service</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🌐 Port 43213 Local Preview Service</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00ff88;">Zero-CORS Static Site Instant Hot Rendering</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="singleton-lock-mechanism-and-self-healing-architecture">🛠️ Singleton Lock Mechanism and Self-Healing Architecture</h2>
+<div class="codehilite"><pre><span></span><code><span class="nf">graph</span><span class="w"> </span><span class="n">TD</span>
+<span class="w">    </span><span class="n">UserLaunch</span><span class="p">[</span><span class="err">启动</span><span class="w"> </span><span class="n">plenipes</span><span class="p">.</span><span class="n">py</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ProbeLock</span><span class="p">{</span><span class="err">绑定</span><span class="w"> </span><span class="mi">43210</span><span class="w"> </span><span class="err">单例锁</span><span class="o">?</span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">ProbeLock</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="err">绑定失败</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Conflict</span><span class="p">[</span><span class="err">检测到已有实例在运行</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="err">优雅拦截并提示</span><span class="p">]</span>
+<span class="w">    </span><span class="n">ProbeLock</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="err">绑定成功</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Init</span><span class="p">[</span><span class="err">创建进程级单例实例</span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">Init</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Gateway</span><span class="p">[</span><span class="err">拉起</span><span class="w"> </span><span class="mi">43212</span><span class="w"> </span><span class="n">FastAPI</span><span class="w"> </span><span class="n">Web</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="err">治理网关</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Init</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Preview</span><span class="p">[</span><span class="err">拉起</span><span class="w"> </span><span class="mi">43213</span><span class="w"> </span><span class="err">本地静态预览服务</span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">Gateway</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Watchdog</span><span class="p">[</span><span class="err">守护进程健康心跳与熔断自愈</span><span class="p">]</span>
+<span class="w">    </span><span class="n">Watchdog</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Health</span><span class="p">[</span><span class="err">内存泄露防范</span><span class="w"> </span><span class="err">·</span><span class="w"> </span><span class="n">AI</span><span class="w"> </span><span class="err">超时自动降级</span><span class="w"> </span><span class="err">·</span><span class="w"> </span><span class="err">异步</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="err">隔离</span><span class="p">]</span>
+</code></pre></div>
+
+<h3 id="1-43210-physical-singleton-lock-singleton-process-lock">1. 🔒 43210 Physical Singleton Lock (Singleton Process Lock)</h3>
+<ul>
+<li>Upon system startup, the system first attempts to create an exclusive Socket binding on <code>127.0.0.1:43210</code>;</li>
+<li>If the port is already occupied, the system immediately intercepts secondary startups and provides a clear prompt, <strong>physically eliminating fingerprint ledger corruption and SQLite file write deadlocks caused by background multi-process competition</strong>.</li>
+</ul>
+<h3 id="2-43212-fastapi-governance-gateway-and-physical-isolation">2. 🔌 43212 FastAPI Governance Gateway and Physical Isolation</h3>
+<ul>
+<li>Responsible for hosting all RESTful APIs and real-time WebSocket broadcasts for the entire-site governance center (Dashboard);</li>
+<li>Strictly physically isolated from the local preview service (<code>43213</code>), ensuring that even when static sites are compiling or refreshing, operations of the governance center and telemetry metric collection are not blocked.</li>
+</ul>
+<h3 id="3-exception-circuit-breaking-and-health-self-healing-resilience-fault-tolerance">3. 🛡️ Exception Circuit-Breaking and Health Self-Healing (Resilience &amp; Fault-Tolerance)</h3>
+<ul>
+<li><strong>AI Compute Timeout Circuit-Breaker</strong>: When cloud large model interfaces or local Ollama encounter network hangs, the self-healing gateway automatically triggers timeout protection and degrades to paragraph shadow cache or backup compute pipelines;</li>
+<li><strong>Non-Interactive Subprocess Protection</strong>: All background external CLI calls are forcibly appended with <code>--yes</code> / <code>-y</code> and non-interactive flags, completely avoiding backend hangs caused by waiting for user input.</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:process-lock](../../../../ael-iter-id: sync:process-lock.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">Physical Sovereignty, Self-Consistent Growth.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

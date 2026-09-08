@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>治理中心 (Governance Dashboard) 操作指南 | Illacme Press</title>
+    <meta name="description" content="详尽拆解治理中心四大核心分类与二级子标签功能，涵盖基础配置、版图管理、多语言矩阵与路由映射。">
+    <meta name="keywords" content="治理中心，Illacme Plenipes，出版运维，身份标识，出版合规，存储适配，运行基座，版图管理，装帧主题，出版模式，基础模式，增强模式，全球模式，语言翻译，语种矩阵，块级规则，术语词库，分发路由，网址路径">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/docs/governance-dashboard-operation-guide.html">
+    <meta property="og:title" content="治理中心 (Governance Dashboard) 操作指南 | Illacme Press">
+    <meta property="og:description" content="详尽拆解治理中心四大核心分类与二级子标签功能，涵盖基础配置、版图管理、多语言矩阵与路由映射。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/docs/governance-dashboard-operation-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html" class="active">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../docs/governance-dashboard-operation-guide.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/docs/governance-dashboard-operation-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/docs/governance-dashboard-operation-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../docs/engineering/block-cache-hub.html" class="nav-link">段落缓存治理中枢 (Block Cache Hub)</a></li></ul></li><li class="nav-item"><a href="../docs/architecture.html" class="nav-link">物理隔离架构与技术原理</a></li><li class="nav-item"><a href="../docs/authoring-and-vault-guide.html" class="nav-link">原稿文库组织与写作指引 (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../docs/brand-management.html" class="nav-link">品牌版图 (Imprint) 多站点与工作区管理</a></li><li class="nav-item"><a href="../docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">常见问题与排错手册 (FAQ)</a></li><li class="nav-item"><a href="../docs/compute-center-ai-translation-setup-guide.html" class="nav-link">算力中心与 AI 翻译配置指南</a></li><li class="nav-item"><a href="../docs/governance-dashboard-operation-guide.html" class="nav-link active">治理中心 (Governance Dashboard) 操作指南</a></li><li class="nav-item"><a href="../docs/i18n-guide.html" class="nav-link">多语言矩阵与内容治理实战</a></li><li class="nav-item"><a href="../docs/matrix-channel-configuration.html" class="nav-link">发行矩阵与渠道配置 (The Matrix)</a></li><li class="nav-item"><a href="../docs/quick-start.html" class="nav-link">创作者 5 分钟极速上手指南</a></li><li class="nav-item"><a href="../docs/themes-and-binding-visual-customization.html" class="nav-link">装帧主题与视觉定制 (Themes & Binding)</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../index.html" class="breadcrumb-item">首页</a><span class="breadcrumb-sep">/</span><a href="../docs/index.html" class="breadcrumb-item">文档</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">治理中心 (Governance Dashboard) 操作指南</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Editorial Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-11</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分钟 (726 字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Dashboard</span><span class="tag-pill">#Governance</span><span class="tag-pill">#Settings</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="governance-dashboard">🎛️ 治理中心 (Governance Dashboard) 操作指南</h1>
+<p>治理中心是 <strong>Illacme Plenipes</strong> 的可视化控制塔。采用现代化高档毛玻璃设计体系，为创作者提供全方位的出版运维中枢。</p>
+<hr />
+<h2 id="_1">🧭 四大核心分类导航</h2>
+<p>治理中心由四大顶级分类构成，每个分类均配备二级子标签（Sub-Tabs）：</p>
+<div class="codehilite"><pre><span></span><code>治理中心 (Dashboard)
+├── 1. 基础配置与运维 (General)
+│   ├── 🏷️ 身份标识 (identity)
+│   ├── 📖 出版合规 (compliance)
+│   ├── 📂 存储适配 (storage)
+│   └── ⚙️ 运行基座 (engine)
+├── 2. 版图装帧与模式 (Layout)
+│   ├── 🏷️ 版图管理 (imprints)
+│   ├── 🎭 装帧主题 (themes)
+│   └── 📋 出版模式 (modes)
+├── 3. 语言翻译与治理 (Localization)
+│   ├── 🌍 语种矩阵 (localization)
+│   ├── 🧱 块级规则 (block_rules)
+│   ├── 📖 术语词库 (glossary)
+│   └── 🎭 翻译风格 (translation_style)
+└── 4. 分发路由与网址 (Dissemination)
+    ├── 📝 网址路径 (slug_settings)
+    └── 🧭 频道映射 (route_matrix)
+</code></pre></div>
+
+<hr />
+<h2 id="1-general-configuration">1. 基础配置与运维 (General Configuration)</h2>
+<ul>
+<li><strong>🏷️ 身份标识 (Identity)</strong>：配置品牌名称（<code>imprint_name</code>）、品牌描述、站点 Logo 路径与版权信息。</li>
+<li><strong>📖 出版合规 (Compliance)</strong>：统一配置 Frontmatter 默认作者、许可证类型（如 CC BY-NC 4.0）及元数据清洗规则。</li>
+<li><strong>📂 存储适配 (Storage)</strong>：文库物理路径（<code>vault_root</code>）、原稿换行模式（硬换行 / 软换行）、以及<strong>段落缓存治理中枢（Block Cache Hub）</strong>与算力缓存自动清理（Janitor GC / LRU）策略。</li>
+<li><strong>⚙️ 运行基座 (Engine)</strong>：调节日志级别、全局代理、网络超时与遥测采集容量上限。</li>
+</ul>
+<hr />
+<h2 id="2-layout-publishing-modes">2. 版图装帧与模式 (Layout &amp; Publishing Modes)</h2>
+<ul>
+<li><strong>🏷️ 版图管理 (Imprints)</strong>：一览所有独立出版品牌，支持一键切换当前激活的出版版图。</li>
+<li><strong>🎭 装帧主题 (Themes)</strong>：自由切换站点装帧风格（Sovereign、Docusaurus、Starlight、VitePress、Nextra、Hugo）。</li>
+<li><strong>📋 出版模式 (Modes)</strong>：</li>
+<li><strong>基础模式 (Basic)</strong>：纯物理拷贝分发，零 AI 算力开销。</li>
+<li><strong>增强模式 (Enhanced)</strong>：母语 AI 润色与智能 SEO 增强。</li>
+<li><strong>全球模式 (Global)</strong>：全量多语种矩阵翻译与全球全渠道分发。</li>
+</ul>
+<hr />
+<h2 id="3-localization-content-governance">3. 语言翻译与治理 (Localization &amp; Content Governance)</h2>
+<ul>
+<li><strong>🌍 语种矩阵 (Localization)</strong>：勾选或添加目标翻译语种（英语、日语、德语、法语、西班牙语等 50+ 语种）。</li>
+<li><strong>🧱 块级规则 (Block Rules)</strong>：针对代码块、表格、Callout、HTML 标签设定精细的“翻译 / 旁路 (Bypass) / 遮蔽 (Mask)”策略。</li>
+<li><strong>📖 术语词库 (Glossary)</strong>：维护专业专有名词词汇表，确保专有名词在多语言翻译中 100% 准确一致。</li>
+<li><strong>🎭 翻译风格 (Translation Style)</strong>：定制各频道特有的翻译语气（技术严谨、文学叙事、幽默风趣等）。</li>
+</ul>
+<hr />
+<h2 id="4-dissemination-routing">4. 分发路由与网址路径 (Dissemination &amp; Routing)</h2>
+<ul>
+<li><strong>📝 网址路径 (Slug Settings)</strong>：配置 AI Slug 生成模式（平铺 Flat / 阶梯 Hierarchical），自动生成符合 SEO 规范的英文 URL。</li>
+<li><strong>🧭 频道映射 (Route Matrix)</strong>：将本地子文件夹（如 <code>Blog</code>、<code>Docs</code>）映射到前端站点的对应 URL 前缀（如 <code>/blog/</code>、<code>/docs/</code>）。</li>
+</ul>
+<hr />
+
+    <div class="callout callout-note">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title">治理中心中所有的配置保存均为<strong>毫秒级热更新</strong>，修改后即刻在下一次同步中生效。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:dashboard-gu](../../ael-iter-id: sync:dashboard-gu.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../docs/engineering/block-cache-hub.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 上一篇</span>
+            <span class="pagination-title">block-cache-hub</span>
+        </a>
+        
+        
+        <a href="../docs/i18n-guide.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">下一篇 »</span>
+            <span class="pagination-title">i18n-guide</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

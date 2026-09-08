@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown 语法与渲染特性全能展示 | Illacme Press</title>
+    <meta name="description" content="全面展示 Illacme Plenipes 支持的全部 Markdown 语法特性，包含 Obsidian Callouts、双链、表格、代码高亮与公式。">
+    <meta name="keywords" content="Markdown, 渲染引擎, Illacme Plenipes, 静态装帧系统, Callouts, 警告框, 代码块, 语法高亮, 结构化表格, 双向链接">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/blog/markdown-syntax-rendering-features-comprehensive-demo.html">
+    <meta property="og:title" content="Markdown 语法与渲染特性全能展示 | Illacme Press">
+    <meta property="og:description" content="全面展示 Illacme Plenipes 支持的全部 Markdown 语法特性，包含 Obsidian Callouts、双链、表格、代码高亮与公式。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/blog/markdown-syntax-rendering-features-comprehensive-demo.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html">📚 文档指南</a>
+                    <a href="../blog/index.html" class="active">📰 演示博客</a>
+                    <a href="../showcase/index.html">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../blog/markdown-syntax-rendering-features-comprehensive-demo.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/blog/markdown-syntax-rendering-features-comprehensive-demo.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/blog/markdown-syntax-rendering-features-comprehensive-demo.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-blog">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../index.html" class="breadcrumb-item">首页</a><span class="breadcrumb-sep">/</span><a href="../blog/index.html" class="breadcrumb-item">博客</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">Markdown 语法与渲染特性全能展示</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Test Guild</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-17</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分钟 (461 字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Markdown</span><span class="tag-pill">#Showcase</span><span class="tag-pill">#Syntax</span><span class="tag-pill">#Features</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="markdown">🎯 Markdown 语法与渲染特性全能展示</h1>
+<p>本文作为 <strong>Illacme Plenipes</strong> 渲染引擎与静态装帧系统的“活体基准测试”，涵盖了日常写作中所有高级排版元素。</p>
+<hr />
+<h2 id="1-obsidian-callouts">1.  Obsidian 风格 Callouts (警告框)</h2>
+
+    <div class="callout callout-note">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title">这是一条 <strong>NOTE</strong> 提示框，适合呈现常规背景信息与补充说明。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title">这是一条 <strong>TIP</strong> 优化建议，适合呈现最佳实践与技巧。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+
+    <div class="callout callout-important">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title">这是一条 <strong>IMPORTANT</strong> 重点警示，包含不可忽略的关键操作。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+
+    <div class="callout callout-warning">
+        <div class="callout-header">
+            <span class="callout-icon">⚠️</span>
+            <span class="callout-title">这是一条 <strong>WARNING</strong> 警告信息，提示潜在的不兼容或破坏性操作。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+
+    <div class="callout callout-caution">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title">这是一条 <strong>CAUTION</strong> 危险提示，涉及高风险操作与安全红线。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<hr />
+<h2 id="2">2. 代码块与语法高亮</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 示例：段落哈希校验与影子块读取</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_block_hash</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算 Markdown 语义块 SHA-256 结构指纹&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_block_hash</span><span class="p">(</span><span class="s2">&quot;Hello, Illacme Plenipes!&quot;</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// 示例：前端平滑滚动控制器</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">scrollToSection</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">el</span><span class="p">.</span><span class="nx">scrollIntoView</span><span class="p">({</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;smooth&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="3">3. 结构化数据表格</h2>
+<table>
+<thead>
+<tr>
+<th>功能模块</th>
+<th>物理位置</th>
+<th>默认状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌主权</td>
+<td><code>imprints/default/</code></td>
+<td>启用</td>
+<td>默认旗舰展示版</td>
+</tr>
+<tr>
+<td>算力缓存</td>
+<td><code>.plenipes/cache/</code></td>
+<td>启用</td>
+<td>块级影子复用</td>
+</tr>
+<tr>
+<td>静态装帧</td>
+<td><code>themes/default/</code></td>
+<td>启用</td>
+<td>Sovereign 赛博风</td>
+</tr>
+<tr>
+<td>路由矩阵</td>
+<td><code>config.imprint.yaml</code></td>
+<td>启用</td>
+<td><code>/docs</code> 与 <code>/blog</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. 双向链接与引用</h2>
+<ul>
+<li>探索 5 分钟上手：<a href="../docs/quick-start.html">quick-start</a></li>
+<li>查看团队愿景：<a href="../about.html">about</a></li>
+<li>常见问题排错：<a href="../docs/common-issues-and-troubleshooting-manual-faq.html">faq</a></li>
+</ul>
+<hr />
+<h2 id="5-task-lists">5. 任务清单 (Task Lists)</h2>
+<ul>
+<li>[x] 完成默认品牌授权豁免架构</li>
+<li>[x] 重构文库产品指南内容体系</li>
+<li>[x] 对齐 Sovereign 主题视觉参数</li>
+<li>[ ] 开启您的第一次全网分发演练</li>
+</ul>
+<hr />
+<h2 id="6-latex-math">6. 数学公式 (LaTeX Math)</h2>
+<p>行内公式：$E = mc^2$ 以及 $\nabla \cdot \mathbf{B} = 0$。</p>
+<p>块级公式：</p>
+<p>$$<br />
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}<br />
+$$</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:markdown-sho](../../ael-iter-id: sync:markdown-sho.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../blog/my-first-sovereign-publishing-blog-inspiration-global-resonance.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 上一篇</span>
+            <span class="pagination-title">我的第一篇主权出版博文：从灵感到全球共振</span>
+        </a>
+        
+        
+        <a href="../blog/future-of-publishing.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">下一篇 »</span>
+            <span class="pagination-title">AI 原生全球私人出版社的技术哲学与演进</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

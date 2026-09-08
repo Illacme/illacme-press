@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compute Center & AI Translation Setup Guide | Illacme Press</title>
+    <meta name="description" content="Comprehensive guide covering 29+ AI compute adapters, seamless local inference/cloud model switching, paragraph-level BlockShadowCache, and fault-tolerant degra">
+    <meta name="keywords" content="AI Compute Gateway, AI Translation Config, Illacme Plenipes, Compute Provider Adaptation, OpenAI, DeepSeek, Local Open Source Inference, Cloud Large Models">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/en/docs/compute-center-ai-translation-setup-guide.html">
+    <meta property="og:title" content="Compute Center & AI Translation Setup Guide | Illacme Press">
+    <meta property="og:description" content="Comprehensive guide covering 29+ AI compute adapters, seamless local inference/cloud model switching, paragraph-level BlockShadowCache, and fault-tolerant degra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/en/docs/compute-center-ai-translation-setup-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../en/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../en/docs/index.html" class="active">📚 Document Guide</a>
+                    <a href="../../en/blog/index.html">📰 Demo Blog</a>
+                    <a href="../../en/showcase/index.html">🎨 Core Features</a>
+                    <a href="../../en/about.html">✨ About Us</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub Repo</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="Search assets...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇬🇧 English</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../docs/compute-center-ai-translation-setup-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/docs/compute-center-ai-translation-setup-guide.html" class="lang-menu-item active">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../ja/docs/compute-center-ai-translation-setup-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../en/docs/engineering/block-cache-hub.html" class="nav-link">Block Cache Hub: Paragraph-Level Shadow Cache Governance</a></li></ul></li><li class="nav-item"><a href="../../en/docs/architecture.html" class="nav-link">Physical Isolation Architecture & Technical Principles of Il</a></li><li class="nav-item"><a href="../../en/docs/authoring-and-vault-guide.html" class="nav-link">Authoring & Vault Guide: Master Obsidian, Logseq, Typora & T</a></li><li class="nav-item"><a href="../../en/docs/brand-management.html" class="nav-link">Brand Imprint: Multi-Site & Workspace Management</a></li><li class="nav-item"><a href="../../en/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">Common Issues & Troubleshooting Guide (FAQ)</a></li><li class="nav-item"><a href="../../en/docs/compute-center-ai-translation-setup-guide.html" class="nav-link active">Compute Center & AI Translation Setup Guide</a></li><li class="nav-item"><a href="../../en/docs/governance-dashboard-operation-guide.html" class="nav-link">Governance Dashboard (治理中心) Operation Guide</a></li><li class="nav-item"><a href="../../en/docs/i18n-guide.html" class="nav-link">Multilingual Matrix & Content Governance in Practice</a></li><li class="nav-item"><a href="../../en/docs/matrix-channel-configuration.html" class="nav-link">Distribution Matrix & Channel Setup (The Matrix)</a></li><li class="nav-item"><a href="../../en/docs/quick-start.html" class="nav-link">Creator's 5-Minute Quick Start Guide</a></li><li class="nav-item"><a href="../../en/docs/themes-and-binding-visual-customization.html" class="nav-link">Themes & Binding: Explore Illacme Plenipes SSG Frameworks</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../en/index.html" class="breadcrumb-item">Home</a><span class="breadcrumb-sep">/</span><a href="../../en/docs/index.html" class="breadcrumb-item">Docs</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">Compute Center & AI Translation Setup Guide</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme AI Architecture Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-11</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 min read (387 words)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Compute</span><span class="tag-pill">#AI</span><span class="tag-pill">#LLM</span><span class="tag-pill">#Caching</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="compute-center-ai-translation-configuration-guide">🧠 Compute Center &amp; AI Translation Configuration Guide</h1>
+<p>Illacme Plenipes features the industry-leading <strong>AI Compute Unified Gateway</strong>. Whether deploying open-source small models locally or utilizing top-tier closed-source large models in the cloud, both can be seamlessly integrated into the publishing pipeline via a unified protocol.</p>
+<hr />
+<h2 id="full-compatibility-with-29-compute-providers">⚡ Full Compatibility with 29+ Compute Providers</h2>
+<p>The system includes built-in support for over 29 AI compute adapters:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Supported Providers / Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🏠 Local Open-Source Inference</strong></td>
+<td>Ollama, LMStudio, LocalAI</td>
+</tr>
+<tr>
+<td><strong>🌐 Global Mainstream Commercial</strong></td>
+<td>OpenAI (GPT-4o/o3), Anthropic (Claude 3.5/3.7), Google Gemini, xAI (Grok)</td>
+</tr>
+<tr>
+<td><strong>🇨🇳 Leading Domestic Large Models</strong></td>
+<td>DeepSeek, Baidu Qianfan (Ernie Bot), Alibaba Tongyi Qwen (DashScope), Zhipu GLM, Moonshot AI, MiniMax, Volcengine (ByteDance Doubao), Baichuan Intelligence</td>
+</tr>
+<tr>
+<td><strong>☁️ Aggregation &amp; Inference Clouds</strong></td>
+<td>OpenRouter, SiliconFlow, Together AI, Groq, HuggingFace, Azure OpenAI, AWS Bedrock, Mistral, Cohere, Perplexity</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="core-working-principle-paragraph-level-shadow-cache-blockshadowcache">🚀 Core Working Principle: Paragraph-Level Shadow Cache (BlockShadowCache)</h2>
+<p>Traditional full-document translation re-invokes the LLM for every minor modification, resulting in massive token waste. Illacme Plenipes employs <strong>semantic paragraph sharding</strong>:</p>
+<ol>
+<li><strong>Precise Slicing</strong>: The Markdown parser decomposes documents into independent semantic blocks such as headings, paragraphs, code blocks, quotes, and tables.</li>
+<li><strong>Fingerprint Verification</strong>: Each block computes a SHA-256 structural fingerprint.</li>
+<li><strong>Shadow Cache Reuse</strong>: Translated paragraphs are read instantly from the SQLite shadow database, triggering AI calls only for <strong>individual changed paragraphs</strong>.</li>
+<li><strong>Save 90%+ Compute Power</strong>: Drastically reduces API bills and significantly shortens incremental sync wait times.</li>
+</ol>
+<hr />
+<h2 id="local-and-cloud-node-configuration-examples">🛠️ Local and Cloud Node Configuration Examples</h2>
+<p>Configure primary and backup nodes in the Governance Center or within <code>config.yaml</code> / <code>config.imprint.yaml</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">translation</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enable_ai</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">primary_node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lmstudio_local</span><span class="w">    </span><span class="c1"># 主用算力节点</span>
+<span class="w">  </span><span class="nt">primary_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qwen/qwen3.5-9b</span><span class="w">  </span><span class="c1"># 主用模型名称</span>
+<span class="w">  </span><span class="nt">fallback_node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ollama_local</span><span class="w">     </span><span class="c1"># 备用容灾节点</span>
+<span class="w">  </span><span class="nt">fallback_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qwen/qwen3.5-9b</span><span class="w"> </span><span class="c1"># 备用模型名称</span>
+<span class="w">  </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span><span class="w">                </span><span class="c1"># 翻译温度（推荐 0.1 ~ 0.3）</span>
+<span class="w">  </span><span class="nt">max_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span><span class="w">                </span><span class="c1"># 最大输出 Token</span>
+</code></pre></div>
+
+<hr />
+<h2 id="industrial-grade-fault-tolerance-and-self-healing-mechanisms">🛡️ Industrial-Grade Fault Tolerance and Self-Healing Mechanisms</h2>
+<ul>
+<li><strong>Exponential Backoff Retry</strong>: Automatically retries with exponential backoff upon encountering 429 rate limits or transient network interruptions.</li>
+<li><strong>Automatic Failover</strong>: Automatically switches to a backup disaster recovery node when the primary node fails consecutively.</li>
+<li><strong>Pure Placeholder Bypass (Mask Bypass)</strong>: Pure code, formulas, and tag blocks are automatically identified and skipped during model inference, ensuring 100% elimination of hallucinations.</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:compute-and-](../../../../ael-iter-id: sync:compute-and-.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../en/docs/common-issues-and-troubleshooting-manual-faq.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« Previous</span>
+            <span class="pagination-title">Common Issues & Troubleshooting Guide (FAQ)</span>
+        </a>
+        
+        
+        <a href="../../en/docs/engineering/block-cache-hub.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">Next »</span>
+            <span class="pagination-title">Block Cache Hub: Paragraph-Level Shadow Cache Governance</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">Physical Sovereignty, Self-Consistent Growth.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illacme Plenipes 8 つのモダンなテーマと静的生成エンジン：技術スタックと選定ガイド | Illacme Press</title>
+    <meta name="description" content="Illacme Plenipes の 8 つの最新テーマと静的生成エンジンの全貌を解説。各テーマの技術スタック、パフォーマンス指標、およびシナリオ別最適な選定基準を1記事で網羅します。">
+    <meta name="keywords" content="Illacme Plenipes, Markdown テーマ, 静的サイトジェネレーター, Sovereign Neon Glass, Universal Standard, Docusaurus ドキュメント, サイバー毛玻璃, 個人知識管理">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/showcase/themes-matrix.html">
+    <meta property="og:title" content="Illacme Plenipes 8 つのモダンなテーマと静的生成エンジン：技術スタックと選定ガイド | Illacme Press">
+    <meta property="og:description" content="Illacme Plenipes の 8 つの最新テーマと静的生成エンジンの全貌を解説。各テーマの技術スタック、パフォーマンス指標、およびシナリオ別最適な選定基準を1記事で網羅します。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/showcase/themes-matrix.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html" class="active">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../showcase/themes-matrix.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/showcase/themes-matrix.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/showcase/themes-matrix.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="8">🎭 8 つの装題テーマの全体像と選定マトリックス</h1>
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>一套原稿文库，任意装帧自由穿梭</strong>：Illacme Plenipes では、クリエイターの物理的な原稿に絶対的なデータ主権が保証されます。同一の Markdown 原稿ライブラリをソースコードを変更することなく、ワンクリックで 8 つの全く異なるモダンなビジュアルスタイルと静的生成エンジンへ瞬時に切り替えることができます。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="8_1">📊 8 つの装題テーマ横断選定マトリックス</h2>
+<div style="overflow-x: auto; margin: 2rem 0;">
+<table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+  <thead>
+    <tr style="background: var(--bg-elevated); border-bottom: 2px solid var(--border-color);">
+      <th style="padding: 12px 14px;">装帧主题</th>
+      <th style="padding: 12px 14px;">底层技术栈</th>
+      <th style="padding: 12px 14px;">首屏体积</th>
+      <th style="padding: 12px 14px;">构建依赖</th>
+      <th style="padding: 12px 14px;">核心视觉风格</th>
+      <th style="padding: 12px 14px;">最佳适用场景</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid var(--border-color);">
+      <td style="padding: 12px 14px; font-weight: 700; color: #00f2fe;">👑 Sovereign Neon Glass</td>
+      <td style="padding: 12px 14px;">原生 HTML5 / CSS3 / Vanilla JS</td>
+      <td style="padding: 12px 14px; color: #00ff88; font-weight: 600;">< 50 KB</td>
+      <td style="padding: 12px 14px; color: #00ff88;">零外部依赖 (直出)</td>
+      <td style="padding: 12px 14px;">暗黑霓虹 · 赛博毛玻璃 · 微光进度条</td>
+      <td style="padding: 12px 14px;">极客个人主权知识库 · 私人出版物</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-color);">
+      <td style="padding: 12px 14px; font-weight: 700; color: #58a6ff;">🏛️ Universal Standard</td>
+      <td style="padding: 12px 14px;">原生 HTML5 / 语义化 CSS</td>
+      <td style="padding: 12px 14px; color: #00ff88; font-weight: 600;">< 30 KB</td>
+      <td style="padding: 12px 14px; color: #00ff88;">零外部依赖 (直出)</td>
+      <td style="padding: 12px 14px;">极简通用 · 清爽大方 · 明暗无缝切换</td>
+      <td style="padding: 12px 14px;">企业白皮书 · 经典双栏文档 · 标准博文</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-color);">
+      <td style="padding: 12px 14px; font-weight: 700; color: #3578e5;">🦖 Docusaurus Documentation</td>
+      <td style="padding: 12px 14px;">React 18 / MDX 2</td>
+      <td style="padding: 12px 14px;">~150 KB</td>
+      <td style="padding: 12px 14px;">Node.js / npm</td>
+      <td style="padding: 12px 14px;">Meta 工业级标准文档 · 强大侧边栏树</td>
+      <td style="padding: 12px 14px;">开源项目官方网站 · 复杂多版本技术文档</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-color);">
+      <td style="padding: 12px 14px; font-weight: 700; color: #42b883;">⚡ VitePress Ultra-Fast</td>
+      <td style="padding: 12px 14px;">Vue 3 / Vite 5</td>
+      <td style="padding: 12px 14px;">~80 KB</td>
+      <td style="padding: 12px 14px;">Node.js / npm</td>
+      <td style="padding: 12px 14px;">极速轻量 · 优雅细腻 · 毫秒级热重载</td>
+      <td style="padding: 12px 14px;">现代技术团队开发手册 · 前端组件库文档</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-color);">
+      <td style="padding: 12px 14px; font-weight: 700; color: #bc52ee;">🌟 Astro Starlight Garden</td>
+      <td style="padding: 12px 14px;">Astro 4 / TypeScript</td>
+      <td style="padding: 12px 14px; color: #00ff88; font-weight: 600;">< 40 KB</td>
+      <td style="padding: 12px 14px;">Node.js / npm</td>
+      <td style="padding: 12px 14px;">零 JS 孤岛 · 现代排版 · 优雅暗黑渐变</td>
+      <td style="padding: 12px 14px;">数字花园 · 深度长文索引 · 高性能文档</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-color);">
+      <td style="padding: 12px 14px; font-weight: 700; color: #ffffff;">📖 Nextra Documentation</td>
+      <td style="padding: 12px 14px;">Next.js 14 / React 18</td>
+      <td style="padding: 12px 14px;">~120 KB</td>
+      <td style="padding: 12px 14px;">Node.js / npm</td>
+      <td style="padding: 12px 14px;">Vercel 设计哲学 · SPA 单页平滑路由</td>
+      <td style="padding: 12px 14px;">SaaS 产品文档 · 现代开发者中心</td>
+    </tr>
+    <tr style="border-bottom: 1px solid var(--border-color);">
+      <td style="padding: 12px 14px; font-weight: 700; color: #0e83cd;">🎨 Hexo Clean Tech</td>
+      <td style="padding: 12px 14px;">Node.js / EJS</td>
+      <td style="padding: 12px 14px;">~60 KB</td>
+      <td style="padding: 12px 14px;">Node.js / hexo-cli</td>
+      <td style="padding: 12px 14px;">经典静态博客 · 年鉴式时间轴归档</td>
+      <td style="padding: 12px 14px;">经典博文归档 · 极速万篇静态博客生成</td>
+    </tr>
+    <tr>
+      <td style="padding: 12px 14px; font-weight: 700; color: #ff4088;">🐹 Hugo Go-Speed Engine</td>
+      <td style="padding: 12px 14px;">Go 语言二进制</td>
+      <td style="padding: 12px 14px; color: #00ff88; font-weight: 600;">< 45 KB</td>
+      <td style="padding: 12px 14px;">Hugo 二进制 (无 npm)</td>
+      <td style="padding: 12px 14px;">超高速编译 · 极简结构 · 毫秒级生成</td>
+      <td style="padding: 12px 14px;">超大型海量文库 (10,000+ 篇) · 极速 CI/CD</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+<h2 id="8_2">🔍 8 つの装帧深度解析とビジュアル特徴</h2>
+<h3 id="1-sovereign-neon-glass">1. 👑 Sovereign Neon Glass（主権ネイティブフラッグシップ）</h3>
+<ul>
+<li><strong>ゼロ依存直接出力</strong>：純粋な Python を使用した高速変換で、Node.js、npm、または外部ランタイムのインストールは不要；</li>
+<li><strong>ダークサイバー美学</strong>：専用ネオンカラーパレット（<code>#00f2fe</code>、<code>#4facfe</code>）、微光毛ガラス浮層、読書用微光プログレスバー、および動的 TOC 目次の追従機能；</li>
+<li><strong>オフライングローバル検索</strong>：軽量な純粋クライアントサイドインデックスと Obsidian の双方向リンクのネイティブ解析を内蔵。</li>
+</ul>
+<h3 id="2-universal-standard">2. 🏛️ Universal Standard（汎用ミニマリスト標準）</h3>
+<ul>
+<li><strong>極限パフォーマンス</strong>：サイト全体のファーストビュー CSS/JS ボリュームは 30KB 未満で、秒間での読み込み体験を実現；</li>
+<li><strong>マルチビューブログ</strong>：ネイティブ対応のタイムライン（Timeline）、グリッドカード（Grid）、およびコンパクトリスト（Compact）の 3 つのビューを自由切り替え可能；</li>
+<li><strong>エンタープライズ級レイアウト</strong>：中国語と英語の排版規範を自動で整列させ、数式や Mermaid トポロジー図を完璧にサポート。</li>
+</ul>
+<h3 id="3-docusaurus-documentationmeta">3. 🦖 Docusaurus Documentation（Meta 産業級）</h3>
+<ul>
+<li><strong>主要なオープンソース標準</strong>：Meta が公開した世界的なドキュメントエンジンで、完全な MDX ダイナミックインタラクションコンポーネントをサポート；</li>
+<li><strong>深いバージョン管理</strong>：ネイティブ対応のマルチバージョンアーカイブ、国際化多言語、および多層階級ネストサイドバー。</li>
+</ul>
+<h3 id="4-vitepress-ultra-fast">4. ⚡ VitePress Ultra-Fast（极速技术文档）</h3>
+<ul>
+<li><strong>Vue 3 エコシステムのフラッグシップ</strong>: ユー・ユーシー（Evan You）率いるチームが開発した現代的なドキュメントエンジンで、Vite を採用した超高速ビルドを実現します。</li>
+<li><strong>ミリ秒単位のレスポンス</strong>: 静的 HTML のプリレンダリングとクライアント側 SPA を組み合わせることで、ページ遷移の滑らかさは際立っています。</li>
+</ul>
+<h3 id="5-astro-starlight-garden">5. 🌟 Astro Starlight Garden（現代デジタルガーデン）</h3>
+<ul>
+<li><strong>Islands（孤岛）アーキテクチャ</strong>：デフォルトで JavaScript ランタイムの消費がゼロ、Lighthouse において満点のスコアを獲得します；</li>
+<li><strong>エレガントなグラデーション</strong>：慎重に調整されたダークモード用グラデーションカラーと、深いフルテキストインデックス機能を備えています。</li>
+</ul>
+<h3 id="6-nextra">6. 📖 Nextra ドキュメンテーション（モダンでミニマルなドキュメント）</h3>
+<ul>
+<li><strong>Next.js 駆動</strong>: Vercel のデザインスタイルに完璧に適合し、SPA のシームレスなシングルページルーティング遷移を実現します；</li>
+<li><strong>FlexSearch 検索</strong>: ミリ秒単位の応答速度を誇るクライアントサイドでのトークン化即時検索。</li>
+</ul>
+<h3 id="7-hexo-clean-tech">7. 🎨 Hexo Clean Tech（クラシックな静的ブログ）</h3>
+<ul>
+<li><strong>成熟なコミュニティエコシステム</strong>: 世界で最も人気のある静的ブログの一つであり、膨大な数のプラグインや小道具を備えています。</li>
+<li><strong>分類年鑑体系</strong>: 長年にわたる執筆活動が蓄積された深いタグクラウド、カテゴリツリー、およびアーカイブタイムラインに対応しています。</li>
+</ul>
+<h3 id="8-hugo-go-speed-engine-go">8. 🐹 Hugo Go-Speed Engine（超高速 Go 構築）</h3>
+<ul>
+<li><strong>単一バイナリのパフォーマンスモンスター</strong>：Go ランゲージで記述され、数万編の長文を数ミリ秒でコンパイル可能；</li>
+<li><strong>依存関係なしデプロイ</strong>：リソース制約のあるエッジサーバーや自動化された CI/CD パイプラインに極めて適しています。</li>
+</ul>
+<hr />
+<h2 id="_1">🎯 シナリオ別選定意思決定ツリー</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">TD</span>
+<span class="w">    </span><span class="k">Start</span><span class="o">[</span><span class="n">创作者原稿文库</span><span class="o">]</span><span class="w"> </span><span class="c1">--&gt; Q1{追求零环境依赖与极客美学?}</span>
+<span class="w">    </span><span class="n">Q1</span><span class="w"> </span><span class="c1">-- 是 --&gt; Sovereign[👑 Sovereign 旗舰 / 🏛️ Universal 标准]</span>
+<span class="w">    </span><span class="n">Q1</span><span class="w"> </span><span class="c1">-- 否 --&gt; Q2{主要用途类型?}</span>
+
+<span class="w">    </span><span class="n">Q2</span><span class="w"> </span><span class="c1">-- 技术团队文档 / API 手册 --&gt; Q3{前端技术栈偏好?}</span>
+<span class="w">    </span><span class="n">Q3</span><span class="w"> </span><span class="c1">-- React / MDX --&gt; Docusaurus[🦖 Docusaurus / 📖 Nextra]</span>
+<span class="w">    </span><span class="n">Q3</span><span class="w"> </span><span class="c1">-- Vue 3 / Vite --&gt; VitePress[⚡ VitePress]</span>
+<span class="w">    </span><span class="n">Q3</span><span class="w"> </span><span class="c1">-- Astro 零 JS --&gt; Starlight[🌟 Astro Starlight]</span>
+
+<span class="w">    </span><span class="n">Q2</span><span class="w"> </span><span class="c1">-- 经典博文归档 / 海量文章 --&gt; Q4{文章规模?}</span>
+<span class="w">    </span><span class="n">Q4</span><span class="w"> </span><span class="c1">-- &lt; 1,000 篇 --&gt; Hexo[🎨 Hexo Clean Tech]</span>
+<span class="w">    </span><span class="n">Q4</span><span class="w"> </span><span class="c1">-- &gt; 10,000 篇超大海量 --&gt; Hugo[🐹 Hugo Go-Speed Engine]</span>
+</code></pre></div>
+
+<hr />
+<h2 id="_2">🔄 管理センターによるワンクリックホットスワッチ</h2>
+<p>Illacme Plenipes 管理センター（<code>http://127.0.0.1:43212/dashboard/#/themes</code>）の<strong>「🎭 装丁テーマ」</strong>パネルにおいて、対応するテーマカード上の<strong>「🎯 アクティブ化して適用」</strong>をクリックするだけで、システムは 0.5 秒以内にコンパイルパイプラインとローカルリアルタイムプレビューサービス（<code>43213</code>）を自動的に切り替えます。これにより、現在の出版作品に最適な究極の装丁形態を容易に探索できます！</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:themes-matri](../../../../ael-iter-id: sync:themes-matri.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authoring & Vault Guide: Master Obsidian, Logseq, Typora & T | Illacme Press</title>
+    <meta name="description" content="Learn to seamlessly integrate with Obsidian, Logseq, Typora, or plain text vaults. Standardize Frontmatter metadata, bidirectional linking, and media resource r">
+    <meta name="keywords" content="Authoring Guide, Vault Management, Obsidian, Logseq, Typora, Frontmatter Metadata, Bidirectional Linking, Markdown">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/en/docs/authoring-and-vault-guide.html">
+    <meta property="og:title" content="Authoring & Vault Guide: Master Obsidian, Logseq, Typora & T | Illacme Press">
+    <meta property="og:description" content="Learn to seamlessly integrate with Obsidian, Logseq, Typora, or plain text vaults. Standardize Frontmatter metadata, bidirectional linking, and media resource r">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/en/docs/authoring-and-vault-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../en/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../en/docs/index.html" class="active">📚 Document Guide</a>
+                    <a href="../../en/blog/index.html">📰 Demo Blog</a>
+                    <a href="../../en/showcase/index.html">🎨 Core Features</a>
+                    <a href="../../en/about.html">✨ About Us</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub Repo</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="Search assets...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇬🇧 English</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../docs/authoring-and-vault-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/docs/authoring-and-vault-guide.html" class="lang-menu-item active">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../ja/docs/authoring-and-vault-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../en/docs/engineering/block-cache-hub.html" class="nav-link">Block Cache Hub: Paragraph-Level Shadow Cache Governance</a></li></ul></li><li class="nav-item"><a href="../../en/docs/architecture.html" class="nav-link">Physical Isolation Architecture & Technical Principles of Il</a></li><li class="nav-item"><a href="../../en/docs/authoring-and-vault-guide.html" class="nav-link active">Authoring & Vault Guide: Master Obsidian, Logseq, Typora & T</a></li><li class="nav-item"><a href="../../en/docs/brand-management.html" class="nav-link">Brand Imprint: Multi-Site & Workspace Management</a></li><li class="nav-item"><a href="../../en/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">Common Issues & Troubleshooting Guide (FAQ)</a></li><li class="nav-item"><a href="../../en/docs/compute-center-ai-translation-setup-guide.html" class="nav-link">Compute Center & AI Translation Setup Guide</a></li><li class="nav-item"><a href="../../en/docs/governance-dashboard-operation-guide.html" class="nav-link">Governance Dashboard (治理中心) Operation Guide</a></li><li class="nav-item"><a href="../../en/docs/i18n-guide.html" class="nav-link">Multilingual Matrix & Content Governance in Practice</a></li><li class="nav-item"><a href="../../en/docs/matrix-channel-configuration.html" class="nav-link">Distribution Matrix & Channel Setup (The Matrix)</a></li><li class="nav-item"><a href="../../en/docs/quick-start.html" class="nav-link">Creator's 5-Minute Quick Start Guide</a></li><li class="nav-item"><a href="../../en/docs/themes-and-binding-visual-customization.html" class="nav-link">Themes & Binding: Explore Illacme Plenipes SSG Frameworks</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../en/index.html" class="breadcrumb-item">Home</a><span class="breadcrumb-sep">/</span><a href="../../en/docs/index.html" class="breadcrumb-item">Docs</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">Authoring & Vault Guide: Master Obsidian, Logseq, Typora & T</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Editorial Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-17</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 4 min read (628 words)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Vault</span><span class="tag-pill">#Authoring</span><span class="tag-pill">#Markdown</span><span class="tag-pill">#Obsidian</span><span class="tag-pill">#Frontmatter</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="manuscript-repository-organization-and-writing-guidelines">✍️ Manuscript Repository Organization and Writing Guidelines</h1>
+<p><strong>Illacme Plenipes</strong> adheres to the principle of "Manuscript as Sovereignty." The system treats your physical folder as the authoritative source (Single Source of Truth), allowing you to enjoy an industrial-grade publishing experience without abandoning your existing writing habits or note-taking software.</p>
+<hr />
+<h2 id="1-best-practices-for-library-directory-structure">📂 1. Best Practices for Library Directory Structure</h2>
+<p>The system recommends a typical vault structure as follows (using <code>./vault</code> as an example):</p>
+<div class="codehilite"><pre><span></span><code>vault/
+├── index.md
+
+# Site homepage (or welcome page)
+
+├── about.md
+
+# Brand / Personal About page
+
+├── Docs/
+
+# Technical documentation / Tutorials / Knowledge base
+
+│   ├── index.md
+
+# Documentation hub index
+
+│   ├── quick-start.md
+
+# Quick start guide
+
+│   └── ...
+├── Blog/
+
+# Blog posts / Essays / Updates
+
+│   ├── my-first-post.md
+│   └── ...
+├── Showcase/
+
+# Portfolio showcase / Works collection
+
+│   └── index.md
+└── assets/
+
+# Local images / Attachment resources
+
+    └── cover.png
+</code></pre></div>
+
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>Directory as Channel</strong>: Through the Distribution Router and URL Path settings (<code>route_matrix</code>) in the Governance Center, you can freely map any local folder to an online URL path (e.g., mapping <code>Docs/</code> to <code>/docs/</code>, and <code>Blog/</code> to <code>/blog/</code>).</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="2-frontmatter-metadata-standards">🏷️ 2. Frontmatter Metadata Standards</h2>
+<p>Each Markdown note is recommended to include standard YAML Frontmatter at the top for precise control over article titles, authors, dates, categories, and SEO information:</p>
+<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">我的技术深度解析</span><span class="w">                 </span><span class="c1"># [必填] 文章标题</span>
+<span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-08-16</span><span class="w">                    </span><span class="c1"># [推荐] 发布日期 (YYYY-MM-DD)</span>
+<span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">极客创作者</span><span class="w">                   </span><span class="c1"># [可选] 作者署名（留空则继承全域默认作者）</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">一句话概述本文核心内容</span><span class="w">   </span><span class="c1"># [推荐] 供 SEO 与卡片预览使用的摘要</span>
+<span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Architecture</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">AI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Python</span><span class="p p-Indicator">]</span><span class="w">    </span><span class="c1"># [可选] 标签列表，自动生成聚合标签页</span>
+<span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Tech</span><span class="p p-Indicator">]</span><span class="w">                  </span><span class="c1"># [可选] 分类列表</span>
+<span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deep-dive-tech</span><span class="w">                </span><span class="c1"># [可选] 自定义线上 URL 后缀（留空自动生成）</span>
+<span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">                        </span><span class="c1"># [可选] 设为 true 则仅在本地保存，不执行线上分发</span>
+<span class="nn">---</span>
+</code></pre></div>
+
+<hr />
+<h2 id="3-linking-media-asset-references">🔗 3. Linking &amp; Media Asset References</h2>
+<h3 id="31-bidirectional-links-wikilinks">3.1 Bidirectional Links (WikiLinks)</h3>
+<p>The system fully supports Obsidian-style bidirectional links:<br />
+- <strong>Standard Link</strong>: <code>[quick-start](../docs/quick-start.html)</code> &rarr; Automatically resolves and links to the corresponding online HTML for <code>quick-start.md</code>.<br />
+- <strong>Custom Aliases</strong>: <code>[⚡ 5 分钟上手](../docs/quick-start.html)</code> &rarr; Renders as a hyperlink with the display alias.</p>
+<h3 id="32-images-and-attachment-resources">3.2 Images and Attachment Resources</h3>
+<ul>
+<li><strong>Relative Path References</strong>: <code>![Article Cover](./assets/cover.png)</code></li>
+<li><strong>Absolute/Global Paths</strong>: <code>![Logo](/static/logo.png)</code></li>
+<li><strong>Automatic Alt Text &amp; WebP Compression</strong>: The engine features a built-in image processing pipeline that automatically converts large images losslessly to the modern WebP format and generates multi-language accessibility descriptions via AI when Alt text is missing.</li>
+</ul>
+<hr />
+<h2 id="4-line-break-modes-dialect-sensing">⚙️ 4. Line Break Modes &amp; Dialect Sensing</h2>
+<p>In the Governance Center under [Basic Configuration &amp; Operations] → [Storage Adaptation], you can select based on your writing software preferences:</p>
+<ol>
+<li><strong>📄 Standard Mode (CommonMark)</strong>: Single line breaks are preserved as space streams; only consecutive double line breaks (empty lines) create paragraph separation. Ideal for technical professionals accustomed to standard Markdown syntax.</li>
+<li><strong>✍️ Intuitive Mode (GFM Hard Line Breaks)</strong>: Pressing the Enter key directly creates a new line (what you see is what you get). Suitable for daily note-taking or users accustomed to Typora / WeChat layout styles.</li>
+</ol>
+<hr />
+<h2 id="5-how-to-integrate-with-existing-vaults-obsidian-logseq">🔄 5. How to Integrate with Existing Vaults (Obsidian / Logseq)</h2>
+<p>If you already have a structured Obsidian knowledge base:<br />
+1. Open the Governance Center [Layout Binding &amp; Mode] → [Layout Management];<br />
+2. Click "➕ Create New Publishing Layout";<br />
+3. Point the <strong>Source Manuscript Vault Path (<code>vault_root</code>)</strong> to the absolute path of your physical notes directory (e.g., <code>/Users/username/Documents/ObsidianVault</code>);<br />
+4. Select a binding theme and distribution channel, then click Save to instantly activate your exclusive digital publishing house!</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:authoring-an](../../../../ael-iter-id: sync:authoring-an.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../en/docs/architecture.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« Previous</span>
+            <span class="pagination-title">Physical Isolation Architecture & Technical Principles of Il</span>
+        </a>
+        
+        
+        <a href="../../en/docs/brand-management.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">Next »</span>
+            <span class="pagination-title">Brand Imprint: Multi-Site & Workspace Management</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">Physical Sovereignty, Self-Consistent Growth.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Dive: Paragraph-Level Shadow Cache & Zero Token Waste A | Illacme Press</title>
+    <meta name="description" content="Discover how Illacme Plenipes achieves 90%+ translation cost savings via hash slicing and LRU eviction. Explore BlockShadowCache, AST text slicing, and incremen">
+    <meta name="keywords" content="LLM, Shadow Cache, BlockShadowCache, Paragraph-Level Caching, Zero Token Waste, Compute Optimization, Text AST Slicing, Incremental Translation">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/en/blog/block-cache-deep-dive.html">
+    <meta property="og:title" content="Deep Dive: Paragraph-Level Shadow Cache & Zero Token Waste A | Illacme Press">
+    <meta property="og:description" content="Discover how Illacme Plenipes achieves 90%+ translation cost savings via hash slicing and LRU eviction. Explore BlockShadowCache, AST text slicing, and incremen">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/en/blog/block-cache-deep-dive.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../en/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../en/docs/index.html">📚 Document Guide</a>
+                    <a href="../../en/blog/index.html" class="active">📰 Demo Blog</a>
+                    <a href="../../en/showcase/index.html">🎨 Core Features</a>
+                    <a href="../../en/about.html">✨ About Us</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub Repo</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="Search assets...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇬🇧 English</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../blog/block-cache-deep-dive.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/blog/block-cache-deep-dive.html" class="lang-menu-item active">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../ja/blog/block-cache-deep-dive.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-blog">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../en/index.html" class="breadcrumb-item">Home</a><span class="breadcrumb-sep">/</span><a href="../../en/blog/index.html" class="breadcrumb-item">Blog</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">Deep Dive: Paragraph-Level Shadow Cache & Zero Token Waste A</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Engineering Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 min read (330 words)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Engineering</span><span class="tag-pill">#Cache</span><span class="tag-pill">#Performance</span><span class="tag-pill">#LLM</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="deep-dive-into-paragraph-level-shadow-cache-architecture-with-zero-token-waste">⚡ Deep Dive into Paragraph-Level Shadow Cache Architecture with Zero Token Waste</h1>
+<p>When building multilingual knowledge bases and long-form publishing systems, one of the biggest pain points is the <strong>redundant waste of LLM translation compute</strong>: even if only a single typo in an article needs correction, traditional full-article translation pipelines must resend the entire document to the AI model.</p>
+<p>This blog post delves into <strong>Illacme Plenipes'</strong> unique <strong>BlockShadowCache (paragraph-level shadow cache)</strong> mechanism.</p>
+<hr />
+<h2 id="principle-analysis-physical-text-ast-slicing">🔍 Principle Analysis: Physical Text AST Slicing</h2>
+<p>When an article enters the processing pipeline, the system first parses it using a Markdown parser to split it into independent physical blocks (Blocks):</p>
+<ol>
+<li>Heading Block</li>
+<li>Paragraph Block</li>
+<li>List Item Block</li>
+<li>Code Block</li>
+<li>Callout Block</li>
+</ol>
+<p>Each block calculates its unique SHA-256 content hash value:</p>
+<div class="codehilite"><pre><span></span><code>Block_Hash = SHA256(Block_Content + Target_Lang + Translation_Style)
+</code></pre></div>
+
+<hr />
+<h2 id="cache-hit-millisecond-response-with-zero-compute-consumption">🚀 Cache Hit: Millisecond Response with Zero Compute Consumption</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 核心查询算法示意</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">translate_block_with_cache</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">target_lang</span><span class="p">,</span> <span class="n">style</span><span class="p">):</span>
+    <span class="n">cache_key</span> <span class="o">=</span> <span class="n">compute_hash</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">target_lang</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+
+    <span class="c1"># ⚡ 命中段落缓存，直接返回历史高品质译文</span>
+    <span class="k">if</span> <span class="n">block_cache</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">block_cache</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cache_key</span><span class="p">)</span>
+
+    <span class="c1"># 🧠 未命中：仅对变动段落调用 AI 推理</span>
+    <span class="n">translated</span> <span class="o">=</span> <span class="n">llm_gateway</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">target_lang</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+    <span class="n">block_cache</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cache_key</span><span class="p">,</span> <span class="n">translated</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">translated</span>
+</code></pre></div>
+
+<p>Through this mechanism:<br />
+- Modifying the article title incurs zero token consumption for thousands of words in the main body.<br />
+- Adding new paragraphs triggers incremental translation only for the new paragraphs.<br />
+- Multiple full rebuilds of static sites hit the cache entirely, taking &lt; 1 second!</p>
+<hr />
+<h2 id="governance-hub-cache-cleanup-and-lru-eviction">🧰 Governance Hub: Cache Cleanup and LRU Eviction</h2>
+<p>In the [Basic Configuration &amp; Operations] → [Storage Adaptation] section of the Governance Center, creators can:<br />
+- Monitor real-time paragraph cache counts and disk space usage across the entire site.<br />
+- Enable automatic eviction policies (by days or maximum MB capacity).<br />
+- Execute physical tiered migration and full purification with a single click.</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:block-cache-](../../../../ael-iter-id: sync:block-cache-.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        <div class="doc-pagination-item empty"></div>
+        
+        <a href="../../en/blog/my-first-sovereign-publishing-blog-inspiration-global-resonance.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">Next »</span>
+            <span class="pagination-title">My First Sovereign Publishing Blog Post: From Idea to Global</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">Physical Sovereignty, Self-Consistent Growth.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

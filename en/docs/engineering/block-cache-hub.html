@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Cache Hub: Paragraph-Level Shadow Cache Governance | Illacme Press</title>
+    <meta name="description" content="Explore Block Cache Hub design, physical routing, LRU garbage collection, and Janitor GC auto-cleanup strategies for paragraph-level shadow caching.">
+    <meta name="keywords" content="Block Cache Hub, Paragraph Cache Governance, Illacme Plenipes, LRU Garbage Collection, Physical Routing, SHA-256 Hash Verification, Janitor GC Auto-Cleanup, Incremental Translation">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/en/docs/engineering/block-cache-hub.html">
+    <meta property="og:title" content="Block Cache Hub: Paragraph-Level Shadow Cache Governance | Illacme Press">
+    <meta property="og:description" content="Explore Block Cache Hub design, physical routing, LRU garbage collection, and Janitor GC auto-cleanup strategies for paragraph-level shadow caching.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/en/docs/engineering/block-cache-hub.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../../en/index.html" class="logo-group">
+                    <img src="../../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../../en/docs/index.html" class="active">📚 Document Guide</a>
+                    <a href="../../../en/blog/index.html">📰 Demo Blog</a>
+                    <a href="../../../en/showcase/index.html">🎨 Core Features</a>
+                    <a href="../../../en/about.html">✨ About Us</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub Repo</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="Search assets...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇬🇧 English</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../../docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../../en/docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item active">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../../ja/docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../../en/docs/engineering/block-cache-hub.html" class="nav-link active">Block Cache Hub: Paragraph-Level Shadow Cache Governance</a></li></ul></li><li class="nav-item"><a href="../../../en/docs/architecture.html" class="nav-link">Physical Isolation Architecture & Technical Principles of Il</a></li><li class="nav-item"><a href="../../../en/docs/authoring-and-vault-guide.html" class="nav-link">Authoring & Vault Guide: Master Obsidian, Logseq, Typora & T</a></li><li class="nav-item"><a href="../../../en/docs/brand-management.html" class="nav-link">Brand Imprint: Multi-Site & Workspace Management</a></li><li class="nav-item"><a href="../../../en/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">Common Issues & Troubleshooting Guide (FAQ)</a></li><li class="nav-item"><a href="../../../en/docs/compute-center-ai-translation-setup-guide.html" class="nav-link">Compute Center & AI Translation Setup Guide</a></li><li class="nav-item"><a href="../../../en/docs/governance-dashboard-operation-guide.html" class="nav-link">Governance Dashboard (治理中心) Operation Guide</a></li><li class="nav-item"><a href="../../../en/docs/i18n-guide.html" class="nav-link">Multilingual Matrix & Content Governance in Practice</a></li><li class="nav-item"><a href="../../../en/docs/matrix-channel-configuration.html" class="nav-link">Distribution Matrix & Channel Setup (The Matrix)</a></li><li class="nav-item"><a href="../../../en/docs/quick-start.html" class="nav-link">Creator's 5-Minute Quick Start Guide</a></li><li class="nav-item"><a href="../../../en/docs/themes-and-binding-visual-customization.html" class="nav-link">Themes & Binding: Explore Illacme Plenipes SSG Frameworks</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../../en/index.html" class="breadcrumb-item">Home</a><span class="breadcrumb-sep">/</span><a href="../../../en/docs/index.html" class="breadcrumb-item">Docs</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item">engineering</span><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">Block Cache Hub: Paragraph-Level Shadow Cache Governance</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-30</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 4 min read (642 words)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Engineering</span><span class="tag-pill">#Cache</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#GC</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="block-cache-governance-hub-paragraph-level-shadow-cache">🧱 Block Cache Governance Hub (Paragraph-Level Shadow Cache)</h1>
+<p>This guide details the design principles, physical routing mechanisms, LRU garbage collection algorithms, and automatic cleanup (Janitor GC) strategies of <strong>Illacme Plenipes</strong> paragraph-level shadow caching (Block Cache Hub).</p>
+<hr />
+<h2 id="1-definition-physical-routing">🏗️ 1. Definition &amp; Physical Routing</h2>
+<h3 id="what-is-block-cache-hub">What is Block Cache Hub?</h3>
+<p>In multilingual publishing and AI semantic translation pipelines, the Block Cache Hub is responsible for maintaining a mapping of hash values, associated translations, and metadata for each physical paragraph (Block) in the source manuscript. It triggers incremental translation only for modified paragraphs during source manuscript adjustments, avoiding full recomputation.</p>
+<h3 id="physical-routing-design">Physical Routing Design</h3>
+<p>Paragraph-level shadow cache employs localized physical isolation storage:<br />
+- <strong>Configuration File Path</strong>: The cache hub strategy is defined in <code>config.yaml</code> or <code>config.local.yaml</code>.<br />
+- <strong>Physical Persistent Store</strong>: For the current brand portfolio, paragraph-level shadow cache persistence is stored on disk at <code>imprints/{brand}/cache/block_cache.db</code> or under the <code>.cache/</code> directory, ensuring complete physical isolation from the source document library to maintain its purity.</p>
+<hr />
+<h2 id="2-lru-garbage-collection-and-cache-validity-verification-algorithm-lru-gc-validation">⚙️ 2. LRU Garbage Collection and Cache Validity Verification Algorithm (LRU GC &amp; Validation)</h2>
+<h3 id="lru-garbage-collection-mechanism">LRU Garbage Collection Mechanism</h3>
+<p>The cache hub evicts the oldest, unaccessed cache records based on the <strong>LRU (Least Recently Used)</strong> algorithm to maintain physical storage within a safe waterline.<br />
+- <strong>Access Update</strong>: Whenever a paragraph of a document hits the cache, its LRU timestamp is updated to the current time.<br />
+- <strong>Active Release</strong>: When exceeding thresholds, the system automatically evicts the longest-unused paragraph translations.</p>
+<h3 id="paragraph-validity-verification-algorithm-block-validation-algorithm">Paragraph Validity Verification Algorithm (Block Validation Algorithm)</h3>
+<p>Each cache block generates a unique SHA-256 hash value (Block Hash) from the content of its source code paragraph.<br />
+The verification process is as follows:<br />
+1. When reading a document, split it into several paragraphs based on empty lines or physical markers.<br />
+2. Calculate the hash for each segment sequentially: <code>sha256(content + block_context_salt)</code>.<br />
+3. Compare with the <code>block_hash</code> in the cache library:<br />
+   - <strong>Consistent (Hit)</strong>: Reuse existing translations and paragraph attributes without re-invoking the LLM.<br />
+   - <strong>Inconsistent (Miss)</strong>: Mark as a dirty paragraph (Dirty Block), send to the translation pending queue, and discard the original cache at that location.</p>
+<hr />
+<h2 id="3-cache-eviction-and-paragraph-verification-contract-eviction-verification-rules">🔄 3. Cache Eviction and Paragraph Verification Contract (Eviction &amp; Verification Rules)</h2>
+<h3 id="cache-eviction-workflow-eviction-flow">Cache Eviction Workflow (Eviction Flow)</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">[Document Changed] ---&gt; [Compute New Paragraph Hash List] ---&gt; [Compare with Cache Mapping]</span>
+<span class="w">                                                </span><span class="na">│</span>
+<span class="w">                 </span><span class="na">┌──────────────────────────────┴──────────────────────────────┐</span>
+<span class="w">                 </span><span class="na">▼                                                             ▼</span>
+<span class="w">         </span><span class="k">[Hash Match (Hit)]                                               [Hash Mismatch (Miss)]</span>
+<span class="w">    </span><span class="na">Reuse cache, update access timestamp                                     Evict stale cache physically ---&gt; Trigger AI translation and write to new cache</span>
+</code></pre></div>
+
+<h3 id="paragraph-verification-three-iron-laws-verification-rules">Paragraph Verification Three Iron Laws (Verification Rules)</h3>
+<ol>
+<li><strong>Structure Preservation</strong>: The Markdown markup (bolding, links, lists, code blocks) of the translated paragraph must be preserved during validation; equivalent formatting symbols are mandatory and format loss is strictly prohibited.</li>
+<li><strong>Context Isolation</strong>: Hash calculation incorporates metadata from preceding and succeeding paragraphs (Block Context Salt) to prevent mismatches caused by ambiguity when identical content appears in different contexts.</li>
+<li><strong>Signature Anti-Tampering</strong>: All cached records in the local persistent database include Adler32 or SHA-256 checksums; if a signature fails upon loading, physical corruption is deemed and auto-healing is automatically initialized.</li>
+</ol>
+<hr />
+<h2 id="4-auto-cleanup-strategies-and-capacity-thresholds-janitor-gc-policy">🧹 4. Auto-Cleanup Strategies and Capacity Thresholds (Janitor GC Policy)</h2>
+<h3 id="janitor-gc-auto-cleaner">Janitor GC Auto-Cleaner</h3>
+<p>The resident Janitor daemon coroutine periodically audits cache capacity and physical occupancy rates.</p>
+<h3 id="capacity-and-threshold-rules-threshold-rules">Capacity and Threshold Rules (Threshold Rules)</h3>
+<ul>
+<li><strong>Physical Storage Watermark</strong>: The default upper limit for physical file occupancy of the single-brand Block Cache is <strong>128MB</strong>. A gentle cleanup is triggered when this threshold reaches 80% (102.4MB).</li>
+<li><strong>Paragraph Count Watermark</strong>: The default upper limit for the total number of paragraph records is <strong>100,000</strong>. When exceeding this threshold, Janitor GC initiates a process to physically force erase (Erase) the last 20% of expired shadow cache blocks based on LRU heat, ensuring lightweight system operation and high responsiveness.</li>
+<li><strong>Expiration Time (TTL)</strong>: Any paragraph record not read or verified within 90 days is classified as cold data (Cold Cache) and automatically cleared during the GC cycle.</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:block-cache-](../../../../../../ael-iter-id: sync:block-cache-.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../../en/docs/compute-center-ai-translation-setup-guide.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« Previous</span>
+            <span class="pagination-title">Compute Center & AI Translation Setup Guide</span>
+        </a>
+        
+        
+        <a href="../../../en/docs/governance-dashboard-operation-guide.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">Next »</span>
+            <span class="pagination-title">Governance Dashboard (治理中心) Operation Guide</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">Physical Sovereignty, Self-Consistent Growth.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../../static/js/main.theme.js"></script>
+    <script src="../../../static/js/main.toc.js"></script>
+    <script src="../../../static/js/main.search.js"></script>
+    <script src="../../../static/js/main.code.js"></script>
+    <script src="../../../static/js/main.lightbox.js"></script>
+    <script src="../../../static/js/main.renderers.js"></script>
+    <script src="../../../static/js/main.js"></script>
+</body>
+
+</html>

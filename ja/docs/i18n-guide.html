@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多言語マトリックスとコンテンツガバナンスの実践 | Illacme Press</title>
+    <meta name="description" content="多言語マトリックス設定、ブロックルール保護、用語管理、段落再翻訳校対ワークフローを習得。Obsidian 双リンクやコード保護も対応。">
+    <meta name="keywords" content="多言語マトリックス, コンテンツガバナンス, Illacme Plenipes, 自動翻訳, 異言語コンパイル, AST 構文木, ブロックルール, 用語辞書">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/docs/i18n-guide.html">
+    <meta property="og:title" content="多言語マトリックスとコンテンツガバナンスの実践 | Illacme Press">
+    <meta property="og:description" content="多言語マトリックス設定、ブロックルール保護、用語管理、段落再翻訳校対ワークフローを習得。Obsidian 双リンクやコード保護も対応。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/docs/i18n-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html" class="active">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../docs/i18n-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/docs/i18n-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/docs/i18n-guide.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../ja/docs/engineering/block-cache-hub.html" class="nav-link">ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略</a></li></ul></li><li class="nav-item"><a href="../../ja/docs/architecture.html" class="nav-link">物理隔離アーキテクチャと技術原理：Illacme Plenipes の主権モデル解説</a></li><li class="nav-item"><a href="../../ja/docs/authoring-and-vault-guide.html" class="nav-link">原稿文庫の組織と執筆ガイド (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../../ja/docs/brand-management.html" class="nav-link">ブランドインプリント：複数サイトとワークスペースの管理</a></li><li class="nav-item"><a href="../../ja/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">よくある質問とトラブルシューティングマニュアル (FAQ)</a></li><li class="nav-item"><a href="../../ja/docs/compute-center-ai-translation-setup-guide.html" class="nav-link">計算力センターと AI 翻訳設定ガイド</a></li><li class="nav-item"><a href="../../ja/docs/governance-dashboard-operation-guide.html" class="nav-link">ガバナンスダッシュボード操作ガイド：機能と設定の完全解説</a></li><li class="nav-item"><a href="../../ja/docs/i18n-guide.html" class="nav-link active">多言語マトリックスとコンテンツガバナンスの実践</a></li><li class="nav-item"><a href="../../ja/docs/matrix-channel-configuration.html" class="nav-link">配信マトリクスとチャネル設定（The Matrix）</a></li><li class="nav-item"><a href="../../ja/docs/quick-start.html" class="nav-link">クリエイター向け 5 分間超高速スタートガイド</a></li><li class="nav-item"><a href="../../ja/docs/themes-and-binding-visual-customization.html" class="nav-link">テーマとビジュアルカスタマイズ：Illacme Plenipes の SSG サポート</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../ja/index.html" class="breadcrumb-item">ホーム</a><span class="breadcrumb-sep">/</span><a href="../../ja/docs/index.html" class="breadcrumb-item">ドキュメント</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">多言語マトリックスとコンテンツガバナンスの実践</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Localization Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (383 文字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#i18n</span><span class="tag-pill">#Localization</span><span class="tag-pill">#Glossary</span><span class="tag-pill">#BlockRules</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">🌍 マルチリンガルマトリックスとコンテンツガバナンスの実践</h1>
+<p><strong>Illacme Plenipes</strong> は、企業グレードの多言語コンテンツガバナンスパイプラインを提供し、母語での原稿作成に専念するだけで、システムが自動的に高忠実度の異言語へのコンパイルと公開を完了させます。</p>
+<hr />
+<h2 id="_2">🧭 マルチリンガルコアアーキテクチャ</h2>
+<ol>
+<li><strong>源言語（Source Language）</strong>：原稿作成時に使用した母語（例：中国語 <code>zh</code> または英語 <code>en</code>）。</li>
+<li><strong>対象言語マトリックス（Target Languages）</strong>：自動翻訳および配信が必要な対象言語の集合（例：<code>en</code>, <code>ja</code>, <code>fr</code>, <code>de</code>, <code>es</code>, <code>ko</code> など）。</li>
+<li><strong>ブロック規則（Block Rules）</strong>：特定の段落タイプ（コードブロック、数式、固有語、著作権表示）に対する保護戦略であり、AI の誤翻訳を防ぎます。</li>
+<li><strong>用語辞書（Glossary）</strong>：記事全体で強制統一される業界固有用語の英和中対照表。</li>
+</ol>
+<hr />
+<h2 id="_3">🧱 ブロック規則による保護</h2>
+<p>システム標準搭載の多層 AST 構文木保護機能：</p>
+<ul>
+<li><strong>コードブロックの保護</strong>：<code>```python ... ```</code> 内のコードは完全に原文のまま保持され、注釈のみ必要に応じて翻訳されます。</li>
+<li><strong>Obsidian 内部双方向リンク</strong>：<code>[快速入门](../docs/quick-start.html)</code> のようなリンクは、ターゲット言語に合わせて自動的にリンク名を保持し、別名をインテリジェントに調整します。</li>
+<li><strong>Markdown 呼称</strong>：<code>&gt; [!NOTE]</code> のような構文コンテナは自動的に保持され、本文のみ翻訳されます。</li>
+</ul>
+<hr />
+<h2 id="glossary">📖 用語辞書（Glossary）の設定</h2>
+<p>ガバナンスセンターの【言語とコンテンツガバナンス】&rarr;【用語辞書】で、サイト全体の用語対を定義できます：</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">glossary</span><span class="p">:</span>
+<span class="w">  </span><span class="s">&quot;主权出版&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Sovereign</span><span class="nv"> </span><span class="s">Publishing&quot;</span>
+<span class="w">  </span><span class="s">&quot;段落影子缓存&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Block</span><span class="nv"> </span><span class="s">Shadow</span><span class="nv"> </span><span class="s">Cache&quot;</span>
+<span class="w">  </span><span class="s">&quot;品牌版图&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Imprint&quot;</span>
+<span class="w">  </span><span class="s">&quot;装帧工厂&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;SSG</span><span class="nv"> </span><span class="s">Bindery&quot;</span>
+</code></pre></div>
+
+<p>AI は翻訳プロセス中に辞書の制約を自動的に遵守し、記事間での固有名称の一貫性と厳密さを確保します。</p>
+<hr />
+<h2 id="_4">🔄 単段落の再翻訳と校対ワークベンチ</h2>
+<p>ある段落の訳文に満足できない場合は、ガバナンスセンターで<strong>校対ワークベンチ（Review Workbench）</strong>を使用できます：<br />
+1. 原文と訳文の段落をリアルタイムで比較。<br />
+2. 単一のパラグラフに対してのみ AI の再翻訳をトリガー（全文を再翻訳する必要はありません）。<br />
+3. 手動での微調整をサポートし、ブロックキャッシュ（Block Cache）に書き込みます。</p>
+<hr />
+<h2 id="_5">🧭 関連記事</h2>
+<ul>
+<li>計算能力ノードの設定を理解する：<a href="../docs/compute-center-ai-translation-setup-guide.html">計算能力センターと AI 翻訳</a></li>
+<li>ガバナンスセンターのインターフェースを探索する：<a href="../docs/governance-dashboard-operation-guide.html">ガバナンスセンター操作ガイド</a></li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:i18n-guide.m](../../../../ael-iter-id: sync:i18n-guide.m.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../ja/docs/governance-dashboard-operation-guide.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 前の記事</span>
+            <span class="pagination-title">ガバナンスダッシュボード操作ガイド：機能と設定の完全解説</span>
+        </a>
+        
+        
+        <a href="../../ja/docs/matrix-channel-configuration.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">次の記事 »</span>
+            <span class="pagination-title">配信マトリクスとチャネル設定（The Matrix）</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

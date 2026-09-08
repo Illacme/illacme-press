@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略 | Illacme Press</title>
+    <meta name="description" content="段落レベルのシャドウキャッシュ（Block Cache Hub）の設計思想、物理ルーティングメカニズム、LRU ギャーベージコレクションアルゴリズムおよび Janitor GC による自動クリーンアップ戦略について解説します。">
+    <meta name="keywords" content="ブロックキャッシュハブ, Block Cache Hub, Illacme Plenipes, LRU ガーベージコレクション, 物理ルーティング, SHA-256 ハッシュ検証, Janitor GC 自動クリーンアップ, Adler32 署名防篡改">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/docs/engineering/block-cache-hub.html">
+    <meta property="og:title" content="ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略 | Illacme Press">
+    <meta property="og:description" content="段落レベルのシャドウキャッシュ（Block Cache Hub）の設計思想、物理ルーティングメカニズム、LRU ギャーベージコレクションアルゴリズムおよび Janitor GC による自動クリーンアップ戦略について解説します。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/docs/engineering/block-cache-hub.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../../ja/index.html" class="logo-group">
+                    <img src="../../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../../ja/docs/index.html" class="active">📚 ドキュメントガイド</a>
+                    <a href="../../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../../ja/showcase/index.html">🎨 コア機能</a>
+                    <a href="../../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../../docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../../en/docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../../ja/docs/engineering/engineering/block-cache-hub.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../../ja/docs/engineering/block-cache-hub.html" class="nav-link active">ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略</a></li></ul></li><li class="nav-item"><a href="../../../ja/docs/architecture.html" class="nav-link">物理隔離アーキテクチャと技術原理：Illacme Plenipes の主権モデル解説</a></li><li class="nav-item"><a href="../../../ja/docs/authoring-and-vault-guide.html" class="nav-link">原稿文庫の組織と執筆ガイド (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../../../ja/docs/brand-management.html" class="nav-link">ブランドインプリント：複数サイトとワークスペースの管理</a></li><li class="nav-item"><a href="../../../ja/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">よくある質問とトラブルシューティングマニュアル (FAQ)</a></li><li class="nav-item"><a href="../../../ja/docs/compute-center-ai-translation-setup-guide.html" class="nav-link">計算力センターと AI 翻訳設定ガイド</a></li><li class="nav-item"><a href="../../../ja/docs/governance-dashboard-operation-guide.html" class="nav-link">ガバナンスダッシュボード操作ガイド：機能と設定の完全解説</a></li><li class="nav-item"><a href="../../../ja/docs/i18n-guide.html" class="nav-link">多言語マトリックスとコンテンツガバナンスの実践</a></li><li class="nav-item"><a href="../../../ja/docs/matrix-channel-configuration.html" class="nav-link">配信マトリクスとチャネル設定（The Matrix）</a></li><li class="nav-item"><a href="../../../ja/docs/quick-start.html" class="nav-link">クリエイター向け 5 分間超高速スタートガイド</a></li><li class="nav-item"><a href="../../../ja/docs/themes-and-binding-visual-customization.html" class="nav-link">テーマとビジュアルカスタマイズ：Illacme Plenipes の SSG サポート</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../../ja/index.html" class="breadcrumb-item">ホーム</a><span class="breadcrumb-sep">/</span><a href="../../../ja/docs/index.html" class="breadcrumb-item">ドキュメント</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item">engineering</span><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-30</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分 (635 文字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Engineering</span><span class="tag-pill">#Cache</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#GC</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="block-cache-hub">🧱 ブロックキャッシュガバナンスハブ (Block Cache Hub)</h1>
+<p>本ガイドは、<strong>Illacme Plenipes</strong> のセグメントレベルシャドウキャッシュ（Block Cache Hub）の設計原理、物理ルーティングメカニズム、LRU ゴミ収集アルゴリズムおよび自動クリーンアップ（Janitor GC）戦略について詳述しています。</p>
+<hr />
+<h2 id="1-definition-physical-routing">🏗️ 1. 定義と物理ルーティング (Definition &amp; Physical Routing)</h2>
+<h3 id="block-cache-hub_1">Block Cache Hub とは何か？</h3>
+<p>多言語出版および AI セマンティック翻訳パイプラインにおいて、段落級シャドウキャッシュ（Block Cache Hub）は、原稿内の各物理段落（Block）のハッシュ値と、関連する訳文・メタデータのマッピングを維持します。原稿の微調整時には、全量を再計算するのではなく、変更が発生した段落のみに対してインクリメンタル翻訳をトリガーし、無駄な計算リソースを防ぎます。</p>
+<h3 id="_1">物理ルートの設計</h3>
+<p>セグメント影のキャッシュは、局所的な物理的隔離ストレージを採用しています：<br />
+- <strong>設定ファイルパス</strong>：キャッシュハブ戦略は <code>config.yaml</code> または <code>config.local.yaml</code> で定義されます。<br />
+- <strong>物理的永続化ライブラリ</strong>：現在のブランドマッピングに対して、セグメント影のキャッシュの永続化データは <code>imprints/{brand}/cache/block_cache.db</code> または <code>.cache/</code> ディレクトリに保存され、元原稿ライブラリとは完全に物理的に隔離されており、ライブラリの純粋性を確保します。</p>
+<hr />
+<h2 id="2-lru-lru-gc-validation">⚙️ 2. LRU ゴミ収集とキャッシュ有効性検証アルゴリズム (LRU GC &amp; Validation)</h2>
+<h3 id="lru">LRU ゴミ収集メカニズム</h3>
+<p>キャッシュハブは <strong>LRU (Least Recently Used)</strong> アルゴリズムに基づき、最も古くアクセスされていないキャッシュレコードを淘汰し、物理ストレージを安全な水位内に維持します。<br />
+- <strong>アクセス更新</strong>：文書の段落がキャッシュに命中するたびに、その LRU タイムスタンプを現在時刻に更新します。<br />
+- <strong>能動的解放</strong>：閾値を超えた場合、最も長くアクセスされていない段落翻訳を自動的に追放します。</p>
+<h3 id="block-validation-algorithm">段落有効性検証アルゴリズム (Block Validation Algorithm)</h3>
+<p>各キャッシュブロックは、ソースコードの段落内容から一意の SHA-256 ハッシュ値（Block Hash）を生成します。<br />
+検証フローは以下の通りです：<br />
+1. 文書を読み込む際、空行または物理マーカーに基づいて複数の段落に分割します。<br />
+2. 各段落ごとにハッシュ <code>sha256(content + block_context_salt)</code> を計算します。<br />
+3. キャッシュリポジトリ内の <code>block_hash</code> と比較します：<br />
+   - <strong>一致 (Hit)</strong>：既存の翻訳と段落属性を再利用し、LLM の再呼び出しは不要です。<br />
+   - <strong>不一致 (Miss)</strong>：ブロックを「汚染ブロック（Dirty Block）」としてマークし、翻訳待処理キューに投入するとともに、その位置にある既存のキャッシュを破棄します。</p>
+<hr />
+<h2 id="3-eviction-verification-rules">🔄 3. キャッシュ追放と段落検証契約 (Eviction &amp; Verification Rules)</h2>
+<h3 id="eviction-flow">キャッシュエビクションワークフロー（Eviction Flow）</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">[ドキュメント変更] ──&gt; [新しい段落ハッシュリストの計算] ──&gt; [キャッシュマッピングとの比較]</span>
+<span class="w">                                                </span><span class="na">│</span>
+<span class="w">                 </span><span class="na">┌──────────────────────────────┴──────────────────────────────┐</span>
+<span class="w">                 </span><span class="na">▼                                                             ▼</span>
+<span class="w">         </span><span class="k">[ハッシュ一致 (Hit)]                                               [ハッシュ不一致 (Miss)]</span>
+<span class="w">    </span><span class="na">キャッシュを再利用し、アクセスヒートタイムスタンプを更新                                   物理エビクションでキャッシュを無効化 ──&gt; AI 翻訳をトリガーして新しいキャッシュに書き込み</span>
+</code></pre></div>
+
+<h3 id="verification-rules">段落検証の三鉄律（Verification Rules）</h3>
+<ol>
+<li><strong>構造破壊なし</strong>：翻訳対象の段落における Markdown 記法（太字、リンク、リスト、コードブロック）は検証時に同等のマークアップ記号を含める必要があり、フォーマットの欠落は厳禁です。</li>
+<li><strong>文脈分離</strong>：ハッシュ計算時には、前導および後続段落の一部メタデータ（Block Context Salt）を組み合わせることで、異なる文脈において同一の内容が曖昧さから不整合な翻訳を生じることを防止します。</li>
+<li><strong>署名による改ざん防止</strong>：ローカル永続化データベース内のすべてのキャッシュレコードには Adler32 または SHA-256 データチェックサムが付与されており、読み込み時に署名が無効化された場合は物理損傷と判定され、自動的に自己修復が初期化されます。</li>
+</ol>
+<hr />
+<h2 id="4-janitor-gc">🧹 4. 自動クリーンアップ戦略と容量閾値 (Janitor GC ポリシー)</h2>
+<h3 id="janitor-gc">Janitor GC 自動クリーナー</h3>
+<p>システムに駐留する Janitor ガーディアンコルーチンは、定期的にキャッシュ容量と物理使用率の監査を実行します。</p>
+<h3 id="threshold-rules">容量と閾値ルール (Threshold Rules)</h3>
+<ul>
+<li><strong>物理ストレージの水位線</strong>：単一ブランドの Block Cache 物理ファイルの占有上限はデフォルトで <strong>128MB</strong> であり、80%（102.4MB）に達すると穏やかなクリーンアップがトリガーされます。</li>
+<li><strong>段落数の水位線</strong>：総段落記録数の上限はデフォルトで <strong>100,000 件</strong> です。この閾値を超えると、Janitor GC が起動し、LRU のヒートに基づいて末尾の 20% の期限切れシャドウキャッシュブロックに対して物理的な強制消去（Erase）を実行します。これにより、システムの軽量化と高応答性が確保されます。</li>
+<li><strong>有効期限 (TTL)</strong>：90 日以内に読み取られなかったり検証されなかったりする段落記録はすべて冷データ（Cold Cache）として判定され、GC サイクル中に自動的に空になります。</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:block-cache-](../../../../../../ael-iter-id: sync:block-cache-.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../../ja/docs/compute-center-ai-translation-setup-guide.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 前の記事</span>
+            <span class="pagination-title">計算力センターと AI 翻訳設定ガイド</span>
+        </a>
+        
+        
+        <a href="../../../ja/docs/governance-dashboard-operation-guide.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">次の記事 »</span>
+            <span class="pagination-title">ガバナンスダッシュボード操作ガイド：機能と設定の完全解説</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../../static/js/main.theme.js"></script>
+    <script src="../../../static/js/main.toc.js"></script>
+    <script src="../../../static/js/main.search.js"></script>
+    <script src="../../../static/js/main.code.js"></script>
+    <script src="../../../static/js/main.lightbox.js"></script>
+    <script src="../../../static/js/main.renderers.js"></script>
+    <script src="../../../static/js/main.js"></script>
+</body>
+
+</html>

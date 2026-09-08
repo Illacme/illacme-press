@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原稿文庫の組織と執筆ガイド (Authoring & Vault Guide) | Illacme Press</title>
+    <meta name="description" content="Obsidian、Logseq、Typora、または純テキスト文庫へのシームレスな統合をマスター。Frontmatter メタデータ、双方向リンク、メディアリファレンスの標準化手法を学ぶ。">
+    <meta name="keywords" content="原稿文庫, 執筆ガイド, Obsidian, Logseq, Typora, Markdown, 双方向リンク, Frontmatter">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/docs/authoring-and-vault-guide.html">
+    <meta property="og:title" content="原稿文庫の組織と執筆ガイド (Authoring & Vault Guide) | Illacme Press">
+    <meta property="og:description" content="Obsidian、Logseq、Typora、または純テキスト文庫へのシームレスな統合をマスター。Frontmatter メタデータ、双方向リンク、メディアリファレンスの標準化手法を学ぶ。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/docs/authoring-and-vault-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html" class="active">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../docs/authoring-and-vault-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/docs/authoring-and-vault-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/docs/authoring-and-vault-guide.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../ja/docs/engineering/block-cache-hub.html" class="nav-link">ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略</a></li></ul></li><li class="nav-item"><a href="../../ja/docs/architecture.html" class="nav-link">物理隔離アーキテクチャと技術原理：Illacme Plenipes の主権モデル解説</a></li><li class="nav-item"><a href="../../ja/docs/authoring-and-vault-guide.html" class="nav-link active">原稿文庫の組織と執筆ガイド (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../../ja/docs/brand-management.html" class="nav-link">ブランドインプリント：複数サイトとワークスペースの管理</a></li><li class="nav-item"><a href="../../ja/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">よくある質問とトラブルシューティングマニュアル (FAQ)</a></li><li class="nav-item"><a href="../../ja/docs/compute-center-ai-translation-setup-guide.html" class="nav-link">計算力センターと AI 翻訳設定ガイド</a></li><li class="nav-item"><a href="../../ja/docs/governance-dashboard-operation-guide.html" class="nav-link">ガバナンスダッシュボード操作ガイド：機能と設定の完全解説</a></li><li class="nav-item"><a href="../../ja/docs/i18n-guide.html" class="nav-link">多言語マトリックスとコンテンツガバナンスの実践</a></li><li class="nav-item"><a href="../../ja/docs/matrix-channel-configuration.html" class="nav-link">配信マトリクスとチャネル設定（The Matrix）</a></li><li class="nav-item"><a href="../../ja/docs/quick-start.html" class="nav-link">クリエイター向け 5 分間超高速スタートガイド</a></li><li class="nav-item"><a href="../../ja/docs/themes-and-binding-visual-customization.html" class="nav-link">テーマとビジュアルカスタマイズ：Illacme Plenipes の SSG サポート</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../ja/index.html" class="breadcrumb-item">ホーム</a><span class="breadcrumb-sep">/</span><a href="../../ja/docs/index.html" class="breadcrumb-item">ドキュメント</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">原稿文庫の組織と執筆ガイド (Authoring & Vault Guide)</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Editorial Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-17</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分 (571 文字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Vault</span><span class="tag-pill">#Authoring</span><span class="tag-pill">#Markdown</span><span class="tag-pill">#Obsidian</span><span class="tag-pill">#Frontmatter</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">✍️ 原稿ライブラリの組織と執筆ガイドライン</h1>
+<p><strong>Illacme Plenipes</strong> は「原稿こそが主権」という原則を堅持します。システムは物理フォルダーを唯一の真実（Single Source of Truth）として扱い、既存の執筆習慣やノートアプリを放棄することなく、工業レベルの出版体験をお楽しみいただけます。</p>
+<hr />
+<h2 id="1">📂 1. 文庫ディレクトリ構造のベストプラクティス</h2>
+<p>システムが推奨する典型的なライブラリ構造は以下の通りです（例：<code>./vault</code>）。</p>
+<div class="codehilite"><pre><span></span><code>vault/
+├── index.md
+
+# サイトのホーム（またはウェルカムページ）
+
+├── about.md
+
+# ブランド／個人の概要ページ
+
+├── Docs/
+
+# 技術ドキュメント／チュートリアル／ナレッジベース
+
+│   ├── index.md
+
+# ドキュメントセンターのインデックス
+
+│   ├── quick-start.md
+
+# クイックスタート
+
+│   └── ...
+├── Blog/
+
+# ブログ記事／随想／ニュース
+
+│   ├── my-first-post.md
+│   └── ...
+├── Showcase/
+
+# 成果展示ホール／ポートフォリオ
+
+│   └── index.md
+└── assets/
+
+# ローカル画像／添付リソース
+
+    └── cover.png
+</code></pre></div>
+
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>目次はチャンネル</strong>：ガバナンスセンター内の【配信ルートと URL パス】（<code>route_matrix</code>）を通じて、任意のローカルフォルダをオンライン URL パスに自由にマッピングできます（例：<code>Docs/</code> を <code>/docs/</code> に、<code>Blog/</code> を <code>/blog/</code> に）。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="2-frontmatter">🏷️ 2. Frontmatter メタデータ規格</h2>
+<p>各 Markdown ノートの上部には、記事のタイトル、著者、日付、カテゴリ、SEO 情報を細かく制御するために標準 YAML Frontmatter を添付することを推奨します：</p>
+<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">我的技术深度解析</span><span class="w">                 </span><span class="c1"># [必填] 文章标题</span>
+<span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-08-16</span><span class="w">                    </span><span class="c1"># [推荐] 发布日期 (YYYY-MM-DD)</span>
+<span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">极客创作者</span><span class="w">                   </span><span class="c1"># [可选] 作者署名（留空则继承全域默认作者）</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">一句话概述本文核心内容</span><span class="w">   </span><span class="c1"># [推荐] 供 SEO 与卡片预览使用的摘要</span>
+<span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Architecture</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">AI</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Python</span><span class="p p-Indicator">]</span><span class="w">    </span><span class="c1"># [可选] 标签列表，自动生成聚合标签页</span>
+<span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Tech</span><span class="p p-Indicator">]</span><span class="w">                  </span><span class="c1"># [可选] 分类列表</span>
+<span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deep-dive-tech</span><span class="w">                </span><span class="c1"># [可选] 自定义线上 URL 后缀（留空自动生成）</span>
+<span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">                        </span><span class="c1"># [可选] 设为 true 则仅在本地保存，不执行线上分发</span>
+<span class="nn">---</span>
+</code></pre></div>
+
+<hr />
+<h2 id="3">🔗 3. リンクとメディア資産の参照</h2>
+<h3 id="31-wikilinks">3.1 双方向リンク（WikiLinks）</h3>
+<p>システムは Obsidian スタイルの双方向リンクを完全に互換性があります：<br />
+- <strong>標準リンク</strong>：<code>[quick-start](../docs/quick-start.html)</code> &rarr; 自動的に解析され、対応するオンライン HTML の <code>quick-start.md</code> にリンクされます。<br />
+- <strong>カスタムエイリアス</strong>：<code>[⚡ 5 分間でのスタート](../docs/quick-start.html)</code> &rarr; 表示エイリアスが設定されたハイパーリンクとしてレンダリングされます。</p>
+<h3 id="32">3.2 画像と添付ファイルリソース</h3>
+<ul>
+<li><strong>相対パス参照</strong>：<code>![記事表紙](./assets/cover.png)</code></li>
+<li><strong>絶対/全域パス</strong>：<code>![ロゴ](/static/logo.png)</code></li>
+<li><strong>自動 Alt テキストと WebP 圧縮</strong>：エンジン内蔵の画像処理パイプラインにより、大画像を自動的に無損で現代的な WebP 形式に変換し、Alt が欠落している場合は AI が文脈に基づいて多言語のアクセシビリティ対応説明を自動生成します。</li>
+</ul>
+<hr />
+<h2 id="4-dialect-sensing">⚙️ 4. 改行モードと方言適応（Dialect Sensing）</h2>
+<p>ガバナンスセンターの【基本設定と運用】&rarr;【ストレージ適応】から、執筆ソフトウェアの好みに合わせて選択できます：</p>
+<ol>
+<li><strong>📄 標準モード（CommonMark）</strong>：単一の改行符はスペースストリームとして保持され、連続した 2 つの改行（空行）で段落が区切られます。標準的な Markdown 構文に慣れた技術者向けです。</li>
+<li><strong>✍️ 直感モード（GFM ハード改行）</strong>：Enter キーを 1 回押すだけで即座に改行されます（所见即所得）。日常のノート作成や、Typora / WeChat のレイアウトに慣れたユーザー向けです。</li>
+</ol>
+<hr />
+<h2 id="5-obsidian-logseq">🔄 5. 既存の文庫への接続方法（Obsidian / Logseq）</h2>
+<p>すでに体系的な Obsidian 知識ベースをお持ちの場合：<br />
+1. ガバナンスセンターの【版図装幀とモード】&rarr;【版図管理】を開く；<br />
+2. 「➕ 新しい出版版図」をクリックする；<br />
+3. <strong>原稿文庫パス (<code>vault_root</code>)</strong> を、物理的なノートディレクトリの絶対パス（例：<code>/Users/username/Documents/ObsidianVault</code>）に設定する；<br />
+4. 装幀テーマと配信チャネルを選択し、保存ボタンをクリックすると、専用デジタル出版社が瞬時に起動します！</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:authoring-an](../../../../ael-iter-id: sync:authoring-an.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../ja/docs/architecture.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 前の記事</span>
+            <span class="pagination-title">物理隔離アーキテクチャと技術原理：Illacme Plenipes の主権モデル解説</span>
+        </a>
+        
+        
+        <a href="../../ja/docs/brand-management.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">次の記事 »</span>
+            <span class="pagination-title">ブランドインプリント：複数サイトとワークスペースの管理</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

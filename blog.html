@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✍️ 博文存档与前沿洞察 | Illacme Press</title>
+    <meta name="description" content="探索技术洞察、出版手记与前沿数字工程。从段落级缓存架构到 AI 原生出版哲学。">
+    <meta name="keywords" content="">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/blog/index.html">
+    <meta property="og:title" content="✍️ 博文存档与前沿洞察 | Illacme Press">
+    <meta property="og:description" content="探索技术洞察、出版手记与前沿数字工程。从段落级缓存架构到 AI 原生出版哲学。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/blog/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html">📚 文档指南</a>
+                    <a href="../blog/index.html" class="active">📰 演示博客</a>
+                    <a href="../showcase/index.html">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../blog/index.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/blog/index.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/blog/index.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-blog">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        
+        <div id="blog-app">
+            <section class="blog-hero-section">
+                <h1 class="list-hero-title">✍️ 博文存档与前沿洞察</h1>
+                <p class="list-hero-desc">探索技术洞察、出版手记与前沿数字工程。从段落级缓存架构到 AI 原生出版哲学。</p>
+                <div class="blog-toolbar">
+                    <div class="blog-tag-scroller">
+                        <button class="blog-tag-filter active" data-tag="all">全部 (4)</button>
+<button class="blog-tag-filter" data-tag="Blog">Blog</button>
+<button class="blog-tag-filter" data-tag="Cache">Cache</button>
+<button class="blog-tag-filter" data-tag="Engineering">Engineering</button>
+<button class="blog-tag-filter" data-tag="Features">Features</button>
+<button class="blog-tag-filter" data-tag="FirstPost">FirstPost</button>
+<button class="blog-tag-filter" data-tag="Future">Future</button>
+<button class="blog-tag-filter" data-tag="LLM">LLM</button>
+<button class="blog-tag-filter" data-tag="Markdown">Markdown</button>
+<button class="blog-tag-filter" data-tag="Performance">Performance</button>
+<button class="blog-tag-filter" data-tag="Philosophy">Philosophy</button>
+<button class="blog-tag-filter" data-tag="Publishing">Publishing</button>
+<button class="blog-tag-filter" data-tag="Showcase">Showcase</button>
+<button class="blog-tag-filter" data-tag="Sovereign">Sovereign</button>
+<button class="blog-tag-filter" data-tag="Story">Story</button>
+<button class="blog-tag-filter" data-tag="Syntax">Syntax</button>
+<button class="blog-tag-filter" data-tag="Web3">Web3</button>
+                    </div>
+                    <div class="blog-view-switcher">
+                        <button class="view-switch-btn active" data-view="timeline">
+                            <span class="view-btn-icon">🕒</span> <span>时间轴</span>
+                        </button>
+                        <button class="view-switch-btn" data-view="grid">
+                            <span class="view-btn-icon">🎛️</span> <span>卡片</span>
+                            <span class="view-btn-badge">4</span>
+                        </button>
+                        <button class="view-switch-btn" data-view="compact">
+                            <span class="view-btn-icon">📑</span> <span>列表</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+        <div class="blog-timeline-view active" id="view-timeline">
+            <div class="timeline-tree">
+                
+            <div class="timeline-item" data-tags="Engineering,Cache,Performance,LLM">
+                <div class="timeline-node"></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">📅 2026-08-20</span>
+                        <div class="timeline-tags"><span class="timeline-tag">Engineering</span><span class="timeline-tag">Cache</span><span class="timeline-tag">Performance</span><span class="timeline-tag">LLM</span></div>
+                    </div>
+                    <a href="./block-cache-deep-dive.html" class="timeline-title">段落级影子缓存与零 Token 浪费架构深度解析</a>
+                    <p class="timeline-desc">揭秘 Illacme Plenipes 如何通过哈希切片与 LRU 淘汰机制实现 90%+ 的翻译算力成本节约。</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-tags="Blog,Story,FirstPost,Sovereign">
+                <div class="timeline-node"></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">📅 2026-08-20</span>
+                        <div class="timeline-tags"><span class="timeline-tag">Blog</span><span class="timeline-tag">Story</span><span class="timeline-tag">FirstPost</span><span class="timeline-tag">Sovereign</span></div>
+                    </div>
+                    <a href="./my-first-sovereign-publishing-blog-inspiration-global-resonance.html" class="timeline-title">我的第一篇主权出版博文：从灵感到全球共振</a>
+                    <p class="timeline-desc">记录使用 Illacme Plenipes 开启全球数字出版的第一步，体验自动化翻译、SEO 提取与全渠道分发的魅力。</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-tags="Markdown,Showcase,Syntax,Features">
+                <div class="timeline-node"></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">📅 2026-08-20</span>
+                        <div class="timeline-tags"><span class="timeline-tag">Markdown</span><span class="timeline-tag">Showcase</span><span class="timeline-tag">Syntax</span><span class="timeline-tag">Features</span></div>
+                    </div>
+                    <a href="./markdown-syntax-rendering-features-comprehensive-demo.html" class="timeline-title">Markdown 语法与渲染特性全能展示</a>
+                    <p class="timeline-desc">全面展示 Illacme Plenipes 支持的全部 Markdown 语法特性，包含 Obsidian Callouts、双链、表格、代码高亮与公式。</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-tags="Philosophy,Web3,Publishing,Future">
+                <div class="timeline-node"></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta">
+                        <span class="timeline-date">📅 2026-08-20</span>
+                        <div class="timeline-tags"><span class="timeline-tag">Philosophy</span><span class="timeline-tag">Web3</span><span class="timeline-tag">Publishing</span><span class="timeline-tag">Future</span></div>
+                    </div>
+                    <a href="./future-of-publishing.html" class="timeline-title">AI 原生全球私人出版社的技术哲学与演进</a>
+                    <p class="timeline-desc">探讨从传统中心化媒体平台向个人主权出版操作系统的范式演进之路。</p>
+                </div>
+            </div>
+            </div>
+        </div>
+            <div class="blog-grid-view blog-grid" id="view-grid">
+            <a href="./block-cache-deep-dive.html" class="card-pioneer blog-card" data-tags="Engineering,Cache,Performance,LLM">
+                <div class="card-meta-top">
+                    <span class="card-tag">Engineering</span>
+                    <span class="card-date">📅 2026-08-20</span>
+                </div>
+                <h3>段落级影子缓存与零 Token 浪费架构深度解析</h3>
+                <p class="blog-excerpt">揭秘 Illacme Plenipes 如何通过哈希切片与 LRU 淘汰机制实现 90%+ 的翻译算力成本节约。</p>
+                <div class="card-footer">
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="./my-first-sovereign-publishing-blog-inspiration-global-resonance.html" class="card-pioneer blog-card" data-tags="Blog,Story,FirstPost,Sovereign">
+                <div class="card-meta-top">
+                    <span class="card-tag">Blog</span>
+                    <span class="card-date">📅 2026-08-20</span>
+                </div>
+                <h3>我的第一篇主权出版博文：从灵感到全球共振</h3>
+                <p class="blog-excerpt">记录使用 Illacme Plenipes 开启全球数字出版的第一步，体验自动化翻译、SEO 提取与全渠道分发的魅力。</p>
+                <div class="card-footer">
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="./markdown-syntax-rendering-features-comprehensive-demo.html" class="card-pioneer blog-card" data-tags="Markdown,Showcase,Syntax,Features">
+                <div class="card-meta-top">
+                    <span class="card-tag">Markdown</span>
+                    <span class="card-date">📅 2026-08-20</span>
+                </div>
+                <h3>Markdown 语法与渲染特性全能展示</h3>
+                <p class="blog-excerpt">全面展示 Illacme Plenipes 支持的全部 Markdown 语法特性，包含 Obsidian Callouts、双链、表格、代码高亮与公式。</p>
+                <div class="card-footer">
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="./future-of-publishing.html" class="card-pioneer blog-card" data-tags="Philosophy,Web3,Publishing,Future">
+                <div class="card-meta-top">
+                    <span class="card-tag">Philosophy</span>
+                    <span class="card-date">📅 2026-08-20</span>
+                </div>
+                <h3>AI 原生全球私人出版社的技术哲学与演进</h3>
+                <p class="blog-excerpt">探讨从传统中心化媒体平台向个人主权出版操作系统的范式演进之路。</p>
+                <div class="card-footer">
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a></div>
+            
+        <div class="blog-compact-view" id="view-compact">
+            <div class="compact-table">
+                
+            <a href="./block-cache-deep-dive.html" class="compact-row" data-tags="Engineering,Cache,Performance,LLM">
+                <span class="compact-tags"><span class="tag-pill">Engineering</span></span>
+                <span class="compact-title">段落级影子缓存与零 Token 浪费架构深度解析</span>
+                <span class="compact-date">2026-08-20</span>
+            </a>
+            <a href="./my-first-sovereign-publishing-blog-inspiration-global-resonance.html" class="compact-row" data-tags="Blog,Story,FirstPost,Sovereign">
+                <span class="compact-tags"><span class="tag-pill">Blog</span></span>
+                <span class="compact-title">我的第一篇主权出版博文：从灵感到全球共振</span>
+                <span class="compact-date">2026-08-20</span>
+            </a>
+            <a href="./markdown-syntax-rendering-features-comprehensive-demo.html" class="compact-row" data-tags="Markdown,Showcase,Syntax,Features">
+                <span class="compact-tags"><span class="tag-pill">Markdown</span></span>
+                <span class="compact-title">Markdown 语法与渲染特性全能展示</span>
+                <span class="compact-date">2026-08-20</span>
+            </a>
+            <a href="./future-of-publishing.html" class="compact-row" data-tags="Philosophy,Web3,Publishing,Future">
+                <span class="compact-tags"><span class="tag-pill">Philosophy</span></span>
+                <span class="compact-title">AI 原生全球私人出版社的技术哲学与演进</span>
+                <span class="compact-date">2026-08-20</span>
+            </a>
+            </div>
+        </div>
+        </div>
+        
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

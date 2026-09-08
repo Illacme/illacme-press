@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌版图 (Imprint) 多站点与工作区管理 | Illacme Press</title>
+    <meta name="description" content="掌握如何构建多个相互物理隔离的独立出版版图，为不同写作领域定制专属主题、算力与分发矩阵。">
+    <meta name="keywords" content="Illacme Plenipes, 品牌版图, Imprint, 多站点管理, 物理隔离, 多文库, 多渠道分发, 原稿管理, 主题定制, 治理中心">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/docs/brand-management.html">
+    <meta property="og:title" content="品牌版图 (Imprint) 多站点与工作区管理 | Illacme Press">
+    <meta property="og:description" content="掌握如何构建多个相互物理隔离的独立出版版图，为不同写作领域定制专属主题、算力与分发矩阵。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/docs/brand-management.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html" class="active">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../docs/brand-management.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/docs/brand-management.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/docs/brand-management.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../docs/engineering/block-cache-hub.html" class="nav-link">段落缓存治理中枢 (Block Cache Hub)</a></li></ul></li><li class="nav-item"><a href="../docs/architecture.html" class="nav-link">物理隔离架构与技术原理</a></li><li class="nav-item"><a href="../docs/authoring-and-vault-guide.html" class="nav-link">原稿文库组织与写作指引 (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../docs/brand-management.html" class="nav-link active">品牌版图 (Imprint) 多站点与工作区管理</a></li><li class="nav-item"><a href="../docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">常见问题与排错手册 (FAQ)</a></li><li class="nav-item"><a href="../docs/compute-center-ai-translation-setup-guide.html" class="nav-link">算力中心与 AI 翻译配置指南</a></li><li class="nav-item"><a href="../docs/governance-dashboard-operation-guide.html" class="nav-link">治理中心 (Governance Dashboard) 操作指南</a></li><li class="nav-item"><a href="../docs/i18n-guide.html" class="nav-link">多语言矩阵与内容治理实战</a></li><li class="nav-item"><a href="../docs/matrix-channel-configuration.html" class="nav-link">发行矩阵与渠道配置 (The Matrix)</a></li><li class="nav-item"><a href="../docs/quick-start.html" class="nav-link">创作者 5 分钟极速上手指南</a></li><li class="nav-item"><a href="../docs/themes-and-binding-visual-customization.html" class="nav-link">装帧主题与视觉定制 (Themes & Binding)</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../index.html" class="breadcrumb-item">首页</a><span class="breadcrumb-sep">/</span><a href="../docs/index.html" class="breadcrumb-item">文档</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">品牌版图 (Imprint) 多站点与工作区管理</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Editorial Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-17</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分钟 (629 字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Imprint</span><span class="tag-pill">#MultiSite</span><span class="tag-pill">#Workspace</span><span class="tag-pill">#Governance</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="imprint">🏷️ 品牌版图 (Imprint) 多站点与工作区管理</h1>
+<p>在 <strong>Illacme Plenipes</strong> 中，每一个出版项目都是一个独立的<strong>“品牌版图 (Imprint)”</strong>。本指南将带您深入了解如何利用多品牌架构实现多站点、多文库与多渠道的绝对物理隔离管理。</p>
+<hr />
+<h2 id="1-imprint">🏛️ 1. 什么是“品牌版图 (Imprint)”？</h2>
+<p>当一位创作者同时经营多个领域的内容时（例如：个人技术博客、学术研究专栏、企业产品文档、生活旅行随笔），传统的发布工具往往需要部署多套独立程序或在同一数据库中混杂混乱。</p>
+<p><strong>Illacme Plenipes 的多版图架构</strong>：<br />
+- <strong>物理隔离存储</strong>：每个品牌拥有专属目录 <code>imprints/{brand}/</code>，独立存储配置（<code>config.imprint.yaml</code>）、历史账本（<code>usage_ledger.json</code>）与同步状态。<br />
+- <strong>独立原稿文库</strong>：品牌 A 可以绑定 <code>/Vaults/TechDocs</code>，品牌 B 可以绑定 <code>/Vaults/DailyLife</code>。<br />
+- <strong>独立装帧主题</strong>：技术站点可选用 <code>Docusaurus</code> 或 <code>Starlight</code>，个人博客选用 <code>Sovereign</code> 赛博风。<br />
+- <strong>独立分发矩阵</strong>：技术文章同步至 GitHub Pages 与 Dev.to，随笔文章同步至微信公众号与 Substack。</p>
+<hr />
+<h2 id="2">🚀 2. 如何新建与切换品牌</h2>
+<h3 id="_1">方式一：在治理中心中可视化操作</h3>
+<ol>
+<li>打开浏览器进入治理中心：<code>http://127.0.0.1:43212/dashboard/</code></li>
+<li>导航至【版图装帧与模式】&rarr;【版图管理 (imprints)】</li>
+<li>点击「➕ 新建出版版图」按钮，输入品牌代号（如 <code>tech_weekly</code>）与展示名称</li>
+<li>配置该品牌的文库路径、主题风格与分发凭据</li>
+<li>点击「激活并切换」，系统将毫秒级热切换当前工作空间！</li>
+</ol>
+<h3 id="_2">方式二：命令行极速操作</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 1. 唤醒指挥中心</span>
+python3<span class="w"> </span>plenipes.py
+
+<span class="c1"># 2. 在交互菜单中选择 [1] 切换出版版图，或使用参数指定启动：</span>
+python3<span class="w"> </span>plenipes.py<span class="w"> </span>--imprint<span class="w"> </span>tech_weekly<span class="w"> </span>--sync
+</code></pre></div>
+
+<hr />
+<h2 id="3-default-imprint">🛡️ 3. 默认品牌 (Default Imprint) 的特殊定位</h2>
+<ul>
+<li><strong>开箱即用展示橱窗</strong>：系统自带的 <code>imprints/default</code> 是官方提供的标准模板。</li>
+<li><strong>全功能体验特权</strong>：当处于 <code>default</code> 品牌且激活 <code>Sovereign</code> 主题时，系统默认解锁全量高级专业版特性。</li>
+<li><strong>推荐实践</strong>：建议您保留 <code>default</code> 作为系统功能试验场，并通过新建专属品牌来承载您的生产级实际文库。</li>
+</ul>
+<hr />
+<h2 id="4">🧭 4. 相关阅读</h2>
+<ul>
+<li>开始起草原稿：<a href="./authoring-and-vault-guide.html">原稿文库组织与写作指引</a></li>
+<li>装帧风格切换：<a href="./themes-and-binding-visual-customization.html">装帧主题与视觉定制</a></li>
+<li>全网分发配置：<a href="./matrix-channel-configuration.html">发行矩阵与渠道配置</a></li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:brand-manage](../../ael-iter-id: sync:brand-manage.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../docs/authoring-and-vault-guide.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 上一篇</span>
+            <span class="pagination-title">原稿文库组织与写作指引 (Authoring & Vault Guide)</span>
+        </a>
+        
+        
+        <a href="../docs/common-issues-and-troubleshooting-manual-faq.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">下一篇 »</span>
+            <span class="pagination-title">常见问题与排错手册 (FAQ)</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

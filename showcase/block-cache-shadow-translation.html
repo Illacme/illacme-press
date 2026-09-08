@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>段落级影子缓存与双语审校中枢 | Illacme Press</title>
+    <meta name="description" content="探索 Illacme Plenipes 独创的 AST 语法树段落切片指纹与影子缓存体系，修改单句仅需毫秒级局部重译，节省 90%+ 算力与 Token。">
+    <meta name="keywords" content="AI 翻译，影子缓存，双语审校，AST 抽象语法树，Token 节省，增量编译，段落指纹分片，局部重译，工业级架构">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/showcase/block-cache-shadow-translation.html">
+    <meta property="og:title" content="段落级影子缓存与双语审校中枢 | Illacme Press">
+    <meta property="og:description" content="探索 Illacme Plenipes 独创的 AST 语法树段落切片指纹与影子缓存体系，修改单句仅需毫秒级局部重译，节省 90%+ 算力与 Token。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/showcase/block-cache-shadow-translation.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html" class="active">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../showcase/block-cache-shadow-translation.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/showcase/block-cache-shadow-translation.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/showcase/block-cache-shadow-translation.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">🧱 段落级影子缓存与双语审校中枢</h1>
+
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>微粒度局部重译，彻底告别全篇浪费</strong>：传统 AI 翻译工具每当创作者修改一处标点或错别字，就必须将整篇数万字的长文重新送入大模型，不仅消耗巨额 Token，还破坏了既有审校成果。Illacme Plenipes 独创了 AST 段落指纹分片技术，实现文章粒度向段落粒度的革命性降维。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<hr />
+<h2 id="_2">⚡ 核心优势与性能指标</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">💰 算力与 Token 节省</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: #00ff88;">90% ~ 98%</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">⏱️ 增量编译响应速度</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: var(--accent-color);">< 100 ms</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🔒 审校成果保护</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: #ffb300;">段落级物理锁死</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧠 跨模型上下文复用</div>
+        <div style="font-size: 1.3rem; font-weight: 800; color: #00f2fe;">影子映射对齐</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="_3">🛠️ 工业级实现原理与架构</h2>
+<h3 id="1-ast">1. 🌲 AST 抽象语法树切块与哈希指纹</h3>
+<p>系统在解析 Markdown 原稿时，通过专门的 AST 词法分析器，将全文解构为若干原子块（Block Units）：<br />
+* <strong>段落块 (Paragraph)</strong>：提取纯文本语义并计算 SHA-256 哈希指纹；<br />
+* <strong>标题块 (Headings)</strong>：保留层级与锚点关系；<br />
+* <strong>代码与表格块 (Code/Tables)</strong>：自动进行代码隔离保护，防止翻译污染代码语法；<br />
+* <strong>Callout 提示块与列表</strong>：结构化独立指纹。</p>
+<h3 id="2-shadow-cache">2. 👥 影子缓存 (Shadow Cache) 自动组装</h3>
+<p>当检测到某一段落发生变更时：<br />
+1. <strong>未变动段落</strong>：0 毫秒直接从本地 SQLite 账本提取已审校译文；<br />
+2. <strong>变动段落</strong>：仅将该段落及其紧邻的前后上下文（Window Context）打包送入 AI 算力集群；<br />
+3. <strong>自动缝合</strong>：将新生成的段落译文与既有缓存无缝缝合为完整的双语多语言文档。</p>
+<h3 id="3-review-hub">3. 📖 可视化双语分句审校面板 (Review Hub)</h3>
+<p>在治理中心提供专门的 <strong>翻译审校中枢</strong>：<br />
+* 左右分栏并排对照原文与 50 种目标语言的段落译文；<br />
+* 创作者可直接对任意不满意的段落点击就地修正；<br />
+* 支持点击 <strong>「🔒 锁定段落」</strong>，被锁定的段落未来无论全文如何触发重新构建，均永久保留创作者的手工审校成果。</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:block-cache-](../../ael-iter-id: sync:block-cache-.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

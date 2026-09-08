@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator's 5-Minute Quick Start Guide | Illacme Press</title>
+    <meta name="description" content="Complete workflow in minutes: wake up local environment, explore Governance Center, draft manuscripts, and publish globally. Includes AI SEO & multi-language tr">
+    <meta name="keywords" content="Illacme Plenipes, Creator Guide, Publishing Command Center, Governance Center, Local Library, Markdown, One-Click Publish, AI SEO">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/en/docs/quick-start.html">
+    <meta property="og:title" content="Creator's 5-Minute Quick Start Guide | Illacme Press">
+    <meta property="og:description" content="Complete workflow in minutes: wake up local environment, explore Governance Center, draft manuscripts, and publish globally. Includes AI SEO & multi-language tr">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/en/docs/quick-start.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../en/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../en/docs/index.html" class="active">📚 Document Guide</a>
+                    <a href="../../en/blog/index.html">📰 Demo Blog</a>
+                    <a href="../../en/showcase/index.html">🎨 Core Features</a>
+                    <a href="../../en/about.html">✨ About Us</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub Repo</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="Search assets...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇬🇧 English</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../docs/quick-start.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/docs/quick-start.html" class="lang-menu-item active">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../../ja/docs/quick-start.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../../en/docs/engineering/block-cache-hub.html" class="nav-link">Block Cache Hub: Paragraph-Level Shadow Cache Governance</a></li></ul></li><li class="nav-item"><a href="../../en/docs/architecture.html" class="nav-link">Physical Isolation Architecture & Technical Principles of Il</a></li><li class="nav-item"><a href="../../en/docs/authoring-and-vault-guide.html" class="nav-link">Authoring & Vault Guide: Master Obsidian, Logseq, Typora & T</a></li><li class="nav-item"><a href="../../en/docs/brand-management.html" class="nav-link">Brand Imprint: Multi-Site & Workspace Management</a></li><li class="nav-item"><a href="../../en/docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">Common Issues & Troubleshooting Guide (FAQ)</a></li><li class="nav-item"><a href="../../en/docs/compute-center-ai-translation-setup-guide.html" class="nav-link">Compute Center & AI Translation Setup Guide</a></li><li class="nav-item"><a href="../../en/docs/governance-dashboard-operation-guide.html" class="nav-link">Governance Dashboard (治理中心) Operation Guide</a></li><li class="nav-item"><a href="../../en/docs/i18n-guide.html" class="nav-link">Multilingual Matrix & Content Governance in Practice</a></li><li class="nav-item"><a href="../../en/docs/matrix-channel-configuration.html" class="nav-link">Distribution Matrix & Channel Setup (The Matrix)</a></li><li class="nav-item"><a href="../../en/docs/quick-start.html" class="nav-link active">Creator's 5-Minute Quick Start Guide</a></li><li class="nav-item"><a href="../../en/docs/themes-and-binding-visual-customization.html" class="nav-link">Themes & Binding: Explore Illacme Plenipes SSG Frameworks</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../en/index.html" class="breadcrumb-item">Home</a><span class="breadcrumb-sep">/</span><a href="../../en/docs/index.html" class="breadcrumb-item">Docs</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">Creator's 5-Minute Quick Start Guide</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Onboarding Group</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-17</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 min read (462 words)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#QuickStart</span><span class="tag-pill">#Tutorial</span><span class="tag-pill">#Onboarding</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="creators-5-minute-quick-start-guide">⚡ Creator's 5-Minute Quick Start Guide</h1>
+<p>Welcome to <strong>Illacme Plenipes</strong>! Follow these five simple steps to experience the end-to-end workflow from creation to global publication in just a few minutes.</p>
+<hr />
+<h2 id="step-1-launch-the-publishing-command-center">🛠️ Step 1: Launch the Publishing Command Center</h2>
+<p>Run the following command in your terminal to wake up the system:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 启动出版指挥中心与治理面板</span>
+python3<span class="w"> </span>plenipes.py
+</code></pre></div>
+
+<p>The terminal will print an elegant ASCII publishing badge and automatically start the Web API control gateway (port <code>43212</code>) and the Governance Center.</p>
+<hr />
+<h2 id="step-2-enter-the-governance-dashboard-governance-center">🎛️ Step 2: Enter the Governance Dashboard (Governance Center)</h2>
+<p>Open your browser and visit:<br />
+👉 <code>http://127.0.0.1:43212/dashboard/</code></p>
+<p>Within the Governance Center, you can intuitively experience:<br />
+1. <strong>Basic Configuration &amp; Operations</strong>: View brand identity, storage adaptation, and compute cache clearing hub.<br />
+2. <strong>Layout Binding &amp; Modes</strong>: Switch brands, configure themes, and set publishing modes (Basic / Enhanced / Global).<br />
+3. <strong>Language Translation &amp; Governance</strong>: Configure multi-language matrix, block-level filtering rules, and terminology glossaries.<br />
+4. <strong>Distribution Routing &amp; URL Paths</strong>: Configure folder-to-URL path mapping matrices.</p>
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title">The default brand (Illacme Press) has all Advanced Professional Edition features unlocked by default; you are free to try every configuration option!</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="step-3-draft-manuscripts-in-the-local-vault">✍️ Step 3: Draft Manuscripts in the Local Vault</h2>
+<p>Your manuscripts are securely stored in the <code>./vault</code> folder. You can use your preferred Markdown editor (such as Obsidian):</p>
+<ul>
+<li>Create a new file named <code>my-note.md</code> under <code>./vault/Blog/</code></li>
+<li>Fill in standard Markdown headings and body text</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>---
+title: 我的第一篇主权笔记
+date: 2026-08-16
+<span class="gu">tags: [HelloWorld, Note]</span>
+<span class="gu">---</span>
+
+<span class="gh"># 🚀 记录我的最新思考</span>
+
+这是我在 Illacme Plenipes 中撰写的第一篇原稿！
+</code></pre></div>
+
+<hr />
+<h2 id="step-4-one-click-global-publishing-and-translation">🚀 Step 4: One-Click Global Publishing and Translation</h2>
+<p>Trigger publishing via either of the following methods:<br />
+1. <strong>GUI</strong>: Click the <strong>🚀 Publish Globally</strong> button in the top-right corner of the Governance Center.<br />
+2. <strong>CLI</strong>: Run <code>python3 plenipes.py --sync</code> to execute a single full synchronization.</p>
+<p>The system will automatically perform:<br />
+- Incremental paragraph slicing and hash computation (zero token consumption for unmodified sections)<br />
+- Multi-language polishing and translation at the compute center<br />
+- AI SEO structured metadata extraction<br />
+- Static site HTML artifact rendering</p>
+<hr />
+<h2 id="step-5-preview-published-output-locally">🌐 Step 5: Preview Published Output Locally</h2>
+<p>After synchronization completes, access the local preview service:<br />
+👉 <code>http://127.0.0.1:43213/</code></p>
+<p>You will see a modernized site elegantly bound with the <strong>Sovereign</strong> cyber theme, featuring bilingual Chinese-English switching, dynamic directory, instant search, and responsive layout!</p>
+<hr />
+<h2 id="advanced-exploration-recommendations">🧭 Advanced Exploration Recommendations</h2>
+<ul>
+<li>Learn Vault Management and Frontmatter Standards: <a href="../docs/authoring-and-vault-guide.html">✍️ Authoring &amp; Vault Guide</a></li>
+<li>Build Your Independent Publishing Brand: <a href="../docs/brand-management.html">🏷️ Multi-Site Brand Portfolio Management</a></li>
+<li>Explore the Governance Center Overview: <a href="../docs/governance-dashboard-operation-guide.html">🎛️ Governance Center Operations Guide</a></li>
+<li>Configure Your Dedicated Compute Resources: <a href="../docs/compute-center-ai-translation-setup-guide.html">🧠 Compute Center and AI Translation</a></li>
+<li>Customize Full-Channel Distribution: <a href="../docs/matrix-channel-configuration.html">🛰️ Distribution Matrix Configuration</a></li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:quick-start.](../../../../ael-iter-id: sync:quick-start..html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../en/docs/matrix-channel-configuration.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« Previous</span>
+            <span class="pagination-title">Distribution Matrix & Channel Setup (The Matrix)</span>
+        </a>
+        
+        
+        <a href="../../en/docs/themes-and-binding-visual-customization.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">Next »</span>
+            <span class="pagination-title">Themes & Binding: Explore Illacme Plenipes SSG Frameworks</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">Physical Sovereignty, Self-Consistent Growth.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

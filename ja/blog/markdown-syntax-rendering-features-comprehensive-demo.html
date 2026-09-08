@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown 構文とレンダリング機能の完全ガイド：Illacme Plenipes | Illacme Press</title>
+    <meta name="description" content="Obsidian Callouts、双方向リンク、テーブル、コードハイライト、数式など、Illacme Plenipes がサポートする Markdown 機能を一挙紹介。">
+    <meta name="keywords" content="Markdown, レンダリングエンジン, Illacme Plenipes, 静的書式化システム, Callouts, 警告ボックス, コードブロック, 構造化テーブル">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/blog/markdown-syntax-rendering-features-comprehensive-demo.html">
+    <meta property="og:title" content="Markdown 構文とレンダリング機能の完全ガイド：Illacme Plenipes | Illacme Press">
+    <meta property="og:description" content="Obsidian Callouts、双方向リンク、テーブル、コードハイライト、数式など、Illacme Plenipes がサポートする Markdown 機能を一挙紹介。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/blog/markdown-syntax-rendering-features-comprehensive-demo.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html" class="active">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../blog/markdown-syntax-rendering-features-comprehensive-demo.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/blog/markdown-syntax-rendering-features-comprehensive-demo.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/blog/markdown-syntax-rendering-features-comprehensive-demo.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-blog">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../ja/index.html" class="breadcrumb-item">ホーム</a><span class="breadcrumb-sep">/</span><a href="../../ja/blog/index.html" class="breadcrumb-item">ブログ</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">Markdown 構文とレンダリング機能の完全ガイド：Illacme Plenipes</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Test Guild</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-17</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (341 文字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Markdown</span><span class="tag-pill">#Showcase</span><span class="tag-pill">#Syntax</span><span class="tag-pill">#Features</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">🎯 マークダウン構文とレンダリング機能の完全ガイド</h1>
+<p>本稿作为 <strong>Illacme Plenipes</strong> 渲染引擎与静态装帧系统的「活体基准测试」，涵盖了日常写作中的所有高级排版要素。</p>
+<hr />
+<h2 id="1-obsidian">1. Obsidian スタイルのコールアウツ（警告枠）</h2>
+
+    <div class="callout callout-note">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title">これは <strong>NOTE</strong> のヒントボックスで、一般的な背景情報や補足説明に適しています。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title">これは <strong>TIP</strong> の最適化提案で、ベストプラクティスやテクニックの提示に適しています。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+
+    <div class="callout callout-important">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title">これは <strong>IMPORTANT</strong> の重要警告で、無視できない重要な操作を含んでいます。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+
+    <div class="callout callout-warning">
+        <div class="callout-header">
+            <span class="callout-icon">⚠️</span>
+            <span class="callout-title">これは <strong>WARNING</strong> の警告メッセージで、潜在的な互換性問題や破壊的な操作を通知します。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<h2 id="callout4">
+    <div class="callout callout-caution">
+        <div class="callout-header">
+            <span class="callout-icon">📝</span>
+            <span class="callout-title">これは <strong>CAUTION</strong> の危険警告で、高リスクな操作と安全上の制限事項に関するものです。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="2">2. コードブロックと構文ハイライト</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 示例：段落哈希校验与影子块读取</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_block_hash</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算 Markdown 语义块 SHA-256 结构指纹&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_block_hash</span><span class="p">(</span><span class="s2">&quot;Hello, Illacme Plenipes!&quot;</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// 示例：前端平滑滚动控制器</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">scrollToSection</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">el</span><span class="p">.</span><span class="nx">scrollIntoView</span><span class="p">({</span><span class="w"> </span><span class="nx">behavior</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;smooth&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="3">3. 構造化データテーブル</h2>
+<table>
+<thead>
+<tr>
+<th>機能モジュール</th>
+<th>物理パス</th>
+<th>デフォルト状態</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ブランド主権</td>
+<td><code>imprints/default/</code></td>
+<td>有効化</td>
+<td>デフォルトフラッグシップ表示版</td>
+</tr>
+<tr>
+<td>計算力キャッシュ</td>
+<td><code>.plenipes/cache/</code></td>
+<td>有効化</td>
+<td>ブロックレベルのシャドウ再利用</td>
+</tr>
+<tr>
+<td>静的装幀</td>
+<td><code>themes/default/</code></td>
+<td>有効化</td>
+<td>Sovereign サイバー風</td>
+</tr>
+<tr>
+<td>ルーティングマトリックス</td>
+<td><code>config.imprint.yaml</code></td>
+<td>有効化</td>
+<td><code>/docs</code> と <code>/blog</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. 双方向リンクと参照</h2>
+<ul>
+<li>5 分間での上達：<a href="../docs/quick-start.html">quick-start</a></li>
+<li>チームのビジョンを確認：<a href="../about.html">about</a></li>
+<li>よくある質問とトラブルシューティング：<a href="../docs/common-issues-and-troubleshooting-manual-faq.html">faq</a></li>
+</ul>
+<hr />
+<h2 id="5-task-lists">5. タスクリスト (Task Lists)</h2>
+<ul>
+<li>[x] デフォルトブランドライセンス免除アーキテクチャの完了</li>
+<li>[x] 文庫製品ガイドコンテンツ体系のリファクタリング</li>
+<li>[x] Sovereign テーマの視覚パラメータとの整合化</li>
+<li>[ ] あなたの最初のグローバルマルチプラットフォーム配信シミュレーションの実施</li>
+</ul>
+<hr />
+<h2 id="6-latex-math">6. 数学公式 (LaTeX Math)</h2>
+<p>行内数式：$E = mc^2$ および $\nabla \cdot \mathbf{B} = 0$。</p>
+<p>ブロック数式：</p>
+<p>$$<br />
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}<br />
+$$</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:markdown-sho](../../../../ael-iter-id: sync:markdown-sho.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../../ja/blog/my-first-sovereign-publishing-blog-inspiration-global-resonance.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 前の記事</span>
+            <span class="pagination-title">私の初主权出版ブログ：インスピレーションからグローバルな共鳴へ</span>
+        </a>
+        
+        
+        <a href="../../ja/blog/future-of-publishing.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">次の記事 »</span>
+            <span class="pagination-title">AI ネイティブグローバルプライベートパブリッシャーの技術哲学と進化</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

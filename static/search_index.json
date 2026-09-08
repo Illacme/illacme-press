@@ -1,0 +1,700 @@
+[
+  {
+    "title": "Illacme Plenipes - 全球私人出版社",
+    "description": "基于物理隔离架构的工业级 AI 原生全球出版引擎，从本地原稿到全球 23 渠道一键分发。",
+    "url": "/index",
+    "path": "index.md",
+    "keywords": [
+      "Markdown",
+      "AI 原生出版",
+      "全球发行",
+      "V50.3",
+      "工业级操作系统",
+      "多语种矩阵",
+      "主权化出版",
+      "快速上手"
+    ],
+    "tags": [
+      "Home",
+      "Sovereign",
+      "Publishing"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "关于 Illacme Press 出版团队",
+    "description": "了解 Illacme Plenipes 全球私人出版社的诞生背景、核心使命与技术架构哲学。",
+    "url": "/src/pages/about",
+    "path": "about.md",
+    "keywords": [
+      "Illacme Press",
+      "Illacme Plenipes",
+      "出版团队",
+      "创作自由",
+      "数据物理主权",
+      "Markdown",
+      "Obsidian",
+      "Logseq",
+      "Notion",
+      "开源模型"
+    ],
+    "tags": [],
+    "lang": "zh"
+  },
+  {
+    "title": "欢迎来到 Illacme Plenipes 全球私人出版社",
+    "description": "专为海量 Markdown 构筑的 AI 原生全球出版引擎，让灵感在起草室点燃，在文库中沉淀，通过矩阵响彻全球。",
+    "url": "/welcome-to-illacme-plenipes-global-private-publishing-house",
+    "path": "welcome-to-illacme-plenipes.md",
+    "keywords": [
+      "AI 出版引擎，Markdown 发布，Obsidian 导出，Logseq 发布，全球分发，多语言翻译，算力切片，本地模型，云端 AI，静态站点生成器，Sovereign 主题，Dev.to 发布，微信公众号，知乎，数据主权"
+    ],
+    "tags": [
+      "Illacme",
+      "Sovereign",
+      "Overview"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "物理隔离架构与技术原理",
+    "description": "深度剖析 Illacme Plenipes 的物理主权隔离模型、双相分发管线与四端口微内核架构。",
+    "url": "/docs/architecture",
+    "path": "Docs/architecture.md",
+    "keywords": [
+      "物理隔离架构，主权绝对隔离，Illacme Plenipes，原稿只读，品牌版图隔离，主题母本，算力密钥加密，微服务规划，FastAPI，静态站点生成"
+    ],
+    "tags": [
+      "Architecture",
+      "Sovereign",
+      "Security",
+      "Core"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "发行矩阵与渠道配置 (The Matrix)",
+    "description": "详尽列出 11 大全站托管平台与 12 大社交媒体分发渠道的一键免密授权与发布配置指南。",
+    "url": "/docs/matrix-channel-configuration",
+    "path": "Docs/distribution-channels.md",
+    "keywords": [
+      "发行矩阵，一键部署，静态站点托管，GitHub Pages，Vercel，Netlify，Cloudflare Pages，Gitee，内容分发，SEO 结构化，Dev.to，微信公众号，知乎专栏，Ghost，WordPress，Substack，Telegram，Discord，CLI 免密授权，异步重试队列"
+    ],
+    "tags": [
+      "Matrix",
+      "Distribution",
+      "Syndication",
+      "Deploy"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "算力中心与 AI 翻译配置指南",
+    "description": "全面解析 29+ AI 算力适配器、本地推理与云端模型无缝切换、段落级影子缓存 (BlockShadowCache) 与容错降级机制。",
+    "url": "/docs/compute-center-ai-translation-setup-guide",
+    "path": "Docs/compute-and-ai.md",
+    "keywords": [
+      "AI 算力网关",
+      "AI 翻译配置",
+      "Illacme Plenipes",
+      "算力供应商适配",
+      "OpenAI",
+      "DeepSeek",
+      "本地开源推理",
+      "云端大模型",
+      "BlockShadowCache",
+      "影子缓存"
+    ],
+    "tags": [
+      "Compute",
+      "AI",
+      "LLM",
+      "Caching"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "治理中心 (Governance Dashboard) 操作指南",
+    "description": "详尽拆解治理中心四大核心分类与二级子标签功能，涵盖基础配置、版图管理、多语言矩阵与路由映射。",
+    "url": "/docs/governance-dashboard-operation-guide",
+    "path": "Docs/dashboard-guide.md",
+    "keywords": [
+      "治理中心，Illacme Plenipes，出版运维，身份标识，出版合规，存储适配，运行基座，版图管理，装帧主题，出版模式，基础模式，增强模式，全球模式，语言翻译，语种矩阵，块级规则，术语词库，分发路由，网址路径"
+    ],
+    "tags": [
+      "Dashboard",
+      "Governance",
+      "Settings"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "常见问题与排错手册 (FAQ)",
+    "description": "汇总创作者在日常使用、端口冲突、AI 翻译、品牌切换与全渠道分发中的高频疑问与官方解决方案。",
+    "url": "/docs/common-issues-and-troubleshooting-manual-faq",
+    "path": "Docs/faq.md",
+    "keywords": [
+      "常见问题 FAQ",
+      "排错手册",
+      "端口规划",
+      "单例进程锁",
+      "API 控制网关",
+      "初始化向导",
+      "本地预览服务",
+      "默认品牌",
+      "自定义品牌",
+      "Sovereign 主题"
+    ],
+    "tags": [
+      "FAQ",
+      "Troubleshooting",
+      "Help"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "创作者 5 分钟极速上手指南",
+    "description": "5 步带您在几分钟内完成从本地环境唤醒、治理中心体验、原稿起草到全网发布的完整流程。",
+    "url": "/docs/quick-start",
+    "path": "Docs/quick-start.md",
+    "keywords": [
+      "Illacme Plenipes",
+      "创作者指南",
+      "出版指挥中心",
+      "治理中心",
+      "本地文库",
+      "Markdown",
+      "一键发布",
+      "多语言翻译",
+      "AI SEO",
+      "Sovereign 主题"
+    ],
+    "tags": [
+      "QuickStart",
+      "Tutorial",
+      "Onboarding"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "品牌版图 (Imprint) 多站点与工作区管理",
+    "description": "掌握如何构建多个相互物理隔离的独立出版版图，为不同写作领域定制专属主题、算力与分发矩阵。",
+    "url": "/docs/brand-management",
+    "path": "Docs/brand-management.md",
+    "keywords": [
+      "Illacme Plenipes",
+      "品牌版图",
+      "Imprint",
+      "多站点管理",
+      "物理隔离",
+      "多文库",
+      "多渠道分发",
+      "原稿管理",
+      "主题定制",
+      "治理中心"
+    ],
+    "tags": [
+      "Imprint",
+      "MultiSite",
+      "Workspace",
+      "Governance"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "多语言矩阵与内容治理实战",
+    "description": "掌握多语种矩阵配置、块级规则保护、术语词库管理与段落重译校对工作流。",
+    "url": "/docs/i18n-guide",
+    "path": "Docs/i18n-guide.md",
+    "keywords": [
+      "多语言矩阵，内容治理，Illacme Plenipes",
+      "自动翻译，跨语种编译，AST 语法树，块级规则，术语词库，Obsidian 双链，代码保护，单段重译，校对工作台"
+    ],
+    "tags": [
+      "i18n",
+      "Localization",
+      "Glossary",
+      "BlockRules"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "出版指南与文档中心",
+    "description": "Illacme Plenipes 全球私人出版社完整文档导航，涵盖快速上手、文库组织、多品牌管理、治理中心、算力中心、装帧主题及全渠道分发。",
+    "url": "/docs/index",
+    "path": "Docs/index.md",
+    "keywords": [
+      "数字出版，出版指南，Illacme Plenipes",
+      "Obsidian",
+      "Logseq",
+      "双向链接，AI 翻译，多语言矩阵，品牌管理，Sovereign",
+      "Docusaurus",
+      "VitePress",
+      "算力中心，内容分发，主权隔离"
+    ],
+    "tags": [
+      "Docs",
+      "Index",
+      "Navigation",
+      "Guide"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "原稿文库组织与写作指引 (Authoring & Vault Guide)",
+    "description": "掌握如何无缝接入 Obsidian、Logseq、Typora 或纯文本文库，规范 Frontmatter 元数据、双向链接与媒体资源引用。",
+    "url": "/docs/authoring-and-vault-guide",
+    "path": "Docs/authoring-and-vault-guide.md",
+    "keywords": [
+      "原稿文库",
+      "Illacme Plenipes",
+      "写作指引",
+      "Markdown",
+      "Obsidian",
+      "双向链接",
+      "WebP",
+      "SEO",
+      "元数据",
+      "Frontmatter"
+    ],
+    "tags": [
+      "Vault",
+      "Authoring",
+      "Markdown",
+      "Obsidian",
+      "Frontmatter"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "装帧主题与视觉定制 (Themes & Binding)",
+    "description": "探索 Illacme Plenipes 支持的六大 SSG 主题框架，包含 Sovereign 赛博毛玻璃主题特性与视觉定制参数。",
+    "url": "/docs/themes-and-binding-visual-customization",
+    "path": "Docs/themes-and-binding.md",
+    "keywords": [
+      "SSG",
+      "静态站点生成器",
+      "Sovereign",
+      "Docusaurus",
+      "Starlight",
+      "VitePress",
+      "Nextra",
+      "Hugo",
+      "赛博毛玻璃",
+      "主题定制"
+    ],
+    "tags": [
+      "Themes",
+      "SSG",
+      "UI",
+      "Design"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "段落级影子缓存与零 Token 浪费架构深度解析",
+    "description": "揭秘 Illacme Plenipes 如何通过哈希切片与 LRU 淘汰机制实现 90%+ 的翻译算力成本节约。",
+    "url": "/blog/block-cache-deep-dive",
+    "path": "Blog/block-cache-deep-dive.md",
+    "keywords": [
+      "LLM",
+      "影子缓存，BlockShadowCache",
+      "段落级缓存，零 Token 浪费，算力优化，文本 AST 切片，增量翻译，静态站点构建，知识库系统"
+    ],
+    "tags": [
+      "Engineering",
+      "Cache",
+      "Performance",
+      "LLM"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "我的第一篇主权出版博文：从灵感到全球共振",
+    "description": "记录使用 Illacme Plenipes 开启全球数字出版的第一步，体验自动化翻译、SEO 提取与全渠道分发的魅力。",
+    "url": "/blog/my-first-sovereign-publishing-blog-inspiration-global-resonance",
+    "path": "Blog/my-first-post.md",
+    "keywords": [
+      "主权出版，Obsidian，AI 写作，自动化出版，多语种翻译，SEO 优化，静态网站，全球分发，数字主权"
+    ],
+    "tags": [
+      "Blog",
+      "Story",
+      "FirstPost",
+      "Sovereign"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "Markdown 语法与渲染特性全能展示",
+    "description": "全面展示 Illacme Plenipes 支持的全部 Markdown 语法特性，包含 Obsidian Callouts、双链、表格、代码高亮与公式。",
+    "url": "/blog/markdown-syntax-rendering-features-comprehensive-demo",
+    "path": "Blog/markdown-showcase.md",
+    "keywords": [
+      "Markdown",
+      "渲染引擎",
+      "Illacme Plenipes",
+      "静态装帧系统",
+      "Callouts",
+      "警告框",
+      "代码块",
+      "语法高亮",
+      "结构化表格",
+      "双向链接"
+    ],
+    "tags": [
+      "Markdown",
+      "Showcase",
+      "Syntax",
+      "Features"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "AI 原生全球私人出版社的技术哲学与演进",
+    "description": "探讨从传统中心化媒体平台向个人主权出版操作系统的范式演进之路。",
+    "url": "/blog/future-of-publishing",
+    "path": "Blog/future-of-publishing.md",
+    "keywords": [
+      "AI 原生出版社，主权出版，Illacme Plenipes，内容托管，去中心化发布，多语言编译，知识图谱，数字排版，全球私人出版"
+    ],
+    "tags": [
+      "Philosophy",
+      "Web3",
+      "Publishing",
+      "Future"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "30+ 渠道全域分发实践案例",
+    "description": "了解 Illacme Plenipes 如何实现本地 Markdown 原稿向全球 23+ 托管与社交渠道一键多路并发推流。",
+    "url": "/showcase/multi-channel-syndication",
+    "path": "Showcase/multi-channel-syndication.md",
+    "keywords": [
+      "全域分发，多渠道发布，Illacme Plenipes",
+      "Canonical 声明，SEO 优化，GitHub Pages",
+      "Dev.to",
+      "知乎专栏，微信公众号，原创保护，Token 隔离"
+    ],
+    "tags": [
+      "Showcase",
+      "Syndication",
+      "MultiChannel",
+      "Distribution",
+      "Automation"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "案例与主题全景展示",
+    "description": "探索 Illacme Plenipes 驱动的各类主权出版物、不同 SSG 装帧风格与全渠道分发实践。",
+    "url": "/showcase/index",
+    "path": "Showcase/index.md",
+    "keywords": [
+      "出版品牌",
+      "装帧主题",
+      "Illacme Plenipes",
+      "Sovereign Neon Glass",
+      "Docusaurus",
+      "VitePress",
+      "Astro Starlight",
+      "数字花园",
+      "全渠道分发",
+      "GitHub Pages"
+    ],
+    "tags": [
+      "Showcase",
+      "Themes",
+      "Features",
+      "Innovations",
+      "Gallery"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "29+ 混合算力统一调度与段落缓存案例",
+    "description": "探索 Illacme Plenipes 强大的混合算力调度中心与段落影子缓存架构，实现 90%+ 算力节省与零 Token 浪费。",
+    "url": "/showcase/hybrid-compute-ai",
+    "path": "Showcase/hybrid-compute-ai.md",
+    "keywords": [
+      "混合算力调度，段落缓存，BlockShadowCache",
+      "MD5 哈希切片，Token 节省率，本地优先，云端智能，Ollama",
+      "DeepSeek",
+      "OpenAI",
+      "Claude",
+      "Gemini",
+      "故障自愈，自动熔断"
+    ],
+    "tags": [
+      "Showcase",
+      "Compute",
+      "AI",
+      "ShadowCache",
+      "Optimization"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "段落级影子缓存与双语审校中枢",
+    "description": "探索 Illacme Plenipes 独创的 AST 语法树段落切片指纹与影子缓存体系，修改单句仅需毫秒级局部重译，节省 90%+ 算力与 Token。",
+    "url": "/showcase/block-cache-shadow-translation",
+    "path": "Showcase/block-cache-shadow-translation.md",
+    "keywords": [
+      "AI 翻译，影子缓存，双语审校，AST 抽象语法树，Token 节省，增量编译，段落指纹分片，局部重译，工业级架构"
+    ],
+    "tags": [
+      "Showcase",
+      "BlockCache",
+      "Translation",
+      "AI",
+      "ShadowCache",
+      "Innovation"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "多品牌主权版图矩阵",
+    "description": "了解 Illacme Plenipes 如何实现单一文库驱动多品牌（Imprints）物理隔离独立出版，按需配置独立装帧主题与分发渠道。",
+    "url": "/showcase/multi-imprint-sovereignty",
+    "path": "Showcase/multi-imprint-sovereignty.md",
+    "keywords": [
+      "多品牌矩阵，出版品牌，独立发行，物理目录隔离，独立装帧主题，独立出版模式，渠道密钥隔离，Imprints",
+      "内容分发"
+    ],
+    "tags": [
+      "Showcase",
+      "Imprints",
+      "MultiBrand",
+      "Sovereignty",
+      "Architecture"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "隐私脱敏与安全加工流水线",
+    "description": "了解 Illacme Plenipes 如何在文稿与图片发布前自动抹除 GPS 地理信息、敏感隐私与合规风险，物理保护创作者数据主权。",
+    "url": "/showcase/privacy-security-pipeline",
+    "path": "Showcase/privacy-security-pipeline.md",
+    "keywords": [
+      "隐私脱敏，安全加工流水线，EXIF 地理脱敏，敏感词过滤，Token 物理隔离，合规审查，Illacme Plenipes",
+      "数据隐私保护，图片元数据清理，ContractGuard"
+    ],
+    "tags": [
+      "Showcase",
+      "Privacy",
+      "Security",
+      "ExifScrubber",
+      "Sovereignty",
+      "Protection"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "宇宙星系全息图谱与双链自愈引擎",
+    "description": "了解 Illacme Plenipes 如何将 Obsidian 双向链接与知识网络编译为 3D 力导向宇宙星系全息图谱，并实现链路自动愈合。",
+    "url": "/showcase/galaxy-knowledge-graph",
+    "path": "Showcase/galaxy-knowledge-graph.md",
+    "keywords": [
+      "Obsidian",
+      "双向链接",
+      "知识图谱",
+      "宇宙星系",
+      "双链转译",
+      "知识管理",
+      "数字花园",
+      "Illacme Plenipes",
+      "网状神经网络",
+      "3D 可视化"
+    ],
+    "tags": [
+      "Showcase",
+      "KnowledgeGraph",
+      "WikiLinks",
+      "Obsidian",
+      "Galaxy",
+      "Visual"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "8 大装帧主题全景与选型矩阵",
+    "description": "探索 Illacme Plenipes 针对不同应用场景提供的 8 大现代化装帧主题与静态生成引擎全景，一文掌握各主题技术栈、性能指标与选型决策。",
+    "url": "/showcase/themes-matrix",
+    "path": "Showcase/themes-matrix.md",
+    "keywords": [
+      "Illacme Plenipes",
+      "Markdown 装帧主题",
+      "静态生成引擎",
+      "Sovereign Neon Glass",
+      "Universal Standard",
+      "Docusaurus Documentation",
+      "赛博毛玻璃",
+      "极简通用",
+      "个人知识库",
+      "企业白皮书"
+    ],
+    "tags": [
+      "Showcase",
+      "Themes",
+      "SSG",
+      "Matrix",
+      "Selection",
+      "DesignSystem"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "智能 Slug 网址沙盘与 SEO 路由矩阵",
+    "description": "探索 Illacme Plenipes 如何实现中文拼音、英文智能翻译、哈希与日期多维 Slug 映射，搭配实时演算沙盘与 Google / 百度 Canonical 原创保护。",
+    "url": "/showcase/intelligent-slug-seo",
+    "path": "Showcase/intelligent-slug-seo.md",
+    "keywords": [
+      "SEO",
+      "永久链接",
+      "Permalinks",
+      "Slug 转译",
+      "智能路由",
+      "Canonical",
+      "搜索引擎优化",
+      "网址生成",
+      "Illacme Plenipes",
+      "拼音链接"
+    ],
+    "tags": [
+      "Showcase",
+      "SEO",
+      "Slug",
+      "Permalinks",
+      "Routing",
+      "Canonical"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "Janitor GC 物理清道夫与自愈账本",
+    "description": "了解 Illacme Plenipes 如何通过双向指纹账本自动清除失效幽灵 HTML 与孤岛资产，杜绝 404 死链并实现 LRU 缓存自愈。",
+    "url": "/showcase/janitor-gc-self-healing",
+    "path": "Showcase/janitor-gc-self-healing.md",
+    "keywords": [
+      "Janitor GC",
+      "物理清道夫",
+      "自愈账本",
+      "静态站点生成器",
+      "幽灵文件清除",
+      "SHA-256 指纹账本",
+      "LRU 缓存淘汰",
+      "死链清理",
+      "磁盘纯净",
+      "增量构建"
+    ],
+    "tags": [
+      "Showcase",
+      "Janitor",
+      "GC",
+      "SelfHealing",
+      "Ledger",
+      "Performance"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "全网多通道即时通知与出版战报",
+    "description": "了解 Illacme Plenipes 如何在多渠道发布完成后，向企业微信、飞书、钉钉、Telegram、Discord、邮件与短信实时推送富文本出版战报。",
+    "url": "/showcase/omni-channel-notifications",
+    "path": "Showcase/omni-channel-notifications.md",
+    "keywords": [
+      "即时通知，出版战报，企业微信，飞书，钉钉，Telegram Bot，Discord Webhook，SMTP 邮件，Twilio，阿里云短信，Markdown 消息卡片，富文本通知，移动终端推送"
+    ],
+    "tags": [
+      "Showcase",
+      "Notifications",
+      "Webhooks",
+      "Telegram",
+      "Feishu",
+      "DingTalk",
+      "Discord"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "AST 多方言转译与跨框架桥接引擎",
+    "description": "探索 Illacme Plenipes 如何通过 AST 抽象语法树无损转译 Obsidian Callouts、Mermaid 拓扑图、MathJax 公式与 MDX 组件，实现跨 8 大主题的零代码语法抹平。",
+    "url": "/showcase/ast-dialect-bridge",
+    "path": "Showcase/ast-dialect-bridge.md",
+    "keywords": [
+      "AST",
+      "抽象语法树，Obsidian",
+      "Docusaurus",
+      "VitePress",
+      "Astro",
+      "Hugo",
+      "Markdown 转译，Callouts",
+      "MDX",
+      "跨框架桥接，原稿保护，工业级流水线"
+    ],
+    "tags": [
+      "Showcase",
+      "AST",
+      "Markdown",
+      "Parser",
+      "Dialect",
+      "Transpiler"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "全渠道零失误 Dry-Run 沙盘预检与一键免密授权",
+    "description": "了解 Illacme Plenipes 如何在跨 30+ 平台发布前发起毫秒级非破坏性 Dry-Run 握手预检，搭配 CLI 一键免密授权向导，实现 100% 零失误推流。",
+    "url": "/showcase/preflight-dry-run-probes",
+    "path": "Showcase/preflight-dry-run-probes.md",
+    "keywords": [
+      "全渠道预检，Dry-Run 沙盘演练，一键免密授权，API 握手探测，Token 管理，非破坏性测试，企业级发布工具，30+ 外部平台，CLI 向导，零失误广播"
+    ],
+    "tags": [
+      "Showcase",
+      "DryRun",
+      "Probes",
+      "OneClickAuth",
+      "Syndication",
+      "Security"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "4 端口物理单例锁与高可用容错自愈网关",
+    "description": "探索 Illacme Plenipes 针对后台进程唯一性、FastAPI Web 网关、向导与预览服务划分的 4 端口单例锁体系，以及守护进程故障自动熔断与健康自愈机制。",
+    "url": "/showcase/process-lock-resilience-gateway",
+    "path": "Showcase/process-lock-resilience-gateway.md",
+    "keywords": [
+      "物理单例锁，高可用容错，自愈网关，端口冲突，进程唯一性，Illacme Plenipes",
+      "FastAPI",
+      "SQLite 死锁防护，守护系统架构，43210",
+      "43212",
+      "43211",
+      "43213"
+    ],
+    "tags": [
+      "Showcase",
+      "SingletonLock",
+      "Architecture",
+      "HighAvailability",
+      "Gateway",
+      "Resilience"
+    ],
+    "lang": "zh"
+  },
+  {
+    "title": "段落缓存治理中枢 (Block Cache Hub)",
+    "description": "段落级影子缓存 (Block Cache Hub) 的设计原理、物理路由机制、LRU 垃圾回收算法以及自动清理 (Janitor GC) 策略。",
+    "url": "/docs/engineering/engineering/block-cache-hub",
+    "path": "Docs/engineering/block-cache-hub.md",
+    "keywords": [
+      "段落缓存治理中枢，Block Cache Hub",
+      "Illacme Plenipes",
+      "LRU 垃圾回收，物理路由，SHA-256 哈希验证，Janitor GC 自动清理，增量翻译，Markdown 格式校验，Adler32 签名防篡改"
+    ],
+    "tags": [],
+    "lang": "zh"
+  }
+]

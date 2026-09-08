@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パラグラフ級シャドウキャッシュとゼロトークン廃棄アーキテクチャの深層解析 | Illacme Press</title>
+    <meta name="description" content="Illacme Plenipes がハッシュスライシングと LRU 淘汰で翻訳コストを 90% 以上削減する仕組みを徹底解説。LLM、BlockShadowCache、AST スライシング、インクリメンタル翻訳など。">
+    <meta name="keywords" content="LLM, シャドウキャッシュ, BlockShadowCache, パラグラフ級キャッシュ, ゼロトークン廃棄, 計算リソース最適化, テキスト AST スライシング, インクリメンタル翻訳">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/blog/block-cache-deep-dive.html">
+    <meta property="og:title" content="パラグラフ級シャドウキャッシュとゼロトークン廃棄アーキテクチャの深層解析 | Illacme Press">
+    <meta property="og:description" content="Illacme Plenipes がハッシュスライシングと LRU 淘汰で翻訳コストを 90% 以上削減する仕組みを徹底解説。LLM、BlockShadowCache、AST スライシング、インクリメンタル翻訳など。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/blog/block-cache-deep-dive.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html" class="active">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../blog/block-cache-deep-dive.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/blog/block-cache-deep-dive.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/blog/block-cache-deep-dive.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-blog">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../../ja/index.html" class="breadcrumb-item">ホーム</a><span class="breadcrumb-sep">/</span><a href="../../ja/blog/index.html" class="breadcrumb-item">ブログ</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">パラグラフ級シャドウキャッシュとゼロトークン廃棄アーキテクチャの深層解析</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Engineering Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (326 文字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#Engineering</span><span class="tag-pill">#Cache</span><span class="tag-pill">#Performance</span><span class="tag-pill">#LLM</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">⚡ 段落级影子キャッシュとゼロトークン浪費アーキテクチャの深層解析</h1>
+<h3 id="_2">コンテンツ</h3>
+<p>多言語ナレッジベースや長文出版システムを構築する際、最大の課題の一つは <strong>LLM 翻訳算力の重複的な浪費</strong> です：たとえ記事内の単一字の誤字修正であっても、従来の全篇翻訳パイプラインでは、その記事を AI モデルに再度送信する必要があります。</p>
+<p>本ブログでは、<strong>Illacme Plenipes</strong> の独自の <strong>BlockShadowCache（段落レベルのシャドウキャッシュ）</strong> メカニズムについて詳しく解説します。</p>
+<hr />
+<h2 id="ast">🔍 原理解説：テキスト AST の物理スライス</h2>
+<p>記事がワークフローパイプラインに流入すると、システムはまず Markdown パーサーによってそれを独立した物理ブロック（Blocks）に分割します：</p>
+<ol>
+<li>ヘッディングブロック (Heading Block)</li>
+<li>本文段落 (Paragraph Block)</li>
+<li>リスト項目ブロック (List Item Block)</li>
+<li>コードブロック (Code Block)</li>
+<li>呼称ブロック (Callout Block)</li>
+</ol>
+<p>各区块均会计算其唯一的 SHA-256 内容哈希值：</p>
+<div class="codehilite"><pre><span></span><code>Block_Hash = SHA256(Block_Content + Target_Lang + Translation_Style)
+</code></pre></div>
+
+<hr />
+<h2 id="_3">🚀 命中キャッシュ：ミリ秒単位の高速レスポンスとゼロ計算リソース消費</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 核心查询算法示意</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">translate_block_with_cache</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="n">target_lang</span><span class="p">,</span> <span class="n">style</span><span class="p">):</span>
+    <span class="n">cache_key</span> <span class="o">=</span> <span class="n">compute_hash</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">target_lang</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+
+    <span class="c1"># ⚡ 命中段落缓存，直接返回历史高品质译文</span>
+    <span class="k">if</span> <span class="n">block_cache</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">block_cache</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cache_key</span><span class="p">)</span>
+
+    <span class="c1"># 🧠 未命中：仅对变动段落调用 AI 推理</span>
+    <span class="n">translated</span> <span class="o">=</span> <span class="n">llm_gateway</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">target_lang</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+    <span class="n">block_cache</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cache_key</span><span class="p">,</span> <span class="n">translated</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">translated</span>
+</code></pre></div>
+
+<p>このメカニズムにより：<br />
+- 記事タイトルを修正しても、本文数千語はトークン消費なし。<br />
+- 新しい段落を追加する場合、新規の段落のみをインクリメンタル翻訳。<br />
+- 複数回の静的サイトフル再構築時にもキャッシュ命中し、所要時間 &lt; 1 秒！</p>
+<hr />
+<h2 id="lru">🧰 管理中枢：キャッシュクリーンアップと LRU 淘汰</h2>
+<p>管理センター【基本設定と運用】&rarr;【ストレージアダプター】において、クリエイターは：<br />
+- サイト全体の段落キャッシュ数とディスク使用量をリアルタイムで確認。<br />
+- 自動淘汰ポリシーを有効化（日数または最大 MB 容量基準）。<br />
+- ワンクリックで物理階層移行とフルクリーンアップを実行。</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:block-cache-](../../../../ael-iter-id: sync:block-cache-.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        <div class="doc-pagination-item empty"></div>
+        
+        <a href="../../ja/blog/my-first-sovereign-publishing-blog-inspiration-global-resonance.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">次の記事 »</span>
+            <span class="pagination-title">私の初主权出版ブログ：インスピレーションからグローバルな共鳴へ</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

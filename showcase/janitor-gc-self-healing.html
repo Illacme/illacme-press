@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janitor GC 物理清道夫与自愈账本 | Illacme Press</title>
+    <meta name="description" content="了解 Illacme Plenipes 如何通过双向指纹账本自动清除失效幽灵 HTML 与孤岛资产，杜绝 404 死链并实现 LRU 缓存自愈。">
+    <meta name="keywords" content="Janitor GC, 物理清道夫, 自愈账本, 静态站点生成器, 幽灵文件清除, SHA-256 指纹账本, LRU 缓存淘汰, 死链清理, 磁盘纯净, 增量构建">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/showcase/janitor-gc-self-healing.html">
+    <meta property="og:title" content="Janitor GC 物理清道夫与自愈账本 | Illacme Press">
+    <meta property="og:description" content="了解 Illacme Plenipes 如何通过双向指纹账本自动清除失效幽灵 HTML 与孤岛资产，杜绝 404 死链并实现 LRU 缓存自愈。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/showcase/janitor-gc-self-healing.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html" class="active">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../showcase/janitor-gc-self-healing.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/showcase/janitor-gc-self-healing.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/showcase/janitor-gc-self-healing.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="janitor-gc">🧹 Janitor GC 物理清道夫与自愈账本</h1>
+
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>拒绝臃肿与幽灵文件，保持磁盘绝对纯净</strong>：传统静态站点生成器最常见的问题是：当创作者删除或重命名一篇笔记后，构建目录中依然残留着旧的 HTML 页面和切片图片。久而久之，站点充斥着死链与孤岛垃圾。Illacme Plenipes 内置了创新的 Janitor GC 物理清道夫与自愈账本。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<hr />
+<h2 id="_1">⚡ 运维指标与自愈表现</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧹 幽灵资产自动清除</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00ff88;">0 幽灵 HTML · 0 孤岛图片</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">📜 SHA-256 账本对账</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00f2fe;">毫秒级增量 · 仅重编变动块</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">♻️ LRU 缓存智能淘汰</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #ffb300;">按体积/时间窗自动降解</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🛡️ 仓库合规审计</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: var(--accent-color);">母本主题 100% 物理只读保护</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="_2">🛠️ 核心机制与自愈架构</h2>
+<h3 id="1-fingerprint-ledger">1. 📜 双向物理指纹账本 (Fingerprint Ledger)</h3>
+<p>系统在本地 SQLite 数据库与缓存目录中维护着创作者文库的全局指纹账本：<br />
+* 记录每个原稿文件（Markdown、图片、附件）的 SHA-256 哈希值与修改时间戳；<br />
+* 记录该文件所衍生出的所有目标产物（多语种 HTML、OpenGraph 社交卡片、图床引用 URL）。</p>
+<h3 id="2-janitor-ghost-asset-scrubber">2. 🧹 Janitor 物理清道夫 (Ghost Asset Scrubber)</h3>
+<p>在每次增量编译或同步触发时，Janitor 自动介入：<br />
+1. <strong>反向比对</strong>：遍历产物输出目录中的全部 HTML 和资源文件，检查是否存在“已没有对应源文档”的孤岛文件；<br />
+2. <strong>安全回收</strong>：毫秒级自动物理删除这些幽灵文件与过时路由映射，杜绝网站产生 404 死链；<br />
+3. <strong>Sitemap 与索引同步修正</strong>：自动从 <code>sitemap.xml</code> 和 <code>graph.json</code> 宇宙星系拓扑中剔除已删除节点。</p>
+<h3 id="3-lru">3. ♻️ LRU 缓存治理与自动降解策略</h3>
+<ul>
+<li>在治理中心「存储适配」面板中，创作者可灵活设定算力缓存（Janitor GC）上限（如保留最近 30 天 / 500MB）；</li>
+<li>当本地 AI 翻译段落缓存或生成式配图超过阈值时，引擎会优先淘汰最旧且未被锁定的低频段落，确保系统即便运行数年依然轻盈如初。</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:janitor-gc-s](../../ael-iter-id: sync:janitor-gc-s.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

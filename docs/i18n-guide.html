@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多语言矩阵与内容治理实战 | Illacme Press</title>
+    <meta name="description" content="掌握多语种矩阵配置、块级规则保护、术语词库管理与段落重译校对工作流。">
+    <meta name="keywords" content="多语言矩阵，内容治理，Illacme Plenipes, 自动翻译，跨语种编译，AST 语法树，块级规则，术语词库，Obsidian 双链，代码保护，单段重译，校对工作台">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/docs/i18n-guide.html">
+    <meta property="og:title" content="多语言矩阵与内容治理实战 | Illacme Press">
+    <meta property="og:description" content="掌握多语种矩阵配置、块级规则保护、术语词库管理与段落重译校对工作流。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/docs/i18n-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html" class="active">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../docs/i18n-guide.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/docs/i18n-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/docs/i18n-guide.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-docs">
+        
+    <aside class="sidebar-pioneer">
+        <div class="sidebar-content">
+            <div class="nav-tree">
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../docs/engineering/block-cache-hub.html" class="nav-link">段落缓存治理中枢 (Block Cache Hub)</a></li></ul></li><li class="nav-item"><a href="../docs/architecture.html" class="nav-link">物理隔离架构与技术原理</a></li><li class="nav-item"><a href="../docs/authoring-and-vault-guide.html" class="nav-link">原稿文库组织与写作指引 (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../docs/brand-management.html" class="nav-link">品牌版图 (Imprint) 多站点与工作区管理</a></li><li class="nav-item"><a href="../docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">常见问题与排错手册 (FAQ)</a></li><li class="nav-item"><a href="../docs/compute-center-ai-translation-setup-guide.html" class="nav-link">算力中心与 AI 翻译配置指南</a></li><li class="nav-item"><a href="../docs/governance-dashboard-operation-guide.html" class="nav-link">治理中心 (Governance Dashboard) 操作指南</a></li><li class="nav-item"><a href="../docs/i18n-guide.html" class="nav-link active">多语言矩阵与内容治理实战</a></li><li class="nav-item"><a href="../docs/matrix-channel-configuration.html" class="nav-link">发行矩阵与渠道配置 (The Matrix)</a></li><li class="nav-item"><a href="../docs/quick-start.html" class="nav-link">创作者 5 分钟极速上手指南</a></li><li class="nav-item"><a href="../docs/themes-and-binding-visual-customization.html" class="nav-link">装帧主题与视觉定制 (Themes & Binding)</a></li></ul>
+            </div>
+        </div>
+    </aside>
+            
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+    <nav class="breadcrumb-container" aria-label="breadcrumbs">
+        <a href="../index.html" class="breadcrumb-item">首页</a><span class="breadcrumb-sep">/</span><a href="../docs/index.html" class="breadcrumb-item">文档</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-item active">多语言矩阵与内容治理实战</span>
+    </nav>
+    
+                    
+    <div class="article-header-meta">
+        <div class="meta-row">
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Localization Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分钟 (528 字数)</span>
+        </div>
+        <div class="meta-tags"><span class="tag-pill">#i18n</span><span class="tag-pill">#Localization</span><span class="tag-pill">#Glossary</span><span class="tag-pill">#BlockRules</span></div>
+    </div>
+    
+                    <article class="prose-sovereign">
+                        <h1 id="_1">🌍 多语言矩阵与内容治理实战</h1>
+<p><strong>Illacme Plenipes</strong> 提供了企业级的多语言内容治理管线，让您只需专注于用母语起草原稿，系统即可自动完成高保真跨语种编译与发布。</p>
+<hr />
+<h2 id="_2">🧭 多语言核心架构</h2>
+<ol>
+<li><strong>源语言（Source Language）</strong>：起草原稿时使用的母语（如中文 <code>zh</code> 或英文 <code>en</code>）。</li>
+<li><strong>目标语种矩阵（Target Languages）</strong>：需要自动翻译并分发的目标语言集合（如 <code>en</code>, <code>ja</code>, <code>fr</code>, <code>de</code>, <code>es</code>, <code>ko</code> 等）。</li>
+<li><strong>块级规则（Block Rules）</strong>：针对特定段落类型（代码块、公式、专有名词、版权声明）的保护策略，避免 AI 误翻译。</li>
+<li><strong>术语词库（Glossary）</strong>：跨文章强制统一的行业专有名词中英对照表。</li>
+</ol>
+<hr />
+<h2 id="block-rules">🧱 块级规则（Block Rules）保护</h2>
+<p>系统内置多层 AST 语法树保护器：</p>
+<ul>
+<li><strong>代码块保护</strong>：<code>```python ... ```</code> 内部代码完全保持原样，仅根据需要翻译注释。</li>
+<li><strong>Obsidian 内部双链</strong>：<code>[快速入门](./quick-start.html)</code> 自动保留目标链接名，并根据目标语言智能调整别名。</li>
+<li><strong>Markdown 呼号</strong>：<code>&gt; [!NOTE]</code> 语法容器自动保留，仅翻译正文内容。</li>
+</ul>
+<hr />
+<h2 id="glossary">📖 术语词库（Glossary）配置</h2>
+<p>在治理中心【语言与内容治理】&rarr;【术语词库】中，您可以定义全站术语对：</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">glossary</span><span class="p">:</span>
+<span class="w">  </span><span class="s">&quot;主权出版&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Sovereign</span><span class="nv"> </span><span class="s">Publishing&quot;</span>
+<span class="w">  </span><span class="s">&quot;段落影子缓存&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Block</span><span class="nv"> </span><span class="s">Shadow</span><span class="nv"> </span><span class="s">Cache&quot;</span>
+<span class="w">  </span><span class="s">&quot;品牌版图&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Imprint&quot;</span>
+<span class="w">  </span><span class="s">&quot;装帧工厂&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;SSG</span><span class="nv"> </span><span class="s">Bindery&quot;</span>
+</code></pre></div>
+
+<p>AI 在翻译过程中将自动遵循词库约束，确保跨文章专有名词的一致性与严谨度。</p>
+<hr />
+<h2 id="_3">🔄 单段重译与校对工作台</h2>
+<p>如果您对某一段落的译文不满意，可在治理中心中使用<strong>校对工作台（Review Workbench）</strong>：<br />
+1. 实时对比原文与译文段落。<br />
+2. 针对单个段落触发单段 AI 重新翻译（无需重译整篇文章）。<br />
+3. 支持手动直接微调并写入段落缓存（Block Cache）。</p>
+<hr />
+<h2 id="_4">🧭 相关阅读</h2>
+<ul>
+<li>了解算力节点配置：<a href="./compute-center-ai-translation-setup-guide.html">算力中心与 AI 翻译</a></li>
+<li>探索治理中心界面：<a href="./governance-dashboard-operation-guide.html">治理中心操作指南</a></li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:i18n-guide.m](../../ael-iter-id: sync:i18n-guide.m.html) -->
+                    </article>
+                    
+    <div class="doc-pagination-wrapper">
+        
+        <a href="../docs/governance-dashboard-operation-guide.html" class="doc-pagination-item prev">
+            <span class="pagination-sublabel">« 上一篇</span>
+            <span class="pagination-title">治理中心 (Governance Dashboard) 操作指南</span>
+        </a>
+        
+        
+        <a href="../docs/matrix-channel-configuration.html" class="doc-pagination-item next">
+            <span class="pagination-sublabel">下一篇 »</span>
+            <span class="pagination-title">发行矩阵与渠道配置 (The Matrix)</span>
+        </a>
+        
+    </div>
+    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全渠道零失误 Dry-Run 沙盘预检与一键免密授权 | Illacme Press</title>
+    <meta name="description" content="了解 Illacme Plenipes 如何在跨 30+ 平台发布前发起毫秒级非破坏性 Dry-Run 握手预检，搭配 CLI 一键免密授权向导，实现 100% 零失误推流。">
+    <meta name="keywords" content="全渠道预检，Dry-Run 沙盘演练，一键免密授权，API 握手探测，Token 管理，非破坏性测试，企业级发布工具，30+ 外部平台，CLI 向导，零失误广播">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/showcase/preflight-dry-run-probes.html">
+    <meta property="og:title" content="全渠道零失误 Dry-Run 沙盘预检与一键免密授权 | Illacme Press">
+    <meta property="og:description" content="了解 Illacme Plenipes 如何在跨 30+ 平台发布前发起毫秒级非破坏性 Dry-Run 握手预检，搭配 CLI 一键免密授权向导，实现 100% 零失误推流。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/showcase/preflight-dry-run-probes.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../index.html" class="logo-group">
+                    <img src="../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../docs/index.html">📚 文档指南</a>
+                    <a href="../blog/index.html">📰 演示博客</a>
+                    <a href="../showcase/index.html" class="active">🎨 核心特性</a>
+                    <a href="../about.html">✨ 关于我们</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="搜索主权资产...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇨🇳 简体中文</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../showcase/preflight-dry-run-probes.html" class="lang-menu-item active">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                <span class="lang-check">✓</span>
+            </a>
+<a href="../en/showcase/preflight-dry-run-probes.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../ja/showcase/preflight-dry-run-probes.html" class="lang-menu-item">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="dry-run">🧪 全渠道零失误 Dry-Run 沙盘预检与一键免密授权</h1>
+
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>发布前沙盘演练，杜绝中途崩溃与权限失效</strong>：向全球 30+ 外部平台分发最怕“发布到第 5 个渠道时突然因 Token 过期或格式不合规报错中断”。Illacme Plenipes 提供了企业级的 Dry-Run 预检探测引擎与本地 CLI 一键免密授权向导，确保每一次全域广播均 100% 稳妥可靠。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    
+<hr />
+<h2 id="_1">⚡ 预检演练与授权指标</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧪 预检执行耗时</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00ff88;">< 300 ms / 渠道 (非破坏性握手)</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🔑 本地免密一键授权</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00f2fe;">自动唤醒 CLI · 零手动复制</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">💡 Token 直达向导</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #ffb300;">40+ 平台官方 Portal 魔术直达</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🛡️ 发布可靠度</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: var(--accent-color);">100% 零意外中断保障</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="_2">🛠️ 核心机制与预检流程</h2>
+<h3 id="1-api-non-destructive-probes">1. 🧪 非破坏性 API 握手探测 (Non-Destructive Probes)</h3>
+<p>在正式发文之前，系统在后台对目标渠道发起微型探测：<br />
+* <strong>网络与 DNS 连通性</strong>：检测目标 API 端点能否在 1500ms 内建立 TLS 握手；<br />
+* <strong>鉴权凭据有效性</strong>：验证 API Key、Personal Access Token 或 Cookie 是否有效、是否具有写入权限；<br />
+* <strong>频控与额度检查</strong>：提前捕获 GitHub API Rate Limit 或社交平台发文配额用尽状态，在发文前向创作者发出预警。</p>
+<h3 id="2-cli-one-click-local-cli-auth">2. 🔑 CLI 托管平台一键免密授权 (One-Click Local CLI Auth)</h3>
+<p>针对 GitHub Pages、Netlify 与 Vercel 等现代云端托管服务：<br />
+* 创作者无需四处寻找复杂的 API 密钥，只需在插件抽屉中点击 <strong>「🔑 本地一键免密授权」</strong>；<br />
+* 后端以独立会话唤醒官方 CLI 登录流程，完成浏览器授权后，<strong>全自动提取 Account ID 与 Token 并回填至配置表单</strong>，实现极致顺畅的无感配置。</p>
+<h3 id="3">3. 💡 社交与内容平台「魔术链接直达向导」</h3>
+<p>针对小红书、今日头条、B站专栏、CSDN、Dev.to 与 Medium 等第三方渠道：<br />
+* 每个插件卡片内均内置了精选的 <strong>「[↗]」官方直达入口</strong> 与高亮的 Token 申请直达魔术链接，免去创作者在复杂的多级设置菜单中盲目寻找的繁琐成本。</p>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:preflight-dr](../../ael-iter-id: sync:preflight-dr.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目录导航</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理主权，自洽生长。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../static/js/main.theme.js"></script>
+    <script src="../static/js/main.toc.js"></script>
+    <script src="../static/js/main.search.js"></script>
+    <script src="../static/js/main.code.js"></script>
+    <script src="../static/js/main.lightbox.js"></script>
+    <script src="../static/js/main.renderers.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

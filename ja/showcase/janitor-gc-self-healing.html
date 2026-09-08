@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janitor GC：物理清道夫と自己修復型双方向指紋帳簿 | Illacme Press</title>
+    <meta name="description" content="Illacme Plenipes が不活性なゴースト HTML と孤立アセットを自動除去し、404 死リンクを防ぎ LRU キャッシュの自己修復を実現する方法をご覧ください。">
+    <meta name="keywords" content="Janitor GC, 物理清道夫, 自己修復型帳簿, 静的サイトジェネレーター, ゴーストファイル除去, SHA-256 指紋帳簿, LRU キャッシュ淘汰, 死リンククリーンアップ">
+
+    <!-- ⚡ Anti-FOUC 早期主题注入 (毫秒级消除深浅色刷新闪烁) -->
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- 🎨 自定义样式与视觉特效热配置注入 -->
+    <style>
+    :root {
+        --accent-color: #00f5ff;
+        --accent-cyan: #00f5ff;
+        --accent-glow: #00f5ff40;
+    }
+
+</style>
+
+    <!-- 🏗️ 字体系统本地主权注入 -->
+    <link rel="stylesheet" href="../../static/css/fonts.css">
+
+    <!-- 🏗️ 主权视觉系统物理注入 -->
+    <link rel="stylesheet" href="../../static/css/style.css?v=16.0">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- 🔍 SEO & Social Media Matrix -->
+    <link rel="canonical" href="/ja/showcase/janitor-gc-self-healing.html">
+    <meta property="og:title" content="Janitor GC：物理清道夫と自己修復型双方向指紋帳簿 | Illacme Press">
+    <meta property="og:description" content="Illacme Plenipes が不活性なゴースト HTML と孤立アセットを自動除去し、404 死リンクを防ぎ LRU キャッシュの自己修復を実現する方法をご覧ください。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/ja/showcase/janitor-gc-self-healing.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="sovereign-engine" data-root-path="../../">
+
+    <!-- 🌐 顶部全息导航 (Glassmorphism) -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="../../ja/index.html" class="logo-group">
+                    <img src="../../static/assets/logo.png" alt="Illacme Press" class="logo-img" height="36">
+                    <span class="logo-text">Illacme Press</span>
+                </a>
+                <nav class="desktop-nav">
+                    <a href="../../ja/docs/index.html">📚 ドキュメントガイド</a>
+                    <a href="../../ja/blog/index.html">📰 デモブログ</a>
+                    <a href="../../ja/showcase/index.html" class="active">🎨 コア機能</a>
+                    <a href="../../ja/about.html">✨ 私たちについて</a>
+                    <a href="https://github.com/Illacme/illacme-plenipes" target="_blank" rel="noopener noreferrer">🌐 GitHub</a>
+                </nav>
+                <!-- 🔍 物理搜索索引 -->
+                <div class="search-hub">
+                    <input type="text" id="search-input" class="search-control"
+                        placeholder="資産を検索...">
+                    <kbd class="search-kbd" title="快捷键: ⌘K 或 /">⌘K</kbd>
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="action-hub">
+                    <!-- 🐙 GitHub 与多元社交导航挂载 -->
+                    
+                    <!-- 🌓 主题镜像开关 -->
+                    <button id="theme-toggle" class="control-btn theme-btn" title="切换模式">
+                        <span class="btn-icon">☀️</span>
+                        <span class="btn-label">Light</span>
+                    </button>
+                    <!-- 🌐 全球共振多语言矩阵 (Glassmorphism Dropdown) -->
+                    <div class="lang-dropdown-wrapper" id="lang-dropdown">
+                        <button class="control-btn lang-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="切换语种">
+                            <span class="btn-icon">🌐</span>
+                            <span class="current-lang-name">🇯🇵 日本語</span>
+                            <span class="dropdown-caret">▾</span>
+                        </button>
+                        <div class="lang-dropdown-menu">
+                            <a href="../../showcase/janitor-gc-self-healing.html" class="lang-menu-item">
+                <span class="lang-code-badge">ZH</span>
+                <span class="lang-name-text">🇨🇳 简体中文</span>
+                
+            </a>
+<a href="../../en/showcase/janitor-gc-self-healing.html" class="lang-menu-item">
+                <span class="lang-code-badge">EN</span>
+                <span class="lang-name-text">🇬🇧 English</span>
+                
+            </a>
+<a href="../../ja/showcase/janitor-gc-self-healing.html" class="lang-menu-item active">
+                <span class="lang-code-badge">JA</span>
+                <span class="lang-name-text">🇯🇵 日本語</span>
+                <span class="lang-check">✓</span>
+            </a>
+                        </div>
+                    </div>
+                    <!-- 📱 移动端菜单开关 -->
+                    <button id="mobile-menu-toggle" class="control-btn mobile-only-btn">
+                        <span class="btn-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reading-progress"></div>
+
+    <div class="main-layout layout-page">
+        
+
+        <!-- 📝 主内容区 -->
+        <main class="content-gate">
+            <div class="content-wrapper">
+                <div class="prose-container">
+                    
+                    
+                    <article class="prose-sovereign">
+                        <h1 id="janitor-gc">🧹 Janitor GC 物理清道夫と自己修復台帳</h1>
+<h2 id="callout0">
+    <div class="callout callout-tip">
+        <div class="callout-header">
+            <span class="callout-icon">💡</span>
+            <span class="callout-title"><strong>拒绝臃肿与幽灵文件，确保磁盘绝对纯净</strong>：传统静态站点生成器最常见的问题是：当创作者删除或重命名一篇笔记后，构建目录中依然残留着旧的 HTML 页面和切片图片。久而久之，站点充斥着死链与孤岛垃圾。Illacme Plenipes 内置了创新的 Janitor GC 物理清道夫与自愈账本。</span>
+        </div>
+        <div class="callout-body"></div>
+    </div>
+    </h2>
+<h2 id="_1">⚡ 運用指標と自己修復性能</h2>
+<div class="stats-matrix" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🧹 孤立アセットの自動削除</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00ff88;">0 個のゴースト HTML · 0 枚の孤立画像</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">📜 SHA-256 帳簿照合</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #00f2fe;">ミリ秒単位のインクリメンタル更新 · 変更ブロックのみ再編成</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">♻️ LRU キャッシュのインテリジェントな淘汰</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: #ffb300;">容量・時間窓に基づき自動劣化処理</div>
+    </div>
+    <div class="stat-card" style="padding: 1.25rem 1.5rem; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color);">
+        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">🛡️ リポジトリコンプライアンス監査</div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: var(--accent-color);">元テーマの 100% 物理的読み取り専用保護</div>
+    </div>
+</div>
+
+<hr />
+<h2 id="_2">🛠️ 核心机制与自愈架构</h2>
+<h3 id="1-fingerprint-ledger">1. 📜 双向物理指纹账本 (Fingerprint Ledger)</h3>
+<p>システムはローカルの SQLite データベースとキャッシュディレクトリにおいて、クリエイターライブラリのグローバル指紋帳簿を維持しています：<br />
+* 各原稿ファイル（Markdown、画像、添付ファイル）の SHA-256 ハッシュ値と修正タイムスタンプを記録；<br />
+* そのファイルから派生したすべてのターゲットプロダクト（多言語 HTML、OpenGraph ソーシャルカード、図床参照 URL）を記録。</p>
+<h3 id="2-janitor-ghost-asset-scrubber">2. 🧹 Janitor 物理清道夫 (Ghost Asset Scrubber)</h3>
+<p>各インクリメンタルコンパイルまたは同期トリガー時に、Janitor が自動的に介入します：<br />
+1. <strong>逆方向照合</strong>：プロダクト出力ディレクトリ内のすべての HTML とリソースファイルを巡回し、「対応するソースドキュメントを持たなくなった」孤立ファイルの有無を確認；<br />
+2. <strong>安全な回収</strong>：ミリの単位で自動的かつ物理的にこれらのゴーストファイルと陳腐化したルートマッピングを削除し、ウェブサイトの 404 デッドリンク発生を防ぐ；<br />
+3. <strong>Sitemap とインデックス同期修正</strong>：<code>sitemap.xml</code> および <code>graph.json</code> の宇宙銀河系トポロジーから削除されたノードを自動的に除外。</p>
+<h3 id="3-lru">3. ♻️ LRU キャッシュガバナンスと自動劣化戦略</h3>
+<ul>
+<li>管理センター「ストレージアダプター」パネルで、クリエイターは柔軟に計算資源キャッシュ（Janitor GC）の上限を設定できます（例：直近 30 日 / 500MB の保持）。</li>
+<li>ローカル AI 翻訳段落キャッシュまたは生成型画像が閾値を超えた場合、エンジン是最古かつロックされていない低頻度使用段落を優先的に淘汰し、システムが数年間稼働しても当初の軽快さを維持します。</li>
+</ul>
+<!-- Sovereign-Tag: [AEL-Iter-ID: Sync:janitor-gc-s](../../../../ael-iter-id: sync:janitor-gc-s.html) -->
+                    </article>
+                    
+                </div>
+
+                <!-- 🌲 动态目录 (Only for docs/blog) -->
+                <aside class="toc-pioneer" id="dynamic-toc">
+                    <div class="toc-title">目次</div>
+                    <nav class="toc-list" id="toc-container"></nav>
+                </aside>
+            </div>
+
+            <!-- 📜 底部存证 -->
+            <footer class="audit-footer">
+                <div class="footer-line"></div>
+                <p>© 2026 Illacme Press. All Rights Reserved. Generated by <a href="https://github.com/Illacme/illacme-plenipes"
+                        class="engine-link">Illacme-plenipes V50.3</a></p>
+                <p class="slogan">物理的主権、自己完結型の成長。</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 🧠 极简交互引擎物理注入 -->
+    <script src="../../static/js/main.theme.js"></script>
+    <script src="../../static/js/main.toc.js"></script>
+    <script src="../../static/js/main.search.js"></script>
+    <script src="../../static/js/main.code.js"></script>
+    <script src="../../static/js/main.lightbox.js"></script>
+    <script src="../../static/js/main.renderers.js"></script>
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>
