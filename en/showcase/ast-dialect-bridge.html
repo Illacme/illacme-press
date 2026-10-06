@@ -155,25 +155,23 @@
 
 <hr />
 <h2 id="ast-syntax-bridging-pipeline-mechanism">🛠️ AST Syntax Bridging Pipeline Mechanism</h2>
-<div class="codehilite"><pre><span></span><code><span class="nf">graph</span><span class="w"> </span><span class="n">TD</span>
-<span class="w">    </span><span class="n">Raw</span><span class="p">[</span><span class="n">Obsidian</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="err">创作者原稿</span><span class="w"> </span><span class="n">Markdown</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Lexer</span><span class="p">[</span><span class="n">AST</span><span class="w"> </span><span class="err">词法与语法分析器</span><span class="p">]</span>
+<div class="sovereign-mermaid-diagram"><pre class="mermaid">graph TD
+    Raw[Obsidian / 创作者原稿 Markdown] --&gt; Lexer[AST 词法与语法分析器]
+    
+    Lexer --&gt; C1[Obsidian Callouts 提示块]
+    Lexer --&gt; C2[Mermaid 动态拓扑图表]
+    Lexer --&gt; C3[MathJax / KaTeX LaTeX 公式]
+    Lexer --&gt; C4[双向链接 WikiLinks 与嵌入附件]
 
-<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C1</span><span class="p">[</span><span class="n">Obsidian</span><span class="w"> </span><span class="n">Callouts</span><span class="w"> </span><span class="err">提示块</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C2</span><span class="p">[</span><span class="n">Mermaid</span><span class="w"> </span><span class="err">动态拓扑图表</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C3</span><span class="p">[</span><span class="n">MathJax</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">KaTeX</span><span class="w"> </span><span class="n">LaTeX</span><span class="w"> </span><span class="err">公式</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Lexer</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C4</span><span class="p">[</span><span class="err">双向链接</span><span class="w"> </span><span class="n">WikiLinks</span><span class="w"> </span><span class="err">与嵌入附件</span><span class="p">]</span>
+    C1 --&gt; Bridge[AST 跨框架语义转换中枢]
+    C2 --&gt; Bridge
+    C3 --&gt; Bridge
+    C4 --&gt; Bridge
 
-<span class="w">    </span><span class="n">C1</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span><span class="p">[</span><span class="n">AST</span><span class="w"> </span><span class="err">跨框架语义转换中枢</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C2</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span>
-<span class="w">    </span><span class="n">C3</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span>
-<span class="w">    </span><span class="n">C4</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Bridge</span>
-
-<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out1</span><span class="p">[</span><span class="n">Sovereign</span><span class="w"> </span><span class="err">原生</span><span class="w"> </span><span class="n">HTML5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">CSS3</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out2</span><span class="p">[</span><span class="n">Docusaurus</span><span class="w"> </span><span class="n">MDX</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">组件</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out3</span><span class="p">[</span><span class="n">VitePress</span><span class="w"> </span><span class="n">Vue</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="err">容器</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Bridge</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Out4</span><span class="p">[</span><span class="n">Astro</span><span class="w"> </span><span class="n">Starlight</span><span class="w"> </span><span class="err">静态孤岛</span><span class="p">]</span>
-</code></pre></div>
-
+    Bridge --&gt; Out1[Sovereign 原生 HTML5 / CSS3]
+    Bridge --&gt; Out2[Docusaurus MDX 2 组件]
+    Bridge --&gt; Out3[VitePress Vue 3 容器]
+    Bridge --&gt; Out4[Astro Starlight 静态孤岛]</pre></div>
 <h3 id="1-smart-flattening-of-obsidian-callout-blocks">1. 💡 Smart Flattening of Obsidian Callout Blocks</h3>
 <ul>
 <li>Automatically recognizes 12 native Obsidian Callout syntaxes such as <code>&gt; [!NOTE]</code>, <code>&gt; [!TIP]</code>, <code>&gt; [!WARNING]</code>, and <code>&gt; [!DANGER]</code>;</li>

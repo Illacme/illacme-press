@@ -136,7 +136,7 @@
                     
     <div class="article-header-meta">
         <div class="meta-row">
-            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Architecture Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 min read (339 words)</span>
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Architecture Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-09-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 min read (342 words)</span>
         </div>
         <div class="meta-tags"><span class="tag-pill">#Architecture</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#Security</span><span class="tag-pill">#Core</span></div>
     </div>
@@ -162,10 +162,10 @@
 <h2 id="four-major-physical-isolation-red-lines">🔒 Four Major Physical Isolation Red Lines</h2>
 <h3 id="1-original-manuscript-repository-read-only-red-line-vault-read-only-sentry">1. Original Manuscript Repository Read-Only Red Line (Vault Read-Only Sentry)</h3>
 <p>The system employs read-only scanning and hash indexing for the creator's original manuscript directory (<code>vault/</code>), <strong>never writing any temporary build files or cache databases into the original manuscript directory</strong>.</p>
-<h3 id="2-brand-territory-physical-isolation-imprint-territory-sovereignty">2. Brand Territory Physical Isolation (Imprint Territory Sovereignty)</h3>
+<h3 id="2-imprint-physical-isolation-imprint-sovereignty">2. Imprint Physical Isolation (Imprint Sovereignty)</h3>
 <p>Each brand possesses an independent file tree (<code>imprints/{brand}/</code>), with its configuration files, metadata ledger (<code>ledger.db</code>), binding artifacts, and logs all independently isolated to prevent interference.</p>
 <h3 id="3-mother-theme-read-only-isolation-mother-theme-isolation">3. Mother Theme Read-Only Isolation (Mother Theme Isolation)</h3>
-<p>The system's built-in official theme templates (<code>themes/</code>) serve as pristine read-only mother themes. All build artifacts and user static outputs are directed to the territory or global <code>dist/</code>, strictly prohibiting contamination of the mother theme directory.</p>
+<p>The official theme templates provided by the system (<code>themes/</code>) serve as clean, read-only Mother Themes. All build artifacts and user static outputs must be directed to their respective brand directories or the global <code>dist/</code>, strictly prohibiting any pollution of the mother theme directory.</p>
 <h3 id="4-local-encryption-isolation-for-compute-credentials-credential-vault">4. Local Encryption Isolation for Compute Credentials (Credential Vault)</h3>
 <p>All API keys are encrypted with sovereign ciphertext (<code>enc:...</code>) upon disk write; plaintext keys are strictly prohibited in the main configuration file to prevent key leakage via code commits.</p>
 <hr />

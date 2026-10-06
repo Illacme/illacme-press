@@ -136,7 +136,7 @@
                     
     <div class="article-header-meta">
         <div class="meta-row">
-            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-30</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 4 min read (642 words)</span>
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-09-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 4 min read (639 words)</span>
         </div>
         <div class="meta-tags"><span class="tag-pill">#Engineering</span><span class="tag-pill">#Cache</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#GC</span></div>
     </div>
@@ -149,9 +149,9 @@
 <h3 id="what-is-block-cache-hub">What is Block Cache Hub?</h3>
 <p>In multilingual publishing and AI semantic translation pipelines, the Block Cache Hub is responsible for maintaining a mapping of hash values, associated translations, and metadata for each physical paragraph (Block) in the source manuscript. It triggers incremental translation only for modified paragraphs during source manuscript adjustments, avoiding full recomputation.</p>
 <h3 id="physical-routing-design">Physical Routing Design</h3>
-<p>Paragraph-level shadow cache employs localized physical isolation storage:<br />
+<p>Paragraph Shadow Cache employs localized physical isolation storage:<br />
 - <strong>Configuration File Path</strong>: The cache hub strategy is defined in <code>config.yaml</code> or <code>config.local.yaml</code>.<br />
-- <strong>Physical Persistent Store</strong>: For the current brand portfolio, paragraph-level shadow cache persistence is stored on disk at <code>imprints/{brand}/cache/block_cache.db</code> or under the <code>.cache/</code> directory, ensuring complete physical isolation from the source document library to maintain its purity.</p>
+- <strong>Physical Persistence Library</strong>: For the current publishing brand, paragraph shadow cache persistence is stored on disk at <code>imprints/{brand}/cache/block_cache.db</code> or under the <code>.cache/</code> directory, fully physically isolated from the original manuscript library to ensure library purity.</p>
 <hr />
 <h2 id="2-lru-garbage-collection-and-cache-validity-verification-algorithm-lru-gc-validation">⚙️ 2. LRU Garbage Collection and Cache Validity Verification Algorithm (LRU GC &amp; Validation)</h2>
 <h3 id="lru-garbage-collection-mechanism">LRU Garbage Collection Mechanism</h3>

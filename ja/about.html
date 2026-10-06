@@ -143,17 +143,15 @@
 </ul>
 <hr />
 <h2 id="_2">🛠️ アーキテクチャの階層化</h2>
-<div class="codehilite"><pre><span></span><code><span class="nf">graph</span><span class="w"> </span><span class="n">TD</span>
-<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="err">原稿文库</span><span class="w"> </span><span class="n">Vault</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="err">创作流转管线</span><span class="w"> </span><span class="n">Pipeline</span><span class="p">]</span>
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="err">算力中心</span><span class="w"> </span><span class="n">Compute</span><span class="w"> </span><span class="n">Hub</span><span class="p">]</span>
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="err">装帧中心</span><span class="w"> </span><span class="n">SSG</span><span class="w"> </span><span class="n">Bindery</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span><span class="p">[</span><span class="err">多语言矩阵</span><span class="w"> </span><span class="n">i18n</span><span class="w"> </span><span class="n">Matrix</span><span class="p">]</span>
-<span class="w">    </span><span class="n">D</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">F</span><span class="p">[</span><span class="err">静态站点产物</span><span class="w"> </span><span class="n">Dist</span><span class="p">]</span>
-<span class="w">    </span><span class="n">E</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="err">发行矩阵</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Matrix</span><span class="p">]</span>
-<span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">G</span>
-<span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">H</span><span class="p">[</span><span class="err">全球读者</span><span class="w"> </span><span class="kr">Global</span><span class="w"> </span><span class="n">Readers</span><span class="p">]</span>
-</code></pre></div>
-
+<div class="sovereign-mermaid-diagram"><pre class="mermaid">graph TD
+    A[原稿文库 Vault] --&gt; B[创作流转管线 Pipeline]
+    B --&gt; C[算力中心 Compute Hub]
+    B --&gt; D[装帧中心 SSG Bindery]
+    C --&gt; E[多语言矩阵 i18n Matrix]
+    D --&gt; F[静态站点产物 Dist]
+    E --&gt; G[发行矩阵 The Matrix]
+    F --&gt; G
+    G --&gt; H[全球读者 Global Readers]</pre></div>
 <hr />
 <h2 id="_3">🤝 参加と貢献</h2>
 <p>Illacme Plenipes は、開放的かつ進化を続ける出版エコシステムです。</p>

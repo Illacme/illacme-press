@@ -136,7 +136,7 @@
                     
     <div class="article-header-meta">
         <div class="meta-row">
-            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-30</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分 (635 文字数)</span>
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-09-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分 (633 文字数)</span>
         </div>
         <div class="meta-tags"><span class="tag-pill">#Engineering</span><span class="tag-pill">#Cache</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#GC</span></div>
     </div>
@@ -149,9 +149,13 @@
 <h3 id="block-cache-hub_1">Block Cache Hub とは何か？</h3>
 <p>多言語出版および AI セマンティック翻訳パイプラインにおいて、段落級シャドウキャッシュ（Block Cache Hub）は、原稿内の各物理段落（Block）のハッシュ値と、関連する訳文・メタデータのマッピングを維持します。原稿の微調整時には、全量を再計算するのではなく、変更が発生した段落のみに対してインクリメンタル翻訳をトリガーし、無駄な計算リソースを防ぎます。</p>
 <h3 id="_1">物理ルートの設計</h3>
-<p>セグメント影のキャッシュは、局所的な物理的隔離ストレージを採用しています：<br />
-- <strong>設定ファイルパス</strong>：キャッシュハブ戦略は <code>config.yaml</code> または <code>config.local.yaml</code> で定義されます。<br />
-- <strong>物理的永続化ライブラリ</strong>：現在のブランドマッピングに対して、セグメント影のキャッシュの永続化データは <code>imprints/{brand}/cache/block_cache.db</code> または <code>.cache/</code> ディレクトリに保存され、元原稿ライブラリとは完全に物理的に隔離されており、ライブラリの純粋性を確保します。</p>
+<p>コンテンツ</p>
+<h3 id="_2"></h3>
+<p>セグメントシャドウキャッシュは局所的な物理的隔離ストレージを採用します：</p>
+<ul>
+<li><strong>設定ファイルパス</strong>：<code>config.yaml</code> または <code>config.local.yaml</code> にキャッシュハブ戦略が定義されています。</li>
+<li><strong>物理永続化ライブラリ</strong>：現在の出版ブランドに対して、セグメントシャドウキャッシュの永続化データは <code>imprints/{brand}/cache/block_cache.db</code> または <code>.cache/</code> ディレクトリに保存され、原稿ライブラリとは完全に物理的に隔離されており、ライブラリの純粋性を確保します。</li>
+</ul>
 <hr />
 <h2 id="2-lru-lru-gc-validation">⚙️ 2. LRU ゴミ収集とキャッシュ有効性検証アルゴリズム (LRU GC &amp; Validation)</h2>
 <h3 id="lru">LRU ゴミ収集メカニズム</h3>

@@ -136,7 +136,7 @@
                     
     <div class="article-header-meta">
         <div class="meta-row">
-            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Architecture Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (303 文字数)</span>
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Architecture Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-09-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (294 文字数)</span>
         </div>
         <div class="meta-tags"><span class="tag-pill">#Architecture</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#Security</span><span class="tag-pill">#Core</span></div>
     </div>
@@ -156,10 +156,10 @@
 <h2 id="_3">🔒 四大物理隔離の鉄則</h2>
 <h3 id="1-vault-read-only-sentry">1. 原稿文庫只読鉄則 (Vault Read-Only Sentry)</h3>
 <p>システムはクリエイターが所有する原稿ディレクトリ（<code>vault/</code>）に対して、只読スキャンとハッシュインデックスのみを実行し、<strong>原稿ディレクトリ内にいかなる一時的なビルドファイルやキャッシュデータベースも書き込まない</strong>。</p>
-<h3 id="2-imprint-territory-sovereignty">2. ブランド版図物理隔離 (Imprint Territory Sovereignty)</h3>
+<h3 id="2">2. 出版ブランドの物理的隔離（インプリント主権）</h3>
 <p>各ブランドは独立したファイルツリー（<code>imprints/{brand}/</code>）を有し、その構成ファイル、メタデータ帳簿（<code>ledger.db</code>）、装幀生成物およびログはすべて個別に隔離され、相互干渉しない。</p>
 <h3 id="3-mother-theme-isolation">3. テーマ母本只読隔離 (Mother Theme Isolation)</h3>
-<p>システムに内蔵されている公式テーマテンプレート（<code>themes/</code>）は、純粋な只読の母本（Mother Themes）として機能する。すべてのビルド生成物およびユーザー静的出力は版図またはグローバル <code>dist/</code> へ定向して書き込まれ、母本ディレクトリへの汚染は厳に禁ずる。</p>
+<p>システム標準の公式テーマテンプレート（<code>themes/</code>）は、クリーンな読み取り専用マザーテーマとして機能します。すべてのビルド产物とユーザー静的出力は、対応するブランドディレクトリまたはグローバル <code>dist/</code> に書き込まれ、マザーテーマディレクトリの汚染は厳禁です。</p>
 <h3 id="4-credential-vault">4. 計算力キーのローカル暗号化隔離 (Credential Vault)</h3>
 <p>すべての API キーはディスクに保存される際、主権暗号文で暗号化されます（<code>enc:...</code>）。主設定ファイルには平文キーの保存を厳禁し、コードコミットによるキー漏洩を防ぎます。</p>
 <hr />

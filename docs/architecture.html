@@ -118,7 +118,7 @@
     <aside class="sidebar-pioneer">
         <div class="sidebar-content">
             <div class="nav-tree">
-                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../docs/engineering/block-cache-hub.html" class="nav-link">段落缓存治理中枢 (Block Cache Hub)</a></li></ul></li><li class="nav-item"><a href="../docs/architecture.html" class="nav-link active">物理隔离架构与技术原理</a></li><li class="nav-item"><a href="../docs/authoring-and-vault-guide.html" class="nav-link">原稿文库组织与写作指引 (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../docs/brand-management.html" class="nav-link">品牌版图 (Imprint) 多站点与工作区管理</a></li><li class="nav-item"><a href="../docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">常见问题与排错手册 (FAQ)</a></li><li class="nav-item"><a href="../docs/compute-center-ai-translation-setup-guide.html" class="nav-link">算力中心与 AI 翻译配置指南</a></li><li class="nav-item"><a href="../docs/governance-dashboard-operation-guide.html" class="nav-link">治理中心 (Governance Dashboard) 操作指南</a></li><li class="nav-item"><a href="../docs/i18n-guide.html" class="nav-link">多语言矩阵与内容治理实战</a></li><li class="nav-item"><a href="../docs/matrix-channel-configuration.html" class="nav-link">发行矩阵与渠道配置 (The Matrix)</a></li><li class="nav-item"><a href="../docs/quick-start.html" class="nav-link">创作者 5 分钟极速上手指南</a></li><li class="nav-item"><a href="../docs/themes-and-binding-visual-customization.html" class="nav-link">装帧主题与视觉定制 (Themes & Binding)</a></li></ul>
+                <ul class="nav-list"><li class="nav-group"><div class="group-title"><span>📁 engineering</span><span class="group-toggle">▼</span></div><ul class="nav-list"><li class="nav-item"><a href="../docs/engineering/block-cache-hub.html" class="nav-link">段落缓存治理中枢 (Block Cache Hub)</a></li></ul></li><li class="nav-item"><a href="../docs/architecture.html" class="nav-link active">物理隔离架构与技术原理</a></li><li class="nav-item"><a href="../docs/authoring-and-vault-guide.html" class="nav-link">原稿文库组织与写作指引 (Authoring & Vault Guide)</a></li><li class="nav-item"><a href="../docs/brand-management.html" class="nav-link">品牌管理与多站点 (Imprint)</a></li><li class="nav-item"><a href="../docs/common-issues-and-troubleshooting-manual-faq.html" class="nav-link">常见问题与排错手册 (FAQ)</a></li><li class="nav-item"><a href="../docs/compute-center-ai-translation-setup-guide.html" class="nav-link">算力中心与 AI 翻译配置指南</a></li><li class="nav-item"><a href="../docs/governance-dashboard-operation-guide.html" class="nav-link">治理中心 (Governance Dashboard) 操作指南</a></li><li class="nav-item"><a href="../docs/i18n-guide.html" class="nav-link">多语言矩阵与内容治理实战</a></li><li class="nav-item"><a href="../docs/matrix-channel-configuration.html" class="nav-link">发行矩阵与渠道配置 (The Matrix)</a></li><li class="nav-item"><a href="../docs/quick-start.html" class="nav-link">创作者 5 分钟极速上手指南</a></li><li class="nav-item"><a href="../docs/themes-and-binding-visual-customization.html" class="nav-link">装帧主题与视觉定制 (Themes & Binding)</a></li></ul>
             </div>
         </div>
     </aside>
@@ -136,7 +136,7 @@
                     
     <div class="article-header-meta">
         <div class="meta-row">
-            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Architecture Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分钟 (604 字数)</span>
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Core Architecture Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-09-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 3 分钟 (607 字数)</span>
         </div>
         <div class="meta-tags"><span class="tag-pill">#Architecture</span><span class="tag-pill">#Sovereign</span><span class="tag-pill">#Security</span><span class="tag-pill">#Core</span></div>
     </div>
@@ -177,10 +177,10 @@
 <h2 id="_3">🔒 四大物理隔离红线</h2>
 <h3 id="1-vault-read-only-sentry">1. 原稿文库只读红线 (Vault Read-Only Sentry)</h3>
 <p>系统对创作者的原稿目录（<code>vault/</code>）采用只读扫描与哈希索引，<strong>绝不在原稿目录中写入任何临时构建文件或缓存数据库</strong>。</p>
-<h3 id="2-imprint-territory-sovereignty">2. 品牌版图物理隔离 (Imprint Territory Sovereignty)</h3>
+<h3 id="2-imprint-sovereignty">2. 出版品牌物理隔离 (Imprint Sovereignty)</h3>
 <p>每个品牌拥有独立的文件树（<code>imprints/{brand}/</code>），其配置文件、元数据账本（<code>ledger.db</code>）、装帧产物及日志均独立隔离，互不干扰。</p>
 <h3 id="3-mother-theme-isolation">3. 主题母本只读隔离 (Mother Theme Isolation)</h3>
-<p>系统自带的官方主题模板（<code>themes/</code>）作为纯净的只读母本（Mother Themes）。所有构建产物和用户静态输出均定向写入版图或全局 <code>dist/</code>，严禁污染母本目录。</p>
+<p>系统自带的官方主题模板（<code>themes/</code>）作为纯净的只读母本（Mother Themes）。所有构建产物和用户静态输出均定向写入对应品牌目录或全局 <code>dist/</code>，严禁污染母本目录。</p>
 <h3 id="4-credential-vault">4. 算力密钥本地加密隔离 (Credential Vault)</h3>
 <p>所有 API 密钥在落盘时均经过主权密文加密（<code>enc:...</code>），主配置文件中严禁存储明文 Key，杜绝代码提交导致的密钥泄露。</p>
 <hr />
@@ -231,7 +231,7 @@
         
         <a href="../docs/authoring-and-vault-guide.html" class="doc-pagination-item next">
             <span class="pagination-sublabel">下一篇 »</span>
-            <span class="pagination-title">authoring-and-vault-guide</span>
+            <span class="pagination-title">原稿文库组织与写作指引 (Authoring & Vault Guide)</span>
         </a>
         
     </div>

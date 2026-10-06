@@ -261,21 +261,19 @@
 </ul>
 <hr />
 <h2 id="scenario-selection-decision-tree">🎯 Scenario Selection Decision Tree</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">TD</span>
-<span class="w">    </span><span class="k">Start</span><span class="o">[</span><span class="n">创作者原稿文库</span><span class="o">]</span><span class="w"> </span><span class="c1">--&gt; Q1{追求零环境依赖与极客美学?}</span>
-<span class="w">    </span><span class="n">Q1</span><span class="w"> </span><span class="c1">-- 是 --&gt; Sovereign[👑 Sovereign 旗舰 / 🏛️ Universal 标准]</span>
-<span class="w">    </span><span class="n">Q1</span><span class="w"> </span><span class="c1">-- 否 --&gt; Q2{主要用途类型?}</span>
-
-<span class="w">    </span><span class="n">Q2</span><span class="w"> </span><span class="c1">-- 技术团队文档 / API 手册 --&gt; Q3{前端技术栈偏好?}</span>
-<span class="w">    </span><span class="n">Q3</span><span class="w"> </span><span class="c1">-- React / MDX --&gt; Docusaurus[🦖 Docusaurus / 📖 Nextra]</span>
-<span class="w">    </span><span class="n">Q3</span><span class="w"> </span><span class="c1">-- Vue 3 / Vite --&gt; VitePress[⚡ VitePress]</span>
-<span class="w">    </span><span class="n">Q3</span><span class="w"> </span><span class="c1">-- Astro 零 JS --&gt; Starlight[🌟 Astro Starlight]</span>
-
-<span class="w">    </span><span class="n">Q2</span><span class="w"> </span><span class="c1">-- 经典博文归档 / 海量文章 --&gt; Q4{文章规模?}</span>
-<span class="w">    </span><span class="n">Q4</span><span class="w"> </span><span class="c1">-- &lt; 1,000 篇 --&gt; Hexo[🎨 Hexo Clean Tech]</span>
-<span class="w">    </span><span class="n">Q4</span><span class="w"> </span><span class="c1">-- &gt; 10,000 篇超大海量 --&gt; Hugo[🐹 Hugo Go-Speed Engine]</span>
-</code></pre></div>
-
+<div class="sovereign-mermaid-diagram"><pre class="mermaid">graph TD
+    Start[创作者原稿文库] --&gt; Q1{追求零环境依赖与极客美学?}
+    Q1 -- 是 --&gt; Sovereign[👑 Sovereign 旗舰 / 🏛️ Universal 标准]
+    Q1 -- 否 --&gt; Q2{主要用途类型?}
+    
+    Q2 -- 技术团队文档 / API 手册 --&gt; Q3{前端技术栈偏好?}
+    Q3 -- React / MDX --&gt; Docusaurus[🦖 Docusaurus / 📖 Nextra]
+    Q3 -- Vue 3 / Vite --&gt; VitePress[⚡ VitePress]
+    Q3 -- Astro 零 JS --&gt; Starlight[🌟 Astro Starlight]
+    
+    Q2 -- 经典博文归档 / 海量文章 --&gt; Q4{文章规模?}
+    Q4 -- &lt; 1,000 篇 --&gt; Hexo[🎨 Hexo Clean Tech]
+    Q4 -- &gt; 10,000 篇超大海量 --&gt; Hugo[🐹 Hugo Go-Speed Engine]</pre></div>
 <hr />
 <h2 id="one-click-hot-switchover-in-governance-center">🔄 One-Click Hot Switchover in Governance Center</h2>
 <p>In the <strong>「🎭 Themes &amp; Binding」</strong> panel of the Illacme Plenipes Governance Center (<code>http://127.0.0.1:43212/dashboard/#/themes</code>), simply click the <strong>「🎯 Activate and Apply」</strong> button on the corresponding theme card. The system will automatically switch the build pipeline and local real-time preview service (<code>43213</code>) within 0.5 seconds, helping you effortlessly explore the ultimate binding form best suited for your current publication!</p>

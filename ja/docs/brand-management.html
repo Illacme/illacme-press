@@ -136,37 +136,37 @@
                     
     <div class="article-header-meta">
         <div class="meta-row">
-            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Editorial Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-08-17</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (362 文字数)</span>
+            <span class="meta-item author"><span class="meta-icon">✍️</span> Illacme Editorial Team</span> <span class="meta-item date"><span class="meta-icon">📅</span> 2026-09-16</span> <span class="meta-item read-time"><span class="meta-icon">⏱️</span> 2 分 (369 文字数)</span>
         </div>
         <div class="meta-tags"><span class="tag-pill">#Imprint</span><span class="tag-pill">#MultiSite</span><span class="tag-pill">#Workspace</span><span class="tag-pill">#Governance</span></div>
     </div>
     
                     <article class="prose-sovereign">
-                        <h1 id="imprint">🏷️ ブランドマップ（Imprint）：複数サイトとワークスペースの管理</h1>
-<p><strong>Illacme Plenipes</strong> では、各出版プロジェクトが独立した「ブランド・マップ（Imprint）」として扱われます。本ガイドは、マルチブランドアーキテクチャを活用して、複数サイト、複数ライブラリ、および複数チャネルにおける物理的な完全隔離管理を実現する方法を詳しく解説します。</p>
+                        <h1 id="imprint">🏷️ ブランド管理と複数サイト (Imprint)</h1>
+<p><strong>Illacme Plenipes</strong> では、各出版プロジェクトは独立した<strong>「出版ブランド (Imprint)」です</strong>。本ガイドでは、多ブランドアーキテクチャを活用して、複数サイト、複数ライブラリ、および複数チャネルの絶対的な物理的隔離管理を実現する方法を詳しく解説します。</p>
 <hr />
-<h2 id="1">🏛️ 1. 「インプリント（ブランド）」とは何ですか？</h2>
+<h2 id="1-imprint">🏛️ 1. 「出版ブランド (Imprint)」とは？</h2>
 <p>クリエイターが複数の分野でコンテンツを運営する場合（例：個人技術ブログ、学術研究コラム、企業製品ドキュメント、ライフスタイル・トラベル随筆など）、従来の投稿ツールでは、複数の独立したプログラムをデプロイする必要があるか、あるいは同一データベース内で混在して混乱が生じるという課題があります。</p>
-<p><strong>Illacme Plenipes のマルチブランドアーキテクチャ</strong>：<br />
-- <strong>物理的に隔離されたストレージ</strong>：各ブランドは専用ディレクトリ <code>imprints/{brand}/</code> を有し、設定ファイル（<code>config.imprint.yaml</code>）、履歴帳簿（<code>usage_ledger.json</code>）、および同期ステータスを独立して管理します。<br />
-- <strong>独立した原稿ライブラリ</strong>：ブランド A は <code>/Vaults/TechDocs</code> にバインドされ、ブランド B は <code>/Vaults/DailyLife</code> にバインドされます。<br />
-- <strong>独立した装飾テーマ</strong>：技術サイトには <code>Docusaurus</code> または <code>Starlight</code> を採用し、個人ブログには <code>Sovereign</code> のサイバー風テーマを採用します。<br />
-- <strong>独立した配信マトリクス</strong>：技術記事は GitHub Pages および Dev.to に同期され、随筆記事は WeChat 公式アカウントおよび Substack に同期されます。</p>
+<p><strong>Illacme Plenipes の多ブランドアーキテクチャ</strong>：<br />
+- <strong>物理的隔離ストレージ</strong>：各ブランドは専用ディレクトリ <code>imprints/{brand}/</code> を有し、独立した設定（<code>config.imprint.yaml</code>）、履歴帳簿（<code>usage_ledger.json</code>）、および同期状態を管理します。<br />
+- <strong>独立原稿ライブラリ</strong>：ブランド A は <code>/Vaults/TechDocs</code> にバインドでき、ブランド B は <code>/Vaults/DailyLife</code> にバインドできます。<br />
+- <strong>独立装飾テーマ</strong>：技術サイトには <code>Docusaurus</code> または <code>Starlight</code> を採用し、個人ブログには <code>Sovereign</code> サイバー風を採用できます。<br />
+- <strong>独立配信マトリクス</strong>：技術記事は GitHub Pages と Dev.to に同期され、随筆記事は WeChat 公式アカウントと Substack に同期されます。</p>
 <hr />
 <h2 id="2">🚀 2. ブランドの作成と切り替え方法</h2>
 <h3 id="_1">方式一：ガバナンスセンターでの可視化操作</h3>
 <ol>
-<li>ブラウザを開き、ガバナンスセンターにアクセス：<code>http://127.0.0.1:43212/dashboard/</code></li>
-<li>【レイアウト装飾とモード】&rarr;【レイアウト管理 (imprints)】へナビゲートします。</li>
-<li>「➕ 新規出版レイアウト」ボタンをクリックし、ブランドコード（例：<code>tech_weekly</code>）と表示名称を入力します。</li>
-<li>そのブランドのライブラリパス、テーマスタイル、および配信認証情報を設定します。</li>
+<li>ブラウザを開き、ガバナンスセンター <code>http://127.0.0.1:43212/dashboard/</code> にアクセスします。</li>
+<li>【ブランドインプリントとモード】&rarr;【ブランド管理 (imprints)】に移動します。</li>
+<li>「➕ 新規出版ブランド」ボタンをクリックし、ブランドコード（例：<code>tech_weekly</code>）と表示名を入力します。</li>
+<li>このブランドのライブラリパス、テーマスタイル、および配信認証情報を設定します。</li>
 <li>「アクティブ化して切り替え」をクリックすると、システムがミリ秒単位で現在のワークスペースをホットスワップします！</li>
 </ol>
 <h3 id="_2">方式二：コマンドラインによる高速操作</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 1. 唤醒指挥中心</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 1. 唤醒出版引擎</span>
 python3<span class="w"> </span>plenipes.py
 
-<span class="c1"># 2. 在交互菜单中选择 [1] 切换出版版图，或使用参数指定启动：</span>
+<span class="c1"># 2. 在交互菜单中选择 [1] 切换出版品牌，或使用参数指定启动：</span>
 python3<span class="w"> </span>plenipes.py<span class="w"> </span>--imprint<span class="w"> </span>tech_weekly<span class="w"> </span>--sync
 </code></pre></div>
 
@@ -189,9 +189,9 @@ python3<span class="w"> </span>plenipes.py<span class="w"> </span>--imprint<span
                     
     <div class="doc-pagination-wrapper">
         
-        <a href="../../ja/docs/authoring-and-vault-guide.html" class="doc-pagination-item prev">
+        <a href="../../ja/docs/block-cache-hub.html" class="doc-pagination-item prev">
             <span class="pagination-sublabel">« 前の記事</span>
-            <span class="pagination-title">原稿文庫の組織と執筆ガイド (Authoring & Vault Guide)</span>
+            <span class="pagination-title">ブロックキャッシュハブ：設計原理、物理ルーティング、LRU ガーベージコレクションと自動クリーンアップ戦略</span>
         </a>
         
         

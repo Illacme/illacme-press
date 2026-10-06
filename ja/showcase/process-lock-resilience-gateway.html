@@ -155,19 +155,17 @@
 
 <hr />
 <h2 id="_1">🛠️ 単一インスタンスロック機構と自己修復アーキテクチャ</h2>
-<div class="codehilite"><pre><span></span><code><span class="nf">graph</span><span class="w"> </span><span class="n">TD</span>
-<span class="w">    </span><span class="n">UserLaunch</span><span class="p">[</span><span class="err">启动</span><span class="w"> </span><span class="n">plenipes</span><span class="p">.</span><span class="n">py</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">ProbeLock</span><span class="p">{</span><span class="err">绑定</span><span class="w"> </span><span class="mi">43210</span><span class="w"> </span><span class="err">单例锁</span><span class="o">?</span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">ProbeLock</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="err">绑定失败</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Conflict</span><span class="p">[</span><span class="err">检测到已有实例在运行</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="err">优雅拦截并提示</span><span class="p">]</span>
-<span class="w">    </span><span class="n">ProbeLock</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="err">绑定成功</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Init</span><span class="p">[</span><span class="err">创建进程级单例实例</span><span class="p">]</span>
-
-<span class="w">    </span><span class="n">Init</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Gateway</span><span class="p">[</span><span class="err">拉起</span><span class="w"> </span><span class="mi">43212</span><span class="w"> </span><span class="n">FastAPI</span><span class="w"> </span><span class="n">Web</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="err">治理网关</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Init</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Preview</span><span class="p">[</span><span class="err">拉起</span><span class="w"> </span><span class="mi">43213</span><span class="w"> </span><span class="err">本地静态预览服务</span><span class="p">]</span>
-
-<span class="w">    </span><span class="n">Gateway</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Watchdog</span><span class="p">[</span><span class="err">守护进程健康心跳与熔断自愈</span><span class="p">]</span>
-<span class="w">    </span><span class="n">Watchdog</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Health</span><span class="p">[</span><span class="err">内存泄露防范</span><span class="w"> </span><span class="err">·</span><span class="w"> </span><span class="n">AI</span><span class="w"> </span><span class="err">超时自动降级</span><span class="w"> </span><span class="err">·</span><span class="w"> </span><span class="err">异步</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="err">隔离</span><span class="p">]</span>
-</code></pre></div>
-
+<div class="sovereign-mermaid-diagram"><pre class="mermaid">graph TD
+    UserLaunch[启动 plenipes.py] --&gt; ProbeLock{绑定 43210 单例锁?}
+    
+    ProbeLock -- 绑定失败 --&gt; Conflict[检测到已有实例在运行 -&gt; 优雅拦截并提示]
+    ProbeLock -- 绑定成功 --&gt; Init[创建进程级单例实例]
+    
+    Init --&gt; Gateway[拉起 43212 FastAPI Web API 治理网关]
+    Init --&gt; Preview[拉起 43213 本地静态预览服务]
+    
+    Gateway --&gt; Watchdog[守护进程健康心跳与熔断自愈]
+    Watchdog --&gt; Health[内存泄露防范 · AI 超时自动降级 · 异步 I/O 隔离]</pre></div>
 <h3 id="1-43210-singleton-process-lock">1. 🔒 43210 物理単一インスタンスロック（Singleton Process Lock）</h3>
 <ul>
 <li>システム起動時にまず <code>127.0.0.1:43210</code> で排他ソケットバインディングを試みます；</li>

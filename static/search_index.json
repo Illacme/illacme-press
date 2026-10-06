@@ -14,11 +14,7 @@
       "主权化出版",
       "快速上手"
     ],
-    "tags": [
-      "Home",
-      "Sovereign",
-      "Publishing"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -49,11 +45,7 @@
     "keywords": [
       "AI 出版引擎，Markdown 发布，Obsidian 导出，Logseq 发布，全球分发，多语言翻译，算力切片，本地模型，云端 AI，静态站点生成器，Sovereign 主题，Dev.to 发布，微信公众号，知乎，数据主权"
     ],
-    "tags": [
-      "Illacme",
-      "Sovereign",
-      "Overview"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -64,12 +56,7 @@
     "keywords": [
       "物理隔离架构，主权绝对隔离，Illacme Plenipes，原稿只读，品牌版图隔离，主题母本，算力密钥加密，微服务规划，FastAPI，静态站点生成"
     ],
-    "tags": [
-      "Architecture",
-      "Sovereign",
-      "Security",
-      "Core"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -80,12 +67,7 @@
     "keywords": [
       "发行矩阵，一键部署，静态站点托管，GitHub Pages，Vercel，Netlify，Cloudflare Pages，Gitee，内容分发，SEO 结构化，Dev.to，微信公众号，知乎专栏，Ghost，WordPress，Substack，Telegram，Discord，CLI 免密授权，异步重试队列"
     ],
-    "tags": [
-      "Matrix",
-      "Distribution",
-      "Syndication",
-      "Deploy"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -105,12 +87,7 @@
       "BlockShadowCache",
       "影子缓存"
     ],
-    "tags": [
-      "Compute",
-      "AI",
-      "LLM",
-      "Caching"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -121,11 +98,7 @@
     "keywords": [
       "治理中心，Illacme Plenipes，出版运维，身份标识，出版合规，存储适配，运行基座，版图管理，装帧主题，出版模式，基础模式，增强模式，全球模式，语言翻译，语种矩阵，块级规则，术语词库，分发路由，网址路径"
     ],
-    "tags": [
-      "Dashboard",
-      "Governance",
-      "Settings"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -145,11 +118,7 @@
       "自定义品牌",
       "Sovereign 主题"
     ],
-    "tags": [
-      "FAQ",
-      "Troubleshooting",
-      "Help"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -169,15 +138,11 @@
       "AI SEO",
       "Sovereign 主题"
     ],
-    "tags": [
-      "QuickStart",
-      "Tutorial",
-      "Onboarding"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
-    "title": "品牌版图 (Imprint) 多站点与工作区管理",
+    "title": "品牌管理与多站点 (Imprint)",
     "description": "掌握如何构建多个相互物理隔离的独立出版版图，为不同写作领域定制专属主题、算力与分发矩阵。",
     "url": "/docs/brand-management",
     "path": "Docs/brand-management.md",
@@ -193,12 +158,7 @@
       "主题定制",
       "治理中心"
     ],
-    "tags": [
-      "Imprint",
-      "MultiSite",
-      "Workspace",
-      "Governance"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -210,12 +170,7 @@
       "多语言矩阵，内容治理，Illacme Plenipes",
       "自动翻译，跨语种编译，AST 语法树，块级规则，术语词库，Obsidian 双链，代码保护，单段重译，校对工作台"
     ],
-    "tags": [
-      "i18n",
-      "Localization",
-      "Glossary",
-      "BlockRules"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -232,12 +187,7 @@
       "VitePress",
       "算力中心，内容分发，主权隔离"
     ],
-    "tags": [
-      "Docs",
-      "Index",
-      "Navigation",
-      "Guide"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -257,13 +207,7 @@
       "元数据",
       "Frontmatter"
     ],
-    "tags": [
-      "Vault",
-      "Authoring",
-      "Markdown",
-      "Obsidian",
-      "Frontmatter"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -283,12 +227,7 @@
       "赛博毛玻璃",
       "主题定制"
     ],
-    "tags": [
-      "Themes",
-      "SSG",
-      "UI",
-      "Design"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -301,12 +240,7 @@
       "影子缓存，BlockShadowCache",
       "段落级缓存，零 Token 浪费，算力优化，文本 AST 切片，增量翻译，静态站点构建，知识库系统"
     ],
-    "tags": [
-      "Engineering",
-      "Cache",
-      "Performance",
-      "LLM"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -317,12 +251,7 @@
     "keywords": [
       "主权出版，Obsidian，AI 写作，自动化出版，多语种翻译，SEO 优化，静态网站，全球分发，数字主权"
     ],
-    "tags": [
-      "Blog",
-      "Story",
-      "FirstPost",
-      "Sovereign"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -342,12 +271,7 @@
       "结构化表格",
       "双向链接"
     ],
-    "tags": [
-      "Markdown",
-      "Showcase",
-      "Syntax",
-      "Features"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -358,12 +282,7 @@
     "keywords": [
       "AI 原生出版社，主权出版，Illacme Plenipes，内容托管，去中心化发布，多语言编译，知识图谱，数字排版，全球私人出版"
     ],
-    "tags": [
-      "Philosophy",
-      "Web3",
-      "Publishing",
-      "Future"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -377,13 +296,7 @@
       "Dev.to",
       "知乎专栏，微信公众号，原创保护，Token 隔离"
     ],
-    "tags": [
-      "Showcase",
-      "Syndication",
-      "MultiChannel",
-      "Distribution",
-      "Automation"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -403,13 +316,7 @@
       "全渠道分发",
       "GitHub Pages"
     ],
-    "tags": [
-      "Showcase",
-      "Themes",
-      "Features",
-      "Innovations",
-      "Gallery"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -426,13 +333,7 @@
       "Gemini",
       "故障自愈，自动熔断"
     ],
-    "tags": [
-      "Showcase",
-      "Compute",
-      "AI",
-      "ShadowCache",
-      "Optimization"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -443,18 +344,11 @@
     "keywords": [
       "AI 翻译，影子缓存，双语审校，AST 抽象语法树，Token 节省，增量编译，段落指纹分片，局部重译，工业级架构"
     ],
-    "tags": [
-      "Showcase",
-      "BlockCache",
-      "Translation",
-      "AI",
-      "ShadowCache",
-      "Innovation"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
-    "title": "多品牌主权版图矩阵",
+    "title": "多品牌主权矩阵",
     "description": "了解 Illacme Plenipes 如何实现单一文库驱动多品牌（Imprints）物理隔离独立出版，按需配置独立装帧主题与分发渠道。",
     "url": "/showcase/multi-imprint-sovereignty",
     "path": "Showcase/multi-imprint-sovereignty.md",
@@ -462,13 +356,7 @@
       "多品牌矩阵，出版品牌，独立发行，物理目录隔离，独立装帧主题，独立出版模式，渠道密钥隔离，Imprints",
       "内容分发"
     ],
-    "tags": [
-      "Showcase",
-      "Imprints",
-      "MultiBrand",
-      "Sovereignty",
-      "Architecture"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -480,14 +368,7 @@
       "隐私脱敏，安全加工流水线，EXIF 地理脱敏，敏感词过滤，Token 物理隔离，合规审查，Illacme Plenipes",
       "数据隐私保护，图片元数据清理，ContractGuard"
     ],
-    "tags": [
-      "Showcase",
-      "Privacy",
-      "Security",
-      "ExifScrubber",
-      "Sovereignty",
-      "Protection"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -507,14 +388,7 @@
       "网状神经网络",
       "3D 可视化"
     ],
-    "tags": [
-      "Showcase",
-      "KnowledgeGraph",
-      "WikiLinks",
-      "Obsidian",
-      "Galaxy",
-      "Visual"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -534,14 +408,7 @@
       "个人知识库",
       "企业白皮书"
     ],
-    "tags": [
-      "Showcase",
-      "Themes",
-      "SSG",
-      "Matrix",
-      "Selection",
-      "DesignSystem"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -561,14 +428,7 @@
       "Illacme Plenipes",
       "拼音链接"
     ],
-    "tags": [
-      "Showcase",
-      "SEO",
-      "Slug",
-      "Permalinks",
-      "Routing",
-      "Canonical"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -588,14 +448,7 @@
       "磁盘纯净",
       "增量构建"
     ],
-    "tags": [
-      "Showcase",
-      "Janitor",
-      "GC",
-      "SelfHealing",
-      "Ledger",
-      "Performance"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -606,15 +459,7 @@
     "keywords": [
       "即时通知，出版战报，企业微信，飞书，钉钉，Telegram Bot，Discord Webhook，SMTP 邮件，Twilio，阿里云短信，Markdown 消息卡片，富文本通知，移动终端推送"
     ],
-    "tags": [
-      "Showcase",
-      "Notifications",
-      "Webhooks",
-      "Telegram",
-      "Feishu",
-      "DingTalk",
-      "Discord"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -633,14 +478,7 @@
       "MDX",
       "跨框架桥接，原稿保护，工业级流水线"
     ],
-    "tags": [
-      "Showcase",
-      "AST",
-      "Markdown",
-      "Parser",
-      "Dialect",
-      "Transpiler"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -651,14 +489,7 @@
     "keywords": [
       "全渠道预检，Dry-Run 沙盘演练，一键免密授权，API 握手探测，Token 管理，非破坏性测试，企业级发布工具，30+ 外部平台，CLI 向导，零失误广播"
     ],
-    "tags": [
-      "Showcase",
-      "DryRun",
-      "Probes",
-      "OneClickAuth",
-      "Syndication",
-      "Security"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
@@ -674,14 +505,7 @@
       "43211",
       "43213"
     ],
-    "tags": [
-      "Showcase",
-      "SingletonLock",
-      "Architecture",
-      "HighAvailability",
-      "Gateway",
-      "Resilience"
-    ],
+    "tags": [],
     "lang": "zh"
   },
   {
