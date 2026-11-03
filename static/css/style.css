@@ -2452,3 +2452,52 @@ body.lightbox-open {
     color: var(--accent-color);
     border-color: var(--accent-color);
 }
+
+/* ⏱️ 播客章节横向平滑时间轴与毛玻璃药丸 */
+.audio-chapters-scroll {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding-top: 10px;
+    margin-top: 6px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+.audio-chapters-scroll::-webkit-scrollbar {
+    display: none;
+}
+.chapter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+.chapter-pill .pill-time {
+    font-family: var(--font-mono, monospace);
+    color: var(--accent-color);
+    font-weight: 600;
+    opacity: 0.85;
+}
+.chapter-pill:hover {
+    background: rgba(0, 245, 255, 0.08);
+    border-color: rgba(0, 245, 255, 0.4);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+.chapter-pill.active {
+    background: rgba(0, 245, 255, 0.16);
+    border-color: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.35);
+}

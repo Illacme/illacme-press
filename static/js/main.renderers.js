@@ -191,8 +191,15 @@
             const totalTime = card.querySelector('.audio-total-time');
             const speedBtn = card.querySelector('.audio-speed-btn');
             const muteBtn = card.querySelector('.audio-mute-btn');
+            const pills = card.querySelectorAll('.chapter-pill');
             if (!audio || !playBtn) return;
             let spdIdx = 0;
+
+            pills.forEach(p => p.addEventListener('click', () => {
+                const t = parseFloat(p.getAttribute('data-time') || '0');
+                audio.currentTime = t;
+                audio.play().catch(e => console.warn('音频跳转播放受阻:', e));
+            }));
 
             playBtn.addEventListener('click', () => {
                 if (audio.paused) {
@@ -217,14 +224,21 @@
             });
 
             audio.addEventListener('timeupdate', () => {
-                const cur = audio.currentTime;
-                const dur = audio.duration;
+                const cur = audio.currentTime, dur = audio.duration;
                 curTime.textContent = fmt(cur);
                 if (dur && !isNaN(dur) && dur > 0) {
                     const pct = (cur / dur) * 100;
                     scrub.value = pct;
                     if (fill) fill.style.width = `${pct}%`;
                     totalTime.textContent = fmt(dur);
+                }
+                if (pills.length) {
+                    let active = null;
+                    pills.forEach(p => {
+                        if (cur >= parseFloat(p.getAttribute('data-time') || '0')) active = p;
+                        p.classList.remove('active');
+                    });
+                    if (active) active.classList.add('active');
                 }
             });
 
